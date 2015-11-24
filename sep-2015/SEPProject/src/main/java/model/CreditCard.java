@@ -19,7 +19,7 @@ public class CreditCard {
 
 	private double amountOnCard;
 
-	private User cardOwner;
+	private User owner;
 
 	public CreditCard() {
 		super();
@@ -27,14 +27,14 @@ public class CreditCard {
 	}
 
 	public CreditCard(String pan, String securityCode, String cardholderName, Date expireDate, double amountOnCard,
-			User cardOwner) {
+			User owner) {
 		super();
 		this.pan = pan;
 		this.securityCode = securityCode;
 		this.cardholderName = cardholderName;
 		this.expireDate = expireDate;
 		this.amountOnCard = amountOnCard;
-		this.cardOwner = cardOwner;
+		this.owner = owner;
 	}
 
 	public String getPan() {
@@ -78,11 +78,11 @@ public class CreditCard {
 	}
 
 	public User getCardOwner() {
-		return cardOwner;
+		return owner;
 	}
 
 	public void setCardOwner(User cardOwner) {
-		this.cardOwner = cardOwner;
+		this.owner = cardOwner;
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class CreditCard {
 		if (!(obj instanceof CreditCard))
 			return false;
 		CreditCard other = (CreditCard) obj;
-		return pan == null ? false : pan.equals(other.pan);// Compare jmbg if null falseF
+		return pan == null ? false : pan.equals(other.pan);// Compare pan if null falseF
 	}
 
 	@Override
