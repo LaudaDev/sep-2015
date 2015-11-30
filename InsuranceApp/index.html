@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>InsuranceApp</title>
+	<!-- <link href="./dist/all.min.css" rel="stylesheet"> -->
+	<!-- template css -->
+	<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/css/navbar.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="./assets/css/carousel.css" rel="stylesheet">
+
+</head>
+<body ng-app="insurance-app">
+	<div class="container-fluid">
+		<div class="row" ui-view="header"></div>
+		<div class="row">
+			<div class="col-sm-12" ui-view="content"></div>
+		</div>
+	</div>
+
+	<!-- js scripts from assets folder -->
+	<script src="./assets/js/angular/angular.js"></script>
+	<script src="./assets/js/angular-resource/angular-resource.js"></script>
+	<script src="./assets/js/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="./assets/js/angular-translate/angular-translate.js"></script>
+	<script src="./assets/js/angular-dynamic-locale/dist/tmhDynamicLocale.js"></script>
+	<script src="./assets/js/angular-bootstrap/ui-bootstrap.js"></script>
+	<script src="./assets/js/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="./assets/js/angular-animate/angular-animate.js"></script>
+
+	<!-- app modules -->
+	<script src="./app/app.module.js"></script>
+	<script src="./app/components/core/core.module.js"></script>
+	<script src="./app/shared/shared.module.js"></script>
+
+	<!-- core -->
+	<script src="./app/components/core/core.route.js"></script>
+
+	<!-- header -->
+	<script src="./app/components/core/header.controller.js"></script>
+
+	<!-- shared -->
+	<script src="./app/shared/i18n/i18n.module.js"></script>
+	<script src="./app/shared/i18n/i18n.config.js"></script>
+	<script src="./app/shared/i18n/i18n-constants/i18n-constants.module.js"></script>
+	<script src="./app/shared/i18n/i18n-constants/i18n-constants.service.js"></script>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"><\/script>')</script>
+	<script src="./assets/js/bootstrap.min.js"></script>
+	<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+	<script src="./assets/js/vendor/holder.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
