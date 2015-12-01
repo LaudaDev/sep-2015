@@ -30,12 +30,15 @@
 			"MARKETING":{
 				"PART1" : "Travel Insurance",
 				"PART2" : "Real Estate insurance",
-				"PART3" : "Vehicle insurance",
-				"DETAIL" : {
-					"PART1" : "",
-					"PART2" : "",
-					"PART3" : "",
-				}
+				"PART3" : "Vehicle insurance"
+			},
+			"FEATURETTES":{
+				"PART1" : "First insurance is Travel insurance.",
+				"PART1_1" : "It'll blow your mind.",
+				"PART2" : "Oh yeah, it's that good.Second one is Real Estate insurance.",
+				"PART2_2" : "See for yourself.",
+				"PART3" : "And lastly, this one. Vehicle insurance!",
+				"PART3_3" : "Checkmate!"
 			}
 
 		},
@@ -67,12 +70,15 @@
 			"MARKETING":{
 				"PART1" : "Putno Osiguranje",
 				"PART2" : "Osiguranje Nekretnina",
-				"PART3" : "Osiguranje Vozila",
-				"DETAIL" : {
-					"PART1" : "",
-					"PART2" : "",
-					"PART3" : "",
-				}
+				"PART3" : "Osiguranje Vozila"
+			},
+			"FEATURETTES":{
+				"PART1" : "Prvo osiguranje koje nudimo je putničko.",
+				"PART1_1" : "Oduševiće vas skroz.",
+				"PART2" : "Ako ste mislili da je to sve varate se. Nudimo vam i osiguranje nekretnina.",
+				"PART2_2" : "Razmislite o ovome.",
+				"PART3" : "I za kraj,ali ne i manje bitno. Osiguranje vozila!",
+				"PART3_3" : "Sve što vam je potrebno!"
 			}
 
 		},

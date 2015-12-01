@@ -71,7 +71,7 @@
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing">
+  <div class="container marketing" ng-controller = "ScrollController as sc">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
@@ -79,7 +79,7 @@
         <img class="img-circle" src = "./assets/images/insur11.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>{{'MARKETING.PART1'|translate}}</h2>
         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-        <p><a class="btn btn-default" href="#travelInsur" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
+        <p><a class="btn btn-default" ng-click ="sc.scroleTo('travelInsurance')" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="img-circle" src="./assets/images/insur6.jpg" alt="Generic placeholder image" width="140" height="140">
@@ -100,9 +100,9 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
-      <div class="col-md-7" id="travelInsur">
-        <h2 class="featurette-heading">First insurance is Travel insurance. <span class="text-muted">It'll blow your mind.</span></h2>
+    <div class="row featurette" id="travelInsurance">
+      <div class="col-md-7" >
+        <h2 class="featurette-heading">{{'FEATURETTES.PART1'|translate}} <span class="text-muted">{{'FEATURETTES.PART1_1'|translate}}</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
       <div class="col-md-5">
@@ -114,7 +114,7 @@
 
     <div class="row featurette">
       <div class="col-md-7 col-md-push-5">
-        <h2 class="featurette-heading">Oh yeah, it's that good.Second one is Real Estate insurance. <span class="text-muted">See for yourself.</span></h2>
+        <h2 class="featurette-heading"> {{'FEATURETTES.PART2'|translate}}<span class="text-muted">{{'FEATURETTES.PART2_2'|translate}}</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
       <div class="col-md-5 col-md-pull-7">
@@ -126,7 +126,7 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. Vehicle insurance! <span class="text-muted">Checkmate.</span></h2>
+        <h2 class="featurette-heading"> {{'FEATURETTES.PART3'|translate}}<span class="text-muted">{{'FEATURETTES.PART3_3'|translate}}</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
       <div class="col-md-5">
