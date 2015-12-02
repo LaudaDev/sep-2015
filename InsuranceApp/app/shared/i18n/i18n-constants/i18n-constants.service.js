@@ -15,6 +15,7 @@
 				"TEAM":"Team18 - Insurance",
 				"HOME":"Home",
 				"ABOUT_US":"About us",
+				"BUY" : "Purchase Insurance",
 				"LANGUAGE":"Language",
 				"ENGLISH":"English",
 				"SERBIAN":"Serbian"
@@ -39,6 +40,47 @@
 				"PART2_2" : "See for yourself.",
 				"PART3" : "And lastly, this one. Vehicle insurance!",
 				"PART3_3" : "Checkmate!"
+			},
+			"FOOTER":{
+				"PRIVACY" : "Privacy",
+				"TERMS" : "Terms",
+				"TOP" : "Back to top"
+			},
+			"PURCHASE":{
+				"TITLE" : "Welcome to insurance purchase page!",
+				"TEXT" : "On this page you can purchase all you need when your going to trip. We provide you several types of insurance. Our prime insurance is travel insurance. We also provide real estate insurance while you are on your way. If you want to travel with your own car we provide you vehicle insurance with some different packages.",
+				"HOME_PAGE" : "Go back to homepage",
+				"NAME" : "Name",
+				"SURNAME" : "Surname",
+				"PASSPORT" : "Passport number",
+				"ADDRESS" : "Address",
+				"PHONE_NUMBER" : "Phone number",
+				"INSURANCE_DURATION": "Insurance duration(in days)",
+				"TRAVELING_REGION" : "Region where you travel",
+				"NUMBER_OF_PERSONS" : "Number of insured persons",
+				"PERSONS_AGE" : "Age of insured persons",
+				"DOES_SPORT" : "Participate in some sports",
+				"CLICK_SPORT" : "(Check if you do)",
+				"SPORT" : "Which sport",
+				"INSURANCE_AMOUNT" : "Amount you are insured on",
+				"PROCEED" : "Checkout",
+				"REALESTATE": "Real Estate insurance",
+				"VEHICLE" : "Vehicle insurance"
+			},
+			"CONTINENTS":{
+				"EUROPE" : "Europe",
+				"ASIA" : "Asia",
+				"SOUTH_AMERICA" : "South America",
+				"NORTH_AMERICA" : "North America",
+				"AUSTALIA" : "Austalia",
+				"AFRICA" : "Africa",
+				"ANTARCTIC" : "Antarctic"
+			},
+			"YEARS" : {
+				"YEARS" : " years",
+				"OVER" : " older than",
+				"YOUNGER" : "younger than"
+
 			}
 
 		},
@@ -55,6 +97,7 @@
 				"TEAM":"Tim18 - Osiguranje",
 				"HOME":"Početna",
 				"ABOUT_US":"O nama",
+				"BUY" : "Kupite Osiguranje",
 				"LANGUAGE":"Jezik",
 				"ENGLISH":"Engleski",
 				"SERBIAN":"Srpski"
@@ -79,6 +122,48 @@
 				"PART2_2" : "Razmislite o ovome.",
 				"PART3" : "I za kraj,ali ne i manje bitno. Osiguranje vozila!",
 				"PART3_3" : "Sve što vam je potrebno!"
+			},
+			"FOOTER":{
+				"PRIVACY" : "Privatnost",
+				"TERMS" : "Uslovi",
+				"TOP" : "Nazada na vrh stranice"
+			},
+			"PURCHASE":{
+				"TITLE" : "Dobrodošli na stranicu za kupovinu osiguranja",
+				"TEXT" : "Na ovoj stanici možete da kupite sve što vam je potrebno kad putujete,a tiče se osiguranja. Naše primarno osiguranje je putničko,ali omogućujemo i još neka. Kod nas možete osigurati kuću dok ste na putu. Isto tako obezbeđujemo nekoliko paketa osiguranja ukoliko ste odlučili da putujete sopstvenim vozilom.",
+				"HOME_PAGE" : "Nazad na početnu stanicu",
+				"NAME" : "Ime",
+				"SURNAME" : "Prezime",
+				"PASSPORT" : "Broj pasoša",
+				"ADDRESS" : "Adresa",
+				"PHONE_NUMBER" : "Broj telefona",
+				"INSURANCE_DURATION": "Dužina trajanja osiguranja(u danima)",
+				"TRAVELING_REGION" : "Region u koji putujete",
+				"NUMBER_OF_PERSONS" : "Broj osiguranih osoba",
+				"PERSONS_AGE" : "Godine osiguranih osoba",
+				"DOES_SPORT" : "Učestvovanje u nekom sportu",
+				"CLICK_SPORT" : "(Čekirajte ako se bavite)",
+				"SPORT" : "Koji sport",
+				"INSURANCE_AMOUNT" : "Iznos koji pokriva osiguranje",
+				"PROCEED" : "Kupite",
+				"REALESTATE": "Osiguranje nekretnine",
+				"VEHICLE" : "Osiguranje vozila"
+
+			},
+			"CONTINENTS":{
+				"EUROPE" : "Evropa",
+				"ASIA" : "Azija",
+				"SOUTH_AMERICA" : "Južna Amerika",
+				"NORTH_AMERICA" : "Severna Amerika",
+				"AUSTALIA" : "Austalija",
+				"AFRICA" : "Afrika",
+				"ANTARCTIC" : "Antarktik"
+			},
+			"YEARS" : {
+				"YEARS" : "godina",
+				"OVER" : "preko",
+				"YOUNGER" : " mlađi od "
+
 			}
 
 		},

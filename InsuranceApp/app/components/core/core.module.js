@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('insurance-app.core', ['ui.router']);
+		.module('insurance-app.core', ['ui.router','smoothScroll']);
 })();

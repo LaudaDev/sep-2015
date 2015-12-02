@@ -2,6 +2,6 @@
   "use strict";
 
   angular
-    .module('insurance-app',['insurance-app.core','insurance-app.shared']);
+    .module('insurance-app',['insurance-app.core','insurance-app.shared','insurance-app.insurance']);
 
 }) ();

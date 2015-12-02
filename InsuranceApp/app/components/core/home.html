@@ -71,7 +71,7 @@
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing" ng-controller = "ScrollController as sc">
+  <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
@@ -79,29 +79,30 @@
         <img class="img-circle" src = "./assets/images/insur11.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>{{'MARKETING.PART1'|translate}}</h2>
         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-        <p><a class="btn btn-default" ng-click ="sc.scroleTo('travelInsurance')" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
+        <p><a class="btn btn-primary" scroll-to = "travelInsurance" duration="1200" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="img-circle" src="./assets/images/insur6.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>{{'MARKETING.PART2'|translate}}</h2>
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        <p><a class="btn btn-default" href="#" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
+        <p><a class="btn btn-primary" scroll-to = "RealEstateInsurance" duration="1800" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="img-circle" src="./assets/images/car2.jpg" alt="Generic placeholder image" width="140" height="140">
         <h2>{{'MARKETING.PART3'|translate}}</h2>
         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-default" href="#" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
+        <p><a class="btn btn-primary" scroll-to = "VehicleInsurance" duration="2000" role="button">{{'COMMON.VIEW_DETAILS'|translate}} &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
+    <!-- <div> <p><a class="btn btn-info" ng-href ng-click ="sc.doAlert()" role="button"> Aktiviraj funkciju </p><div> -->
 
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
 
-    <div class="row featurette" id="travelInsurance">
-      <div class="col-md-7" >
+    <div class="row featurette">
+      <div class="col-md-7" id="travelInsurance">
         <h2 class="featurette-heading">{{'FEATURETTES.PART1'|translate}} <span class="text-muted">{{'FEATURETTES.PART1_1'|translate}}</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
@@ -113,7 +114,7 @@
     <hr class="featurette-divider">
 
     <div class="row featurette">
-      <div class="col-md-7 col-md-push-5">
+      <div class="col-md-7 col-md-push-5" id="RealEstateInsurance">
         <h2 class="featurette-heading"> {{'FEATURETTES.PART2'|translate}}<span class="text-muted">{{'FEATURETTES.PART2_2'|translate}}</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
       </div>
@@ -124,7 +125,7 @@
 
     <hr class="featurette-divider">
 
-    <div class="row featurette">
+    <div class="row featurette" id="VehicleInsurance">
       <div class="col-md-7">
         <h2 class="featurette-heading"> {{'FEATURETTES.PART3'|translate}}<span class="text-muted">{{'FEATURETTES.PART3_3'|translate}}</span></h2>
         <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
@@ -141,8 +142,8 @@
 
     <!-- FOOTER -->
     <footer>
-      <p class="pull-right"><a href="#">Back to top</a></p>
-      <p>&copy; 2015 Tim18, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      <p class="pull-right"><a scroll-to = "myCarousel" duration="2500">{{'FOOTER.TOP'|translate}}</a></p>
+      <p>&copy; 2015 {{'NAVBAR.TEAM'|translate}}, Inc. &middot; <a href="#">{{'FOOTER.PRIVACY'|translate}}</a> &middot; <a href="#">{{'FOOTER.TERMS'|translate}}</a></p>
     </footer>
 
   </div><!-- /.container -->
