@@ -1,196 +1,200 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-12">
+      <br><br><br><br><br><br>
     </div>
-    <div class="col-md-10">
-      <div class="jumbotron">
-        <h2>
-          {{'PURCHASE.TITLE'|translate}}
-        </h2>
-        <p>
-          {{'PURCHASE.TEXT'|translate}}
-        </p>
-        <p>
-          <a class="btn btn-primary btn-large" ui-sref='main.home'>  {{'PURCHASE.HOME_PAGE'|translate}}</a>
-        </p>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <div class="jumbotron">
+          <h2>
+            {{'PURCHASE.TITLE'|translate}}
+          </h2>
+          <p>
+            {{'PURCHASE.TEXT'|translate}}
+          </p>
+          <p>
+            <a class="btn btn-primary btn-large" ui-sref='main.home'>  {{'PURCHASE.HOME_PAGE'|translate}}</a>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-1">
       </div>
     </div>
-    <div class="col-md-1">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-8">
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-8">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
 
-          <label for="inputName" class="col-sm-2 control-label">
-            {{'PURCHASE.NAME'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="name" placeholder="{{'PURCHASE.NAME'|translate}}" required="true" autofocus="autofocus">
-          </div>
-        </div>
-        <div class="form-group">
-
-          <label for="inputSurname" class="col-sm-2 control-label">
-            {{'PURCHASE.SURNAME'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="password" class="form-control" id="surname" placeholder="{{'PURCHASE.SURNAME'|translate}}" required="true">
-          </div>
-        </div>
-        <div class="form-group">
-
-          <label for="inputPassport" class="col-sm-2 control-label">
-            {{'PURCHASE.PASSPORT'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="passport" placeholder="{{'PURCHASE.PASSPORT'|translate}}" required="true">
-          </div>
-        </div>
-
-        <div class="form-group">
-
-          <label for="inputAddress" class="col-sm-2 control-label">
-            {{'PURCHASE.ADDRESS'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="address" placeholder="{{'PURCHASE.ADDRESS'|translate}}" required="true">
-          </div>
-        </div>
-
-        <div class="form-group">
-
-          <label for="inputPhoneNum" class="col-sm-2 control-label">
-            {{'PURCHASE.PHONE_NUMBER'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="phoneNum" placeholder="{{'PURCHASE.PHONE_NUMBER'|translate}}" required="true">
-          </div>
-        </div>
-
-        <div class="form-group">
-
-          <label for="inputInsuranceDur" class="col-sm-2 control-label">
-            {{'PURCHASE.INSURANCE_DURATION'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true">
-          </div>
-        </div>
-
-        <div class="form-group">
-
-          <label for="inputTravelingReg" class="col-sm-2 control-label">
-            {{'PURCHASE.TRAVELING_REGION'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <select class="form-control" id="selContinent">
-              <option>{{'CONTINENTS.EUROPE'|translate}}</option>
-              <option>{{'CONTINENTS.ASIA'|translate}}</option>
-              <option>{{'CONTINENTS.SOUTH_AMERICA'|translate}}</option>
-              <option>{{'CONTINENTS.NORTH_AMERICA'|translate}}</option>
-              <option>{{'CONTINENTS.AUSTALIA'|translate}}</option>
-              <option>{{'CONTINENTS.AFRICA'|translate}}</option>
-              <option>{{'CONTINENTS.ANTARCTIC'|translate}}</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-
-          <label for="inputNumberOfPersons" class="col-sm-2 control-label">
-            {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="numberOfPersons" placeholder="{{'PURCHASE.NUMBER_OF_PERSONS'|translate}}" required="true">
-          </div>
-        </div>
-
-        <div class="form-group">
-
-          <label for="inputPersonsAge" class="col-sm-2 control-label">
-            {{'PURCHASE.PERSONS_AGE'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <select multiple class="form-control" id="selContinent">
-              <option> {{'YEARS.YOUNGER'|translate}} 18 {{'YEARS.YEARS'|translate}}</option>
-              <option> 18-40 {{'YEARS.YEARS'|translate}}</option>
-              <option> 40-65 {{'YEARS.YEARS'|translate}}</option>
-              <option> {{'YEARS.OVER'|translate}} 65 {{'YEARS.YEARS'|translate}}</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-
-          <label for="inputDoesSport" class="col-sm-2 control-label">
-            {{'PURCHASE.DOES_SPORT'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <div class="checkbox">
-
-              <label>
-                <input type="checkbox" name="isDoingSport" ng-model="checked"> {{'PURCHASE.CLICK_SPORT'|translate}}
-              </label>
+            <label for="inputName" class="col-sm-2 control-label">
+              {{'PURCHASE.NAME'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name" placeholder="{{'PURCHASE.NAME'|translate}}" required="true" autofocus="autofocus">
             </div>
           </div>
-        </div>
+          <div class="form-group">
 
-        <div class="form-group" ng-hide = "!checked">
-
-          <label for="inputSport" class="col-sm-2 control-label">
-            {{'PURCHASE.SPORT'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="sport" placeholder="{{'PURCHASE.SPORT'|translate}}">
+            <label for="inputSurname" class="col-sm-2 control-label">
+              {{'PURCHASE.SURNAME'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="surname" placeholder="{{'PURCHASE.SURNAME'|translate}}" required="true">
+            </div>
           </div>
-        </div>
+          <div class="form-group">
 
-        <div class="form-group">
-
-          <label for="inputInsurAmount" class="col-sm-2 control-label">
-            {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
-          </label>
-          <div class="col-sm-10">
-            <select class="form-control" id="selContinent">
-              <option>10.000€</option>
-              <option>20.000€</option>
-              <option>30.000€</option>
-              <option>40.000€</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-md-3">
-
-            <button type="submit" class="btn btn-success btn-large">
-              <span class="glyphicon glyphicon-shopping-cart">&nbsp;</span>{{'PURCHASE.PROCEED'|translate}}
-            </button>
+            <label for="inputPassport" class="col-sm-2 control-label">
+              {{'PURCHASE.PASSPORT'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="passport" placeholder="{{'PURCHASE.PASSPORT'|translate}}" required="true">
+            </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="form-group">
 
-            <button type="submit" class="btn btn-primary btn-large">
-              <span class="glyphicon glyphicon-home">&nbsp;</span>{{'PURCHASE.REALESTATE'|translate}}
-            </button>
+            <label for="inputAddress" class="col-sm-2 control-label">
+              {{'PURCHASE.ADDRESS'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="address" placeholder="{{'PURCHASE.ADDRESS'|translate}}" required="true">
+            </div>
           </div>
 
+          <div class="form-group">
 
-          <div class="col-md-2">
-
-            <button type="submit" class="btn btn-warning btn-large">
-              <span class="glyphicon glyphicon-road">&nbsp;</span> {{'PURCHASE.VEHICLE'|translate}}
-            </button>
+            <label for="inputPhoneNum" class="col-sm-2 control-label">
+              {{'PURCHASE.PHONE_NUMBER'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="phoneNum" placeholder="{{'PURCHASE.PHONE_NUMBER'|translate}}" required="true">
+            </div>
           </div>
 
-        </div>
-      </form>
-    </div>
-    <div class="col-md-3">
+          <div class="form-group">
+
+            <label for="inputInsuranceDur" class="col-sm-2 control-label">
+              {{'PURCHASE.INSURANCE_DURATION'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputTravelingReg" class="col-sm-2 control-label">
+              {{'PURCHASE.TRAVELING_REGION'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="selContinent">
+                <option>{{'CONTINENTS.EUROPE'|translate}}</option>
+                <option>{{'CONTINENTS.ASIA'|translate}}</option>
+                <option>{{'CONTINENTS.SOUTH_AMERICA'|translate}}</option>
+                <option>{{'CONTINENTS.NORTH_AMERICA'|translate}}</option>
+                <option>{{'CONTINENTS.AUSTALIA'|translate}}</option>
+                <option>{{'CONTINENTS.AFRICA'|translate}}</option>
+                <option>{{'CONTINENTS.ANTARCTIC'|translate}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputNumberOfPersons" class="col-sm-2 control-label">
+              {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="numberOfPersons" placeholder="{{'PURCHASE.NUMBER_OF_PERSONS'|translate}}" required="true">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputPersonsAge" class="col-sm-2 control-label">
+              {{'PURCHASE.PERSONS_AGE'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <select multiple class="form-control" id="selContinent">
+                <option> {{'YEARS.YOUNGER'|translate}} 18 {{'YEARS.YEARS'|translate}}</option>
+                <option> 18-40 {{'YEARS.YEARS'|translate}}</option>
+                <option> 40-65 {{'YEARS.YEARS'|translate}}</option>
+                <option> {{'YEARS.OVER'|translate}} 65 {{'YEARS.YEARS'|translate}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputDoesSport" class="col-sm-2 control-label">
+              {{'PURCHASE.DOES_SPORT'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <div class="checkbox">
+
+                <label>
+                  <input type="checkbox" name="isDoingSport" ng-model="checked"> {{'PURCHASE.CLICK_SPORT'|translate}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" ng-hide="!checked">
+
+            <label for="inputSport" class="col-sm-2 control-label">
+              {{'PURCHASE.SPORT'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="sport" placeholder="{{'PURCHASE.SPORT'|translate}}">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputInsurAmount" class="col-sm-2 control-label">
+              {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="selContinent">
+                <option>10.000€</option>
+                <option>20.000€</option>
+                <option>30.000€</option>
+                <option>40.000€</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-md-3">
+
+              <button type="submit" class="btn btn-success btn-large">
+                <span class="glyphicon glyphicon-shopping-cart">&nbsp;</span>{{'PURCHASE.PROCEED'|translate}}
+              </button>
+            </div>
+
+            <div class="col-md-3">
+
+              <button type="submit" class="btn btn-primary btn-large">
+                <span class="glyphicon glyphicon-home">&nbsp;</span>{{'PURCHASE.REALESTATE'|translate}}
+              </button>
+            </div>
+
+
+            <div class="col-md-2">
+
+              <button type="submit" class="btn btn-warning btn-large">
+                <span class="glyphicon glyphicon-road">&nbsp;</span> {{'PURCHASE.VEHICLE'|translate}}
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+      </div>
     </div>
   </div>
-</div>

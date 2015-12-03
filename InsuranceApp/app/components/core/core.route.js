@@ -17,6 +17,9 @@
 						templateUrl: 'app/components/core/header.html',
 						controller: 'HeaderController',
 						controllerAs: 'hc'
+					},
+					'footer' : {
+						templateUrl: 'app/components/core/footer.html'
 					}
 				}
 			})
@@ -27,6 +30,15 @@
 						templateUrl: 'app/components/core/home.html'
 					}
 				}
+			})
+			.state('main.about',{
+					url: '/aboutUs',
+					views: {
+						'content@': {
+							templateUrl: 'app/components/core/aboutUs.html'
+						}
+					}
+
 			});
 	}
 })();

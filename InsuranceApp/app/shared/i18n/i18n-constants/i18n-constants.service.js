@@ -81,6 +81,11 @@
 				"OVER" : " older than",
 				"YOUNGER" : "younger than"
 
+			},
+			"ABOUT_PAGE":{
+				"H1" : "Warm welcome from Team18 ",
+				"TEXT" : "Team18 is university team which is founded in 2013. Since then this team has successfully worked on several projects on different fields of computer science. When we work on our projects, we usually use so-called macho approach. Beacuse of that our team moto is-ALL IN!",
+				"TEAM_MEMBERS": "See our team members"
 			}
 
 		},
@@ -164,6 +169,11 @@
 				"OVER" : "preko",
 				"YOUNGER" : " mlađi od "
 
+			},
+			"ABOUT_PAGE":{
+				"H1" : "Dobrodošli, vaš Tim18",
+				"TEXT" : "Tim 18 je univerzitetski tim,osnovan 2013 godine. Od tada ovaj tim je radio na nekoliko uspešnih projekata na različitim IT poljima. Kada radimo na našim projektima obično koristimo takozvani mačo pristup. Odatle je proizašao i moto našeg tima-ALL IN! ",
+				"TEAM_MEMBERS": "Vidite članove našeg tima"
 			}
 
 		},
