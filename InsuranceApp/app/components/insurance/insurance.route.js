@@ -13,9 +13,9 @@
 				url:'/insurance',
 				views: {
 					'content@': {
-						templateUrl: 'app/components/insurance/insuranceForm.html'
-						// controller: 'HeaderController',
-						// controllerAs: 'hc'
+						templateUrl: 'app/components/insurance/insuranceForm.html',
+						controller: 'InsuranceController',
+						controllerAs: 'ic'
 					}
 				}
 			});

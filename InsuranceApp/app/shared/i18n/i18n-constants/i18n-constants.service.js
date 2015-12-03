@@ -65,7 +65,17 @@
 				"INSURANCE_AMOUNT" : "Amount you are insured on",
 				"PROCEED" : "Checkout",
 				"REALESTATE": "Real Estate insurance",
-				"VEHICLE" : "Vehicle insurance"
+				"VEHICLE" : "Vehicle insurance",
+				"RE_SIZE" : "Real Estate size",
+				"RE_AGE" : "Real Estate age",
+				"RE_ESTIMATE_VALUE" : "Real Estate estimated value",
+				"RE_PACKAGE" : {
+					"MAIN" : "Insurance from",
+					"FLOOD" : "Flood",
+					"FIRE" : "Fire",
+					"BURGLARY" : "Burglary",
+					"EARTHQUAKE" : "Earthquake"
+				}
 			},
 			"CONTINENTS":{
 				"EUROPE" : "Europe",
@@ -152,7 +162,17 @@
 				"INSURANCE_AMOUNT" : "Iznos koji pokriva osiguranje",
 				"PROCEED" : "Kupite",
 				"REALESTATE": "Osiguranje nekretnine",
-				"VEHICLE" : "Osiguranje vozila"
+				"VEHICLE" : "Osiguranje vozila",
+				"RE_SIZE" : "Povšina nekretnine",
+				"RE_AGE" : "Starost nekretnine",
+				"RE_ESTIMATE_VALUE" : "Procenjena vrednost nekretnine",
+				"RE_PACKAGE" : {
+					"MAIN" : "Osiguranje od",
+					"FLOOD" : "Poplave",
+					"FIRE" : "Požara",
+					"BURGLARY" : "Krađe",
+					"EARTHQUAKE" : "Zemljotresa"
+				}
 
 			},
 			"CONTINENTS":{
