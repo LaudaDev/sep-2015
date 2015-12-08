@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('insurance-app.insurance', ['ui.router']);
+		.module('insurance-app.insurance', ['ui.router','ngResource']);
 })();

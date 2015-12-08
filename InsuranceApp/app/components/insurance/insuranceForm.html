@@ -8,7 +8,7 @@
       <br>
       <br>
     </div>
-    <div class="row">
+    <div class="row divPicture">
       <div class="col-md-1">
       </div>
       <div class="col-md-10">
@@ -27,6 +27,7 @@
       <div class="col-md-1">
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-1">
       </div>
@@ -35,6 +36,7 @@
           <strong>{{'MARKETING.PART1'|translate}}
             <strong>
         </h2>
+        <hr>
 
         <form class="form-horizontal" role="form">
           <div class="form-group">
@@ -43,7 +45,7 @@
               {{'PURCHASE.NAME'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="name" placeholder="{{'PURCHASE.NAME'|translate}}" required="true" autofocus="autofocus">
+              <input type="text" class="form-control" id="name" placeholder="{{'PURCHASE.NAME'|translate}}" required="true" autofocus="autofocus" ng-model="ic.insurance.name">
             </div>
           </div>
           <div class="form-group">
@@ -52,7 +54,7 @@
               {{'PURCHASE.SURNAME'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="surname" placeholder="{{'PURCHASE.SURNAME'|translate}}" required="true">
+              <input type="text" class="form-control" id="surname" placeholder="{{'PURCHASE.SURNAME'|translate}}" required="true" ng-model="ic.insurance.surname">
             </div>
           </div>
           <div class="form-group">
@@ -61,7 +63,7 @@
               {{'PURCHASE.PASSPORT'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="passport" placeholder="{{'PURCHASE.PASSPORT'|translate}}" required="true">
+              <input type="text" class="form-control" id="passport" placeholder="{{'PURCHASE.PASSPORT'|translate}}" required="true" ng-model="ic.insurance.passportNumber">
             </div>
           </div>
 
@@ -71,7 +73,7 @@
               {{'PURCHASE.ADDRESS'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="address" placeholder="{{'PURCHASE.ADDRESS'|translate}}" required="true">
+              <input type="text" class="form-control" id="address" placeholder="{{'PURCHASE.ADDRESS'|translate}}" required="true" ng-model="ic.insurance.address">
             </div>
           </div>
 
@@ -81,9 +83,11 @@
               {{'PURCHASE.PHONE_NUMBER'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="phoneNum" placeholder="{{'PURCHASE.PHONE_NUMBER'|translate}}" required="true">
+              <input type="text" class="form-control" id="phoneNum" placeholder="{{'PURCHASE.PHONE_NUMBER'|translate}}" required="true" ng-model="ic.insurance.phoneNumber">
             </div>
           </div>
+
+          <hr>
 
           <div class="form-group">
 
@@ -91,7 +95,7 @@
               {{'PURCHASE.INSURANCE_DURATION'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true">
+              <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.travel.duration">
             </div>
           </div>
 
@@ -101,7 +105,7 @@
               {{'PURCHASE.TRAVELING_REGION'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" id="selContinent">
+              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.region">
                 <option>{{'CONTINENTS.EUROPE'|translate}}</option>
                 <option>{{'CONTINENTS.ASIA'|translate}}</option>
                 <option>{{'CONTINENTS.SOUTH_AMERICA'|translate}}</option>
@@ -119,7 +123,7 @@
               {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="numberOfPersons" placeholder="{{'PURCHASE.NUMBER_OF_PERSONS'|translate}}" required="true">
+              <input type="number" min="0" class="form-control" id="numberOfPersons" placeholder="{{'PURCHASE.NUMBER_OF_PERSONS'|translate}}" required="true" ng-model="ic.insurance.travel.numberOfPersons">
             </div>
           </div>
 
@@ -129,7 +133,7 @@
               {{'PURCHASE.PERSONS_AGE'|translate}}
             </label>
             <div class="col-sm-10">
-              <select multiple class="form-control" id="selContinent">
+              <select multiple class="form-control" id="selContinent" ng-model="ic.insurance.travel.ageOfPersons">
                 <option> {{'YEARS.YOUNGER'|translate}} 18 {{'YEARS.YEARS'|translate}}</option>
                 <option> 18-40 {{'YEARS.YEARS'|translate}}</option>
                 <option> 40-65 {{'YEARS.YEARS'|translate}}</option>
@@ -159,7 +163,7 @@
               {{'PURCHASE.SPORT'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="sport" placeholder="{{'PURCHASE.SPORT'|translate}}">
+              <input type="text" class="form-control" id="sport" placeholder="{{'PURCHASE.SPORT'|translate}}" ng-model="ic.insurance.travel.sport">
             </div>
           </div>
 
@@ -169,20 +173,24 @@
               {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" id="selContinent">
-                <option>10.000€</option>
-                <option>20.000€</option>
-                <option>30.000€</option>
-                <option>40.000€</option>
+              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount">
+                <span class="input-group-addon">$</span>
+                <option>10.000</option>
+                <option>20.000</option>
+                <option>30.000</option>
+                <option>40.000</option>
               </select>
+
             </div>
           </div>
-
-          <div ng-hide="!ic.REButIsClicked">
+          <!-- Real estate insurance -->
+          <div ng-hide="!ic.REButIsClicked" id="realEstateFields">
             <h2>
               <strong>{{'MARKETING.PART2'|translate}}
                 <strong>
             </h2>
+
+            <hr>
 
             <div class="form-group">
 
@@ -190,7 +198,7 @@
                 {{'PURCHASE.INSURANCE_DURATION'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.realEstate.duration">
               </div>
             </div>
 
@@ -200,7 +208,7 @@
                 {{'PURCHASE.RE_SIZE'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_SIZE'|translate}}" required="true">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_SIZE'|translate}}" required="true" ng-model="ic.insurance.realEstate.size">
               </div>
             </div>
 
@@ -210,7 +218,7 @@
                 {{'PURCHASE.RE_AGE'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_AGE'|translate}}" required="true">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_AGE'|translate}}" required="true" ng-model="ic.insurance.realEstate.age">
               </div>
             </div>
 
@@ -220,7 +228,7 @@
                 {{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}" required="true">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}" required="true" ng-model="ic.insurance.realEstate.estimatedValue">
               </div>
             </div>
 
@@ -230,7 +238,7 @@
                 {{'PURCHASE.RE_PACKAGE.MAIN'|translate}}
               </label>
               <div class="col-sm-10">
-                <select class="form-control" id="selContinent">
+                <select class="form-control" id="selContinent" ng-model="ic.insurance.realEstate.package">
                   <option>{{'PURCHASE.RE_PACKAGE.FLOOD'|translate}}</option>
                   <option>{{'PURCHASE.RE_PACKAGE.FIRE'|translate}}</option>
                   <option>{{'PURCHASE.RE_PACKAGE.BURGLARY'|translate}}</option>
@@ -242,10 +250,114 @@
 
           </div>
 
+          <!-- VEHICLE INSURANCE -->
+          <div ng-hide="!ic.VButIsClicked" id="vehicleFields">
+            <h2>
+              <strong>{{'MARKETING.PART3'|translate}}
+                <strong>
+            </h2>
+
+            <hr>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceDurRE" class="col-sm-2 control-label">
+                {{'PURCHASE.INSURANCE_DURATION'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.vehicle.duration">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsurAmount" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_PACKAGE.MAIN'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <select class="form-control" id="selContinent" ng-model="ic.insurance.vehicle.package">
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</option>
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</option>
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</option>
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</option>
+                </select>
+              </div>
+            </div>
+
+            <h2>
+              <strong>{{'PURCHASE.VEHICLE_INFO.TITLE'|translate}}
+                <strong>
+            </h2>
+
+            <hr>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceSizeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}" required="true" ng-model="ic.insurance.vehicle.type">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}" required="true" ng-model="ic.insurance.vehicle.model">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceEsValueRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}" required="true" ng-model="ic.insurance.vehicle.productionYear">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}" required="true" ng-model="ic.insurance.vehicle.registrationNumber">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}" required="true" ng-model="ic.insurance.vehicle.vinNumber">
+              </div>
+            </div>
+
+          </div>
+
+          <hr>
+          <div>
+            <h2>
+              <strong>
+                {{'COMMON.AMOUNT'|translate}}&nbsp;&nbsp;{{ic.insurance.travel.duration * ic.insurance.travel.numberOfPersons * ic.insuranceBase|currency}}
+                <strong>
+            </h2>
+
+          </div>
+          <hr>
+
           <div class="form-group">
             <div class="col-sm-offset-2 col-md-3">
 
-              <button type="submit" class="btn btn-success btn-large">
+              <button type="button" ng-click="ic.save()" class="btn btn-success btn-large">
                 <span class="glyphicon glyphicon-shopping-cart">&nbsp;</span>{{'PURCHASE.PROCEED'|translate}}
               </button>
             </div>
@@ -253,14 +365,14 @@
 
             <div class="col-md-4">
 
-              <button type="button" class="btn btn-info btn-large" ng-click="ic.viewRealEstateOptions()">
+              <button type="button" class="btn btn-info btn-large" ng-click="ic.viewRealEstateOptions()" scroll-to="realEstateFields">
                 <span class="glyphicon glyphicon-home">&nbsp;</span> {{'PURCHASE.REALESTATE'|translate}}
               </button>
             </div>
 
             <div class="col-md-2">
 
-              <button type="button" class="btn btn-warning btn-large" ng-model="vehicleButon">
+              <button type="button" class="btn btn-warning btn-large" ng-click="ic.viewVehicleOptions()" scroll-to="vehicleFields">
                 <span class="glyphicon glyphicon-road">&nbsp;</span> {{'PURCHASE.VEHICLE'|translate}}
               </button>
             </div>

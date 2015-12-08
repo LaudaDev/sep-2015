@@ -8,7 +8,8 @@
 				"REVERT":"Revert",
 				"DELETE":"Delete",
 				"BACK":"Back",
-				"VIEW_DETAILS" : "View details"
+				"VIEW_DETAILS" : "View details",
+				"AMOUNT" : "Insurance price is: "
 			},
 
 			"NAVBAR": {
@@ -62,7 +63,7 @@
 				"DOES_SPORT" : "Participate in some sports",
 				"CLICK_SPORT" : "(Check if you do)",
 				"SPORT" : "Which sport",
-				"INSURANCE_AMOUNT" : "Amount you are insured on",
+				"INSURANCE_AMOUNT" : "Amount you are insured on(in €)",
 				"PROCEED" : "Checkout",
 				"REALESTATE": "Real Estate insurance",
 				"VEHICLE" : "Vehicle insurance",
@@ -75,6 +76,21 @@
 					"FIRE" : "Fire",
 					"BURGLARY" : "Burglary",
 					"EARTHQUAKE" : "Earthquake"
+				},
+				"VEHICLE_PACKAGE" : {
+					"MAIN" : "Package you would like to purchase",
+					"TOWING" : "Towing up to 300km",
+					"REPAIR" : "Car repair cost up to 2000€",
+					"SLEEPOVER" : "Paid hotel costs for 4 days",
+					"ALTERNATIVE" : "Alternative ride"
+				},
+				"VEHICLE_INFO" : {
+					"TITLE" : "Vehicle information",
+					"TYPE" : "Vehicle type",
+					"MODEL" : "Vehicle model",
+					"YEAR_OF_PRODUCTION" : "Year of production",
+					"REGISTRATION_NUM" : "Registration number",
+					"VIN_NUM" : "VIN number"
 				}
 			},
 			"CONTINENTS":{
@@ -105,7 +121,8 @@
 				"REVERT":"Poništi",
 				"DELETE":"Obriši",
 				"BACK":"Povratak",
-				"VIEW_DETAILS" : "Više detalja"
+				"VIEW_DETAILS" : "Više detalja",
+				"AMOUNT" : "Ukupna cena osiguranja je: "
 			},
 
 			"NAVBAR": {
@@ -159,7 +176,7 @@
 				"DOES_SPORT" : "Učestvovanje u nekom sportu",
 				"CLICK_SPORT" : "(Čekirajte ako se bavite)",
 				"SPORT" : "Koji sport",
-				"INSURANCE_AMOUNT" : "Iznos koji pokriva osiguranje",
+				"INSURANCE_AMOUNT" : "Iznos koji pokriva osiguranje(u €)",
 				"PROCEED" : "Kupite",
 				"REALESTATE": "Osiguranje nekretnine",
 				"VEHICLE" : "Osiguranje vozila",
@@ -172,6 +189,21 @@
 					"FIRE" : "Požara",
 					"BURGLARY" : "Krađe",
 					"EARTHQUAKE" : "Zemljotresa"
+				},
+				"VEHICLE_PACKAGE" : {
+					"MAIN" : "Paket koji želite uzeti",
+					"TOWING" : "Šlepanje do 300km",
+					"REPAIR" : "Popravka automobila do 2000€",
+					"SLEEPOVER" : "Smeštaj u hotelu do 4 dana",
+					"ALTERNATIVE" : "Alternativni prevoz"
+				},
+				"VEHICLE_INFO" : {
+					"TITLE" : "Dodatne informacije o vozilu",
+					"TYPE" : "Tip vozila",
+					"MODEL" : "Model vozila",
+					"YEAR_OF_PRODUCTION" : "Godina proizvodnje",
+					"REGISTRATION_NUM" : "Broj registarske tablice",
+					"VIN_NUM" : "Broj šasije"
 				}
 
 			},
