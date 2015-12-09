@@ -44,7 +44,7 @@
       ic.insurance = {};
       ic.REButIsClicked = false;
       ic.VButIsClicked = false;
-      $window.location.href = "http://localhost:8081/#/home"; //samo sam probao da vidim da l moze da se rediektuje na 2 angular aplikaciju 
+      //$window.location.href = "http://localhost:8081/#/home"; //samo sam probao da vidim da l moze da se rediektuje na 2 angular aplikaciju
     }
   }
 })();
