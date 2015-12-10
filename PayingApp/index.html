@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PayingApp</title>
+	<!-- <link href="./dist/all.min.css" rel="stylesheet"> -->
+	<!-- template css -->
+	<link rel="shortcut icon" href="./assets/images/pay.ico" />
+
+	<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./assets/css/navbar.css" rel="stylesheet">
+
+	<!-- navbar hover css -->
+	<link href="./assets/css/navbarHover.css" rel="stylesheet">
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<link href="./assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+	<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	<script src="./assets/js/ie-emulation-modes-warning.js"></script>
+	<link href="./assets/css/main.css" rel="stylesheet">
+	<link href="./assets/css/responsive.css" rel="stylesheet">
+	<link href="./assets/css/insurance.css" rel="stylesheet">
+	<link href="./assets/css/tooltip.css" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="paying-app">
+	<div class="container-fluid">
+		<div class="row" ui-view="header"></div>
+		<div class="row">
+			<div class="col-sm-12" ui-view="content"></div>
+		</div>
+		<div class="col-sm-12" ui-view="footer"></div>
+	</div>
+
+	<!-- js scripts from assets folder -->
+	<script src="./assets/js/angular/angular.js"></script>
+	<script src="./assets/js/angular-resource/angular-resource.js"></script>
+	<script src="./assets/js/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="./assets/js/angular-translate/angular-translate.js"></script>
+	<script src="./assets/js/angular-dynamic-locale/dist/tmhDynamicLocale.js"></script>
+	<script src="./assets/js/angular-bootstrap/ui-bootstrap.js"></script>
+	<script src="./assets/js/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="./assets/js/angular-animate/angular-animate.js"></script>
+	<script src="./assets/js/ngSmoothScroll/lib/angular-smooth-scroll.js"></script>
+
+	<!-- app modules -->
+	<script src="./app/app.module.js"></script>
+	<script src="./app/components/paying/paying.module.js"></script>
+	<script src="./app/shared/shared.module.js"></script>
+	<script src="./app/shared/i18n/i18n-constants/i18n-constants.module.js"></script>
+	<script src="./app/shared/i18n/i18n.module.js"></script>
+
+	<!-- app routes  -->
+	<script src="./app/components/paying/paying.route.js"></script>
+
+	<!-- app contollers -->
+	<script src="./app/components/paying/paying.controller.js"></script>
+	<script src="./app/components/core/header.controller.js"></script>
+
+	<!-- services -->
+	<script src="./app/shared/i18n/i18n-constants/i18n-constants.service.js"></script>
+	<script src="./app/shared/i18n/i18n.config.js"></script>
+	<script src="./app/components/paying/paying.service.js"></script>
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"><\/script>')
+	</script>
+	<script src="./assets/js/bootstrap.min.js"></script>
+	<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+	<script src="./assets/js/vendor/holder.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+
+	<!-- za about stranicu -->
+	<script src="./assets/js/jquery.js"></script>
+	<script src="./assets/js/jquery.prettyPhoto.js"></script>
+	<script src="./assets/js/jquery.isotope.min.js"></script>
+	<script src="./assets/js/main.js"></script>
+	<script src="./assets/js/wow.min.js"></script>
+
+
+</body>
+
+</html>
