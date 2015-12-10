@@ -350,7 +350,7 @@
           <div>
             <h2>
               <strong>
-                {{'COMMON.AMOUNT'|translate}}&nbsp;&nbsp;{{ic.insurance.travel.duration * ic.insurance.travel.numberOfPersons * ic.insuranceBase|currency}}
+                {{'COMMON.AMOUNT'|translate}}&nbsp;&nbsp;{{ic.insurance.travel.duration * ic.insurance.travel.numberOfPersons * ic.insuranceBase + (ic.insurance.travel.region + '').length|currency}}
                 <strong>
             </h2>
 

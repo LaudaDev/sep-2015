@@ -228,7 +228,7 @@
 				"TEAM_MEMBERS": "Vidite članove našeg tima"
 			}
 
-		},
+		}
 	};
 
 	angular
