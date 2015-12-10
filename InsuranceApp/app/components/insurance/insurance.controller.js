@@ -12,9 +12,9 @@
     ic.REButIsClicked = false;
     ic.VButIsClicked = false;
     ic.insuranceBase = 120;
+    ic.idCounter = 1;
 
     ic.types = vehicleModels.getTypes();
-
 
     ic.viewRealEstateOptions = viewRealEstateOptions;
     ic.viewVehicleOptions = viewVehicleOptions;
@@ -24,27 +24,31 @@
 
     function viewRealEstateOptions() {
 
-      ic.REButIsClicked = (ic.REButIsClicked == false) ? true : false;
+      ic.REButIsClicked = (ic.REButIsClicked === false) ? true : false;
     }
 
 
     function viewVehicleOptions() {
 
-      ic.VButIsClicked = (ic.VButIsClicked == false) ? true : false;
+      ic.VButIsClicked = (ic.VButIsClicked === false) ? true : false;
     }
 
     function save() {
-      console.log("sacuvano");
+      ic.insurance._id = ic.idCounter;
       insuranceService.save({},ic.insurance,onSuccesSave);
+      console.log("sacuvano");
+      $window.alert("http://localhost:8080/#/paying/" + ic.idCounter);
 
     }
 
     function onSuccesSave(){
-      console.log("Osiguranje uspesno sacuvano i sad cistim formu...")
+      console.log("Osiguranje uspesno sacuvano i sad cistim formu...");
+      var payingAppLink = "http://localhost:8080/#/paying/" + ic.idCounter;
+      ic.idCounter++;
       ic.insurance = {};
       ic.REButIsClicked = false;
       ic.VButIsClicked = false;
-      //$window.location.href = "http://localhost:8081/#/home"; //samo sam probao da vidim da l moze da se rediektuje na 2 angular aplikaciju
+      //$window.location.href = payingAppLink;
     }
   }
 })();

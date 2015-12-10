@@ -1,20 +1,19 @@
 (function() {
-	"use strict";
+  "use strict";
 
-	angular
-		.module('insurance-app.core')
-		.controller('HeaderController', HeaderController);
+  angular
+    .module('insurance-app.core')
+    .controller('HeaderController', HeaderController);
 
-	HeaderController.$inject = ['$translate', 'tmhDynamicLocale', 'crTranslations'];
-	function HeaderController($translate, tmhDynamicLocale, crTranslations) {
-		var hc = this;
-		hc.changeLocale = changeLocale;
-		// hc.currentLocal = $translate.use();
+  HeaderController.$inject = ['$translate', 'tmhDynamicLocale', 'crTranslations'];
 
-		function changeLocale(locale) {
-			$translate.use(locale);
-			tmhDynamicLocale.set(locale);
-			// hc.currentLocal = $translate.use();
-		}
-	}
+  function HeaderController($translate, tmhDynamicLocale, crTranslations) {
+    var hc = this;
+    hc.changeLocale = changeLocale;
+
+    function changeLocale(locale) {
+      $translate.use(locale);
+      tmhDynamicLocale.set(locale);
+    }
+  }
 })();
