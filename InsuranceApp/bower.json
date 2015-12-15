@@ -22,7 +22,8 @@
     "angular-bootstrap": "~0.13.4",
     "angular-i18n": "~1.4.6",
     "angular-animate": "~1.4.7",
-    "ngSmoothScroll" : "2.0.0"
+    "ngSmoothScroll" : "2.0.0",
+	"typeahead.js" : "0.11.1"
   },
   "resolutions": {
     "angular": "1.4.6"
