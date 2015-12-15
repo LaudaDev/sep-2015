@@ -1,0 +1,157 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h1 class="center">
+          {{'JUMBOTRON.TITLE'|translate}}
+        </h1>
+        <p>
+            {{'JUMBOTRON.TEXT'|translate}}
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            <div class="col-md-12" id="sideBorder">
+              <h3>{{'SIDEBAR.ORDER_TOTAL'|translate}}</h3>
+              <em>{{pc.insurance.name}}</em>
+
+              <h4>{{'ORDER_SUMMARY'|translate}}</h4>
+              <p>
+                {{'SIDEBAR.ORDER_ID'|translate}}&nbsp;{{pc.insurance._id}}
+              </p>
+              <p>
+              {{pc.insurance.address}}
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-12">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+
+                  <label for="butCard" class="col-sm-2 control-label">
+                    {{'MAIN.CARD_TYPE'|translate}}
+                  </label>
+                  <div class="col-sm-5">
+                    <div class="btn-group pull-left" data-toggle="buttons">
+                      <label class="btn btn-default active">
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked> MasterCard
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> VisaElectron
+                      </label>
+                      <label class="btn btn-default">
+                        <input type="radio" name="options" id="option3" autocomplete="off"> Maestro
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="form-group">
+
+                  <label for="inputPassword3" class="col-sm-2 control-label">
+                    {{'MAIN.CARD_NUM'|translate}}
+                  </label>
+
+                  <div class="col-sm-5">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="{{'MAIN.CARD_NUM'|translate}}" />
+                  </div>
+
+                </div>
+
+                <div class="form-group">
+
+                  <label for="inputPassword3" class="col-sm-2 control-label">
+                    {{'MAIN.EXPIRATION_DATE'|translate}}
+                  </label>
+
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="MM" />
+                  </div>
+
+                  <div class="col-sm-1">
+                    /
+                  </div>
+
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="{{'MAIN.YY'|translate}}" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <label for="secCode" class="col-sm-2 control-label">
+                    {{'MAIN.SECURITY_CODE'|translate}}
+                  </label>
+
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="{{'MAIN.SECURITY_CODE'|translate}}" />
+                  </div>
+                  <a href="#" ng-mouseover="pc.howerOwer()" ng-mouseleave="pc.howerOwer()">{{'MAIN.WHAT_THIS'|translate}}</a>
+                  <div ng-show="pc.showTooltip" id="j-cvv2-tooltip" class="i-tooltip-cvv2 i-tooltip i-tooltip-down i-tooltip-blue i-tooltip-arrow-left-30px" data-widget-cid="widget-6" style="width: 315px; z-index: 99; position: absolute; left: 345.359px; top: 170px; display: block; visibility: visible;">
+                    <!-- <i class="i-icon i-icon-cvv2 fn-left"></i> -->
+                    <img src="./assets/images/card.png" alt="" class="cardPicture"/>
+                    {{'MAIN.TOOLTIP'|translate}}
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <label for="inputPassword3" class="col-sm-2 control-label">
+                    {{'MAIN.CARDHOLDER_NAME'|translate}}
+                  </label>
+
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="  {{'MAIN.NAME'|translate}}" />
+                  </div>
+
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" id="inputPassword3" placeholder="{{'MAIN.SURNAME'|translate}}" />
+                  </div>
+                </div>
+
+                <div>
+                  <br>
+                </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+
+                      <button type="button" class="btn btn-warning btn-large" ng-click="pc.backToInsurance()">
+                        {{'MAIN.PAY_NOW'|translate}}
+                      </button>
+                    </div>
+                  </div>
+              </form>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
