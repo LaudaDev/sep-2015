@@ -21,12 +21,12 @@
           }
         }
       })
-      .state('main.bill', {
-        url: '/bill',
+      .state('main.insuranceDetails', {
+        url: '/insuranceDetails',
         views: {
           'content@': {
 
-            templateUrl: 'app/components/insurance/insuranceBill.html',
+            templateUrl: 'app/components/insurance/insuranceDetails.html',
             controller: 'InsuranceController',
             controllerAs: 'ic'
           }

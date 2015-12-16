@@ -46,7 +46,7 @@
               {{'PURCHASE.INSURANCE_DURATION'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.travel.duration">
+              <input type="number" min="0" class="form-control" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.travel.duration">
             </div>
           </div>
 
@@ -56,7 +56,7 @@
               {{'PURCHASE.TRAVELING_REGION'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" ng-model="ic.selected" uib-typeahead="state for state in ic.states | filter:$viewValue | limitTo:8" class="form-control">
+              <input type="text" ng-model="ic.insurance.travel.region" uib-typeahead="state for state in ic.states | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.TRAVELING_REGION'|translate}}">
             </div>
           </div>
 
@@ -69,14 +69,14 @@
               {{'YEARS.YOUNGER'|translate}} 18
             </label>
             <div class="col-sm-1">
-              <input type="number" min="0" max="99" class="form-control" required="true" ng-model="ic.insurance.travel.less18">
+              <input type="number" min="0" max="99" class="form-control" required="true" ng-model="ic.insurance.travel.less">
             </div>
 
             <label for="inputPersonsAge" class="col-sm-2 control-label">
               18-65
             </label>
             <div class="col-sm-1">
-              <input type="number" min="0" max="99" class="form-control" required="true" ng-model="ic.insurance.travel.beetween">
+              <input type="number" min="0" max="99" class="form-control" required="true" ng-model="ic.insurance.travel.between">
             </div>
 
             <label for="inputPersonsAge" class="col-sm-2 control-label">
@@ -96,13 +96,13 @@
               <div class="checkbox">
 
                 <label>
-                  <input type="checkbox" name="isDoingSport" ng-model="checked"> {{'PURCHASE.CLICK_SPORT'|translate}}
+                  <input type="checkbox" name="isDoingSport" ng-model="ic.insurance.travel.doesSport"> {{'PURCHASE.CLICK_SPORT'|translate}}
                 </label>
               </div>
             </div>
           </div>
 
-          <div class="form-group" ng-hide="!checked">
+          <div class="form-group" ng-hide="!ic.insurance.travel.doesSport">
 
             <label for="inputSport" class="col-sm-2 ">
               {{'PURCHASE.SPORT'|translate}}
@@ -118,8 +118,8 @@
               {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount">
-                <span class="input-group-addon">$</span>
+              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount" placeholder=" {{'PURCHASE.INSURANCE_AMOUNT'|translate}}">
+                <option disabled selected>{{'PURCHASE.INSURANCE_AMOUNT'|translate}}</option>
                 <option>10.000</option>
                 <option>20.000</option>
                 <option>30.000</option>
@@ -143,7 +143,7 @@
 
           <div class="col-md-2">
 
-            <button type="button" ng-click="ic.nextToBill()" class="btn btn-success btn-large">
+            <button type="button" ng-click="ic.openModal()" class="btn btn-success btn-large" data-toggle="tooltip" data-placement="top" title="{{'MODAL.TOOLTIP'|translate}}">
               {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="glyphicon glyphicon-arrow-right"></span>
             </button>

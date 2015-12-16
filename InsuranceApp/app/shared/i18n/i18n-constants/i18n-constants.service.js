@@ -113,6 +113,14 @@
 				"H1" : "Warm welcome from Team18 ",
 				"TEXT" : "Team18 is university team which is founded in 2013. Since then this team has successfully worked on several projects on different fields of computer science. When we work on our projects, we usually use so-called macho approach. Beacuse of that our team moto is-ALL IN!",
 				"TEAM_MEMBERS": "See our team members"
+			},
+			"MODAL":{
+				"TITLE" : "Insurance Price ",
+				"OK" : "Next",
+				"CANCEL" : "Cancel",
+				"FOR_PAY" : "Price to pay",
+				"TOOLTIP" : "Proceed to next form where you enter details",
+				"INSURANCE_DURATION" : "Insurance duration"
 			}
 
 		},
@@ -228,6 +236,14 @@
 				"H1" : "Dobrodošli, vaš Tim18",
 				"TEXT" : "Tim 18 je univerzitetski tim,osnovan 2013 godine. Od tada ovaj tim je radio na nekoliko uspešnih projekata na različitim IT poljima. Kada radimo na našim projektima obično koristimo takozvani mačo pristup. Odatle je proizašao i moto našeg tima-ALL IN! ",
 				"TEAM_MEMBERS": "Vidite članove našeg tima"
+			},
+			"MODAL":{
+				"TITLE" : "Iznos vašeg osiguranja",
+				"OK" : "Dalje",
+				"CANCEL" : "Odustani",
+				"FOR_PAY" : "Iznos koji treba uplatiti",
+				"TOOLTIP" : "Kliknite da odete na sledeću formu gde ćete uneti lične podatke",
+				"INSURANCE_DURATION" : "Trajanje osiguranja"
 			}
 
 		}
