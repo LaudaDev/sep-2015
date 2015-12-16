@@ -1,0 +1,166 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="row divPicture">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <div class="jumbotron">
+          <h2>
+            {{'PURCHASE.TITLE'|translate}}
+          </h2>
+          <p>
+            {{'PURCHASE.TEXT'|translate}}
+          </p>
+          <p>
+            <a class="btn btn-primary btn-large" ui-sref='main.home'>  {{'PURCHASE.HOME_PAGE'|translate}}</a>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <h2>
+          <strong>{{'MARKETING.PART1'|translate}}
+            <strong>
+        </h2>
+        <hr>
+
+        <form class="form-horizontal" role="form">
+
+          <div class="form-group">
+
+            <label for="inputInsuranceDur" class="col-sm-2 ">
+              {{'PURCHASE.INSURANCE_DURATION'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.travel.duration">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputTravelingReg" class="col-sm-2 ">
+              {{'PURCHASE.TRAVELING_REGION'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" ng-model="ic.selected" uib-typeahead="state for state in ic.states | filter:$viewValue | limitTo:8" class="form-control">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputPersonsAge" class="col-sm-2 ">
+              {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}
+            </label>
+            <label for="inputPersonsAge" class="col-sm-2 control-label">
+              {{'YEARS.YOUNGER'|translate}} 18
+            </label>
+            <div class="col-sm-1">
+              <input type="number" min="0" max="99" class="form-control" required="true" ng-model="ic.insurance.travel.less18">
+            </div>
+
+            <label for="inputPersonsAge" class="col-sm-2 control-label">
+              18-65
+            </label>
+            <div class="col-sm-1">
+              <input type="number" min="0" max="99" class="form-control" required="true" ng-model="ic.insurance.travel.beetween">
+            </div>
+
+            <label for="inputPersonsAge" class="col-sm-2 control-label">
+              {{'YEARS.OVER'|translate}}65
+            </label>
+            <div class="col-sm-1">
+              <input type="number" min="0" max="99" class="form-control" required="true" ng-model="ic.insurance.travel.over">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputDoesSport" class="col-sm-2 ">
+              {{'PURCHASE.DOES_SPORT'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <div class="checkbox">
+
+                <label>
+                  <input type="checkbox" name="isDoingSport" ng-model="checked"> {{'PURCHASE.CLICK_SPORT'|translate}}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" ng-hide="!checked">
+
+            <label for="inputSport" class="col-sm-2 ">
+              {{'PURCHASE.SPORT'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="sport" placeholder="{{'PURCHASE.SPORT'|translate}}" ng-model="ic.insurance.travel.sport">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label for="inputInsurAmount" class="col-sm-2 ">
+              {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount">
+                <span class="input-group-addon">$</span>
+                <option>10.000</option>
+                <option>20.000</option>
+                <option>30.000</option>
+                <option>40.000</option>
+              </select>
+
+            </div>
+          </div>
+
+      </div>
+
+      <div class="col-md-1">
+
+      </div>
+      <div class="form-group">
+
+        <div class="row">
+          <div class="col-md-10">
+
+          </div>
+
+          <div class="col-md-2">
+
+            <button type="button" ng-click="ic.nextToBill()" class="btn btn-success btn-large">
+              {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <br>
+    <br>
+    <br>
+  </div>
+</div>

@@ -9,7 +9,8 @@
 				"DELETE":"Delete",
 				"BACK":"Back",
 				"VIEW_DETAILS" : "View details",
-				"AMOUNT" : "Insurance price is: "
+				"AMOUNT" : "Insurance price is: ",
+				"NEXT" : "Next"
 			},
 
 			"NAVBAR": {
@@ -122,7 +123,8 @@
 				"DELETE":"Obriši",
 				"BACK":"Povratak",
 				"VIEW_DETAILS" : "Više detalja",
-				"AMOUNT" : "Ukupna cena osiguranja je: "
+				"AMOUNT" : "Ukupna cena osiguranja je: ",
+				"NEXT" : "Dalje"
 			},
 
 			"NAVBAR": {
