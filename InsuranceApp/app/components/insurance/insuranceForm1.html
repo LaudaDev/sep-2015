@@ -46,22 +46,22 @@
               {{'PURCHASE.INSURANCE_DURATION'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="number" min="0" class="form-control" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.travel.duration">
+              <input type="number" min="0" class="form-control" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required ng-model="ic.insurance.travel.duration">
             </div>
           </div>
 
           <div class="form-group">
-
+            <br>
             <label for="inputTravelingReg" class="col-sm-2 ">
               {{'PURCHASE.TRAVELING_REGION'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" ng-model="ic.insurance.travel.region" uib-typeahead="state for state in ic.states | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.TRAVELING_REGION'|translate}}">
+              <input type="text" ng-model="ic.insurance.travel.region" uib-typeahead="state for state in ic.states | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.TRAVELING_REGION'|translate}}" required>
             </div>
           </div>
 
           <div class="form-group">
-
+            <br>
             <label for="inputPersonsAge" class="col-sm-2 ">
               {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}
             </label>
@@ -88,7 +88,7 @@
           </div>
 
           <div class="form-group">
-
+            <br>
             <label for="inputDoesSport" class="col-sm-2 ">
               {{'PURCHASE.DOES_SPORT'|translate}}
             </label>
@@ -103,7 +103,7 @@
           </div>
 
           <div class="form-group" ng-hide="!ic.insurance.travel.doesSport">
-
+            <br>
             <label for="inputSport" class="col-sm-2 ">
               {{'PURCHASE.SPORT'|translate}}
             </label>
@@ -113,17 +113,16 @@
           </div>
 
           <div class="form-group">
-
+            <br>
             <label for="inputInsurAmount" class="col-sm-2 ">
               {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount" placeholder=" {{'PURCHASE.INSURANCE_AMOUNT'|translate}}">
-                <option disabled selected>{{'PURCHASE.INSURANCE_AMOUNT'|translate}}</option>
-                <option>10.000</option>
-                <option>20.000</option>
-                <option>30.000</option>
-                <option>40.000</option>
+              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount">
+                <option>10000</option>
+                <option>20000</option>
+                <option>30000</option>
+                <option>40000 </option>
               </select>
 
             </div>
@@ -132,17 +131,22 @@
       </div>
 
       <div class="col-md-1">
-
+        <br>
       </div>
       <div class="form-group">
 
         <div class="row">
-          <div class="col-md-10">
-
+          <div class="col-md-9">
+            <br>
           </div>
 
-          <div class="col-md-2">
-
+          <div class="col-md-3">
+            <br>
+            <button type="submit" ng-click="ic.calculate();ic.openModal()" class="btn btn-info btn-large pull-left" data-toggle="tooltip" data-placement="top" title="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
+              {{'COMMON.PREVIEW'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="glyphicon glyphicon-zoom-in"></span>
+            </button>
+            &nbsp;&nbsp;&nbsp;
             <button type="button" ng-click="ic.openModal()" class="btn btn-success btn-large" data-toggle="tooltip" data-placement="top" title="{{'MODAL.TOOLTIP'|translate}}">
               {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="glyphicon glyphicon-arrow-right"></span>
@@ -159,6 +163,7 @@
   </div>
 
   <div class="col-md-12">
+
     <br>
     <br>
     <br>

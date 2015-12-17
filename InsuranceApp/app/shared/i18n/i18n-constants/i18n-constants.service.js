@@ -10,7 +10,9 @@
 				"BACK":"Back",
 				"VIEW_DETAILS" : "View details",
 				"AMOUNT" : "Insurance price is: ",
-				"NEXT" : "Next"
+				"NEXT" : "Next",
+				"PREVIEW" : "Prewiew",
+				"PREVIEW_TOOLTIP" : "Insurance price prewiew"
 			},
 
 			"NAVBAR": {
@@ -132,7 +134,9 @@
 				"BACK":"Povratak",
 				"VIEW_DETAILS" : "Više detalja",
 				"AMOUNT" : "Ukupna cena osiguranja je: ",
-				"NEXT" : "Dalje"
+				"NEXT" : "Dalje",
+				"PREVIEW" : "Pregled",
+				"PREVIEW_TOOLTIP" : "Pregled preseka osiguranja"
 			},
 
 			"NAVBAR": {

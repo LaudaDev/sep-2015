@@ -1,5 +1,5 @@
-<div class="modal-header">
-  <h3 class="modal-title">{{'MODAL.TITLE'|translate}}</h3>
+<div class="modal-header" data-ng-init="bmc.currentLocale()">
+  <h2 class="modal-title" align="center"><strong>{{'MODAL.TITLE'|translate}}</strong></h2>
 </div>
 <div class="modal-body">
   <form class="form-horizontal">
@@ -19,19 +19,19 @@
         <label class="control-label col-sm-6" for="postalCode">{{'PURCHASE.NUMBER_OF_PERSONS'|translate}}</label>
       </div>
 
-      <div class="form-group">
+      <div class="form-group" ng-hide="bmc.insurance.less == null">
         <label class="control-label col-sm-4" for="postalCode">{{'YEARS.YOUNGER'|translate}} 18</label>
         <div class="col-sm-8">
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.less}}</label>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-hide="bmc.insurance.between == null" >
         <label class="control-label col-sm-4" for="postalCode">18-65</label>
         <div class="col-sm-8">
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.between}}</label>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-hide="bmc.insurance.over == null">
         <label class="control-label col-sm-4" for="postalCode">{{'YEARS.OVER'|translate}}65</label>
         <div class="col-sm-8">
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.over}}</label>
@@ -56,12 +56,12 @@
       <div class="form-group">
         <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.INSURANCE_AMOUNT'|translate}}</label>
         <div class="col-sm-8">
-          <label class="control-label col-sm-4" for="name">{{900 | currency}}</label>
+          <label class="control-label col-sm-4" for="name">{{bmc.insurance.amountToPay | currency}}</label>
         </div>
       </div>
     </div>
 
     <div class="modal-footer">
-      <button class="btn btn-success" type="button" ui-sref='main.insuranceDetails'>{{'MODAL.OK'|translate}}</button>
-      <button class="btn btn-warning" type="button" ng-click="pac.cancel()">Cancel</button>
+      <!-- <button class="btn btn-success" type="button" ui-sref='main.insuranceDetails'>{{'MODAL.OK'|translate}}</button> -->
+      <button class="btn btn-primary" type="button" ng-click="bmc.cancel()">{{'COMMON.BACK'|translate}}</button>
     </div>
