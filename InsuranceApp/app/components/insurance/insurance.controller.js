@@ -5,50 +5,78 @@
     .module('insurance-app.insurance')
     .controller('InsuranceController', InsuranceController);
 
-  InsuranceController.$inject = ['insuranceService','vehicleModels','$window','$location'];
+  InsuranceController.$inject = ['$window', '$location', '$modal', 'priceList', '$translate'];
 
-  function InsuranceController(insuranceService,vehicleModels,$window,$location) {
+  function InsuranceController($window, $location, $modal, priceList, $translate) {
     var ic = this;
-    ic.REButIsClicked = false;
-    ic.VButIsClicked = false;
-    ic.insuranceBase = 120;
-    ic.idCounter = 1;
 
-    ic.types = vehicleModels.getTypes();
+    ic.priceList = priceList;
 
-    ic.viewRealEstateOptions = viewRealEstateOptions;
-    ic.viewVehicleOptions = viewVehicleOptions;
+    ic.insurance = {};
+    ic.insurance.travel = {};
+    ic.calculate = calculate;
+    // ic.insurance.travel.amountToPay = 0;
+    ic.insurance.travel.region = undefined;
+    ic.states = ["Andorra", "United Arab Emirates", "Afghanistan", "Antigua and Barbuda", "Anguilla", "Albania", "Armenia", "Angola", "Antarctica", "Argentina", "American Samoa", "Austria", "Australia", "Aruba", "Åland", "Azerbaijan", "Bosnia and Herzegovina", "Barbados", "Bangladesh", "Belgium", "Burkina Faso", "Bulgaria", "Bahrain", "Burundi", "Benin", "Saint Barthélemy", "Bermuda", "Brunei", "Bolivia", "Bonaire", "Brazil", "Bahamas", "Bhutan", "Bouvet Island", "Botswana", "Belarus", "Belize", "Canada", "Cocos [Keeling] Islands", "Congo", "Central African Republic", "Republic of the Congo", "Switzerland", "Ivory Coast", "Cook Islands", "Chile", "Cameroon", "China", "Colombia", "Costa Rica", "Cuba", "Cape Verde", "Curacao", "Christmas Island", "Cyprus", "Czechia", "Germany", "Djibouti", "Denmark", "Dominica", "Dominican Republic", "Algeria", "Ecuador", "Estonia", "Egypt", "Western Sahara", "Eritrea", "Spain", "Ethiopia", "Finland", "Fiji", "Falkland Islands", "Micronesia", "Faroe Islands", "France", "Gabon", "United Kingdom", "Grenada", "Georgia", "French Guiana", "Guernsey", "Ghana", "Gibraltar", "Greenland", "Gambia", "Guinea", "Guadeloupe", "Equatorial Guinea", "Greece", "South Georgia and the South Sandwich Islands", "Guatemala", "Guam", "Guinea-Bissau", "Guyana", "Hong Kong", "Heard Island and McDonald Islands", "Honduras", "Croatia", "Haiti", "Hungary", "Indonesia", "Ireland", "Israel", "Isle of Man", "India", "British Indian Ocean Territory", "Iraq", "Iran", "Iceland", "Italy", "Jersey", "Jamaica", "Jordan", "Japan", "Kenya", "Kyrgyzstan", "Cambodia", "Kiribati", "Comoros", "Saint Kitts and Nevis", "North Korea", "South Korea", "Kuwait", "Cayman Islands", "Kazakhstan", "Laos", "Lebanon", "Saint Lucia", "Liechtenstein", "Sri Lanka", "Liberia", "Lesotho", "Lithuania", "Luxembourg", "Latvia", "Libya", "Morocco", "Monaco", "Moldova", "Montenegro", "Saint Martin", "Madagascar", "Marshall Islands", "Macedonia", "Mali", "Myanmar [Burma]", "Mongolia", "Macao", "Northern Mariana Islands", "Martinique", "Mauritania", "Montserrat", "Malta", "Mauritius", "Maldives", "Malawi", "Mexico", "Malaysia", "Mozambique", "Namibia", "New Caledonia", "Niger", "Norfolk Island", "Nigeria", "Nicaragua", "Netherlands", "Norway", "Nepal", "Nauru", "Niue", "New Zealand", "Oman", "Panama", "Peru", "French Polynesia", "Papua New Guinea", "Philippines", "Pakistan", "Poland", "Saint Pierre and Miquelon", "Pitcairn Islands", "Puerto Rico", "Palestine", "Portugal", "Palau", "Paraguay", "Qatar", "Réunion", "Romania", "Serbia", "Russia", "Rwanda", "Saudi Arabia", "Solomon Islands", "Seychelles", "Sudan", "Sweden", "Singapore", "Saint Helena", "Slovenia", "Svalbard and Jan Mayen", "Slovakia", "Sierra Leone", "San Marino", "Senegal", "Somalia", "Suriname", "South Sudan", "São Tomé and Príncipe", "El Salvador", "Sint Maarten", "Syria", "Swaziland", "Turks and Caicos Islands", "Chad", "French Southern Territories", "Togo", "Thailand", "Tajikistan", "Tokelau", "East Timor", "Turkmenistan", "Tunisia", "Tonga", "Turkey", "Trinidad and Tobago", "Tuvalu", "Taiwan", "Tanzania", "Ukraine", "Uganda", "U.S. Minor Outlying Islands", "United States", "Uruguay", "Uzbekistan", "Vatican City", "Saint Vincent and the Grenadines", "Venezuela", "British Virgin Islands", "U.S. Virgin Islands", "Vietnam", "Vanuatu", "Wallis and Futuna", "Samoa", "Kosovo", "Yemen", "Mayotte", "South Africa", "Zambia", "Zimbabwe"];
 
-    ic.save = save;
+    ic.openModal = openModal;
 
+    function openModal() {
 
-    function viewRealEstateOptions() {
+      $modal.open({
+        animation: true,
+        resolve: {
 
-      ic.REButIsClicked = (ic.REButIsClicked === false) ? true : false;
+          insurance: function() {
+            return ic.insurance.travel;
+          }
+        },
+        templateUrl: 'app/components/insurance/bill-modal/bill-modal.html',
+        controller: 'BillModalController',
+        controllerAs: 'bmc'
+      });
+    }
+
+    // TODO: Find a better solution for this calculation
+    function calculate() {
+
+      return 0;
+
+      // ic.insurance.travel.amountToPay = ic.insurance.travel.duration + (ic.insurance.travel.region + '').length;
+
+      // if (ic.insurance.travel.less) {
+      //   ic.insurance.travel.amountToPay += ic.priceList.age.lessCf * ic.insurance.travel.less;
+      // }
+
+      // if (ic.insurance.travel.between) {
+      //   ic.insurance.travel.amountToPay += ic.priceList.age.betweenCf * ic.insurance.travel.between;
+      // }
+
+      // if (ic.insurance.travel.over) {
+      //   ic.insurance.travel.amountToPay += ic.priceList.age.overCf * ic.insurance.travel.over;
+      // }
+
+      // if (ic.insurance.travel.sport) {
+
+      //   for (var i = 0; i < ic.priceList.sport.length; i++) {
+      //     if (ic.priceList.sport[i].name === ic.insurance.travel.sport) {
+      //       ic.insurance.travel.amountToPay += ic.priceList.sport[i].koeficijent;
+      //     }
+      //   }
+
+      // }
+
+      // if (ic.insurance.travel.insuredAmount) {
+
+      //   for (var i = 0; i < ic.priceList.insuredAmount.length; i++) {
+      //     if (ic.priceList.insuredAmount[i].price === ic.insurance.travel.insuredAmount) {
+      //       ic.insurance.travel.amountToPay += ic.priceList.insuredAmount[i].koeficijent;
+      //     }
+      //   }
+      // }
+
     }
 
 
-    function viewVehicleOptions() {
-
-      ic.VButIsClicked = (ic.VButIsClicked === false) ? true : false;
-    }
-
-    function save() {
-      ic.insurance._id = ic.idCounter;
-      insuranceService.save({},ic.insurance,onSuccesSave);
-      console.log("sacuvano");
-      $window.alert("http://localhost:8080/#/paying/" + ic.idCounter);
-
-    }
-
-    function onSuccesSave(){
-      console.log("Osiguranje uspesno sacuvano i sad cistim formu...");
-      var payingAppLink = "http://localhost:8080/#/paying/" + ic.idCounter;
-      ic.idCounter++;
-      ic.insurance = {};
-      ic.REButIsClicked = false;
-      ic.VButIsClicked = false;
-      $window.location.href = payingAppLink;
-    }
   }
 })();

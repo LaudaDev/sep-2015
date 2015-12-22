@@ -15,7 +15,18 @@
         views: {
           'content@': {
 
-            templateUrl: 'app/components/insurance/insuranceForm.html',
+            templateUrl: 'app/components/insurance/insuranceForm1.html',
+            controller: 'InsuranceController',
+             controllerAs: 'ic'
+          }
+        }
+      })
+      .state('main.insuranceDetails', {
+        url: '/insuranceDetails',
+        views: {
+          'content@': {
+
+            templateUrl: 'app/components/insurance/insuranceDetails.html',
             controller: 'InsuranceController',
             controllerAs: 'ic'
           }
