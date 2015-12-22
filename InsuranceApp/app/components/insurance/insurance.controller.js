@@ -9,7 +9,7 @@
 
   function InsuranceController($uibModal, priceList) {
     var ic = this;
-
+    
     ic.priceList = priceList;
     ic.insurance = {};
     ic.insurance.travel = {};
