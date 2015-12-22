@@ -10,7 +10,7 @@
   function config($stateProvider) {
 
     $stateProvider
-      .state('main.insurance', {
+      .state('main.insuranceBasic', {
         url: '/insurance',
         views: {
           'content@': {
