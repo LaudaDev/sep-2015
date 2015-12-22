@@ -14,5 +14,8 @@
 		$translateProvider.translations('sr-latn', crTranslations["sr-latn"]);
 		$translateProvider.translations('en', crTranslations.en);
 		$translateProvider.preferredLanguage('en');
+
+		// improve security and remove annoying warning from console
+		$translateProvider.useSanitizeValueStrategy('escape');
 	}
 })();

@@ -37,40 +37,43 @@
       });
     }
 
+    // TODO: Find a better solution for this calculation
     function calculate() {
 
-      ic.insurance.travel.amountToPay = ic.insurance.travel.duration + (ic.insurance.travel.region + '').length;
+      return 0;
 
-      if (ic.insurance.travel.less != null) {
-        ic.insurance.travel.amountToPay += ic.priceList.age.lessCf * ic.insurance.travel.less;
-      }
+      // ic.insurance.travel.amountToPay = ic.insurance.travel.duration + (ic.insurance.travel.region + '').length;
 
-      if (ic.insurance.travel.between != null) {
-        ic.insurance.travel.amountToPay += ic.priceList.age.betweenCf * ic.insurance.travel.between;
-      }
+      // if (ic.insurance.travel.less) {
+      //   ic.insurance.travel.amountToPay += ic.priceList.age.lessCf * ic.insurance.travel.less;
+      // }
 
-      if (ic.insurance.travel.over != null) {
-        ic.insurance.travel.amountToPay += ic.priceList.age.overCf * ic.insurance.travel.over;
-      }
+      // if (ic.insurance.travel.between) {
+      //   ic.insurance.travel.amountToPay += ic.priceList.age.betweenCf * ic.insurance.travel.between;
+      // }
 
-      if (ic.insurance.travel.sport != null) {
+      // if (ic.insurance.travel.over) {
+      //   ic.insurance.travel.amountToPay += ic.priceList.age.overCf * ic.insurance.travel.over;
+      // }
 
-        for (var i = 0; i < ic.priceList.sport.length; i++) {
-          if (ic.priceList.sport[i].name === ic.insurance.travel.sport) {
-            ic.insurance.travel.amountToPay += ic.priceList.sport[i].koeficijent;
-          }
-        }
+      // if (ic.insurance.travel.sport) {
 
-      }
+      //   for (var i = 0; i < ic.priceList.sport.length; i++) {
+      //     if (ic.priceList.sport[i].name === ic.insurance.travel.sport) {
+      //       ic.insurance.travel.amountToPay += ic.priceList.sport[i].koeficijent;
+      //     }
+      //   }
 
-      if (ic.insurance.travel.insuredAmount) {
+      // }
 
-        for (var i = 0; i < ic.priceList.insuredAmount.length; i++) {
-          if (ic.priceList.insuredAmount[i].price === ic.insurance.travel.insuredAmount) {
-            ic.insurance.travel.amountToPay += ic.priceList.insuredAmount[i].koeficijent;
-          }
-        }
-      }
+      // if (ic.insurance.travel.insuredAmount) {
+
+      //   for (var i = 0; i < ic.priceList.insuredAmount.length; i++) {
+      //     if (ic.priceList.insuredAmount[i].price === ic.insurance.travel.insuredAmount) {
+      //       ic.insurance.travel.amountToPay += ic.priceList.insuredAmount[i].koeficijent;
+      //     }
+      //   }
+      // }
 
     }
 

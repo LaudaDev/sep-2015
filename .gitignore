@@ -41,5 +41,11 @@ Thumbs.db
 **/.classpath
 **/.project
 **/.settings/*
-InsuranceApp/assets/js/
-PayingApp/assets/js/
+
+# ignore node_modules and bower assets globally
+
+**/node_modules
+**/assets/js
+
+# ignore dist folder globally
+**/dist
