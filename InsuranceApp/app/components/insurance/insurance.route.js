@@ -17,7 +17,7 @@
 
             templateUrl: 'app/components/insurance/insuranceForm1.html',
             controller: 'InsuranceController',
-             controllerAs: 'ic'
+            controllerAs: 'ic'
           }
         }
       })
@@ -25,10 +25,9 @@
         url: '/insuranceDetails',
         views: {
           'content@': {
-
             templateUrl: 'app/components/insurance/insuranceDetails.html',
-            controller: 'InsuranceController',
-            controllerAs: 'ic'
+            controller: 'InsuranceDetailsController',
+            controllerAs: 'idc'
           }
         }
       });

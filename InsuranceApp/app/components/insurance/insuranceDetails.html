@@ -1,1 +1,136 @@
-<h1>hello </h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <div class="row divPicture">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <div class="jumbotron">
+          <h2>
+            {{'PURCHASE.TITLE'|translate}}
+          </h2>
+          <p>
+            {{'PURCHASE.TEXT'|translate}}
+          </p>
+          <p>
+            <a class="btn btn-primary btn-large" ui-sref='main.home'>  {{'PURCHASE.HOME_PAGE'|translate}}</a>
+          </p>
+        </div>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-8">
+        <h2>
+          <strong>Travel information for people younger then 18
+            <strong>
+        </h2>
+        <hr>
+
+        <form class="form-horizontal" role="form">
+          <div ng-repeat="i in idc.getNumber(idc.insurace.travel.numOfPersons) track by $index">
+
+
+            <div class="form-group">
+
+              <label for="inputName" class="col-sm-2 control-label">
+                {{'PURCHASE.NAME'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="{{'PURCHASE.NAME'|translate}}" required="true" autofocus="autofocus" ng-model="ic.insurance.name">
+              </div>
+            </div>
+            <div class="form-group">
+
+              <label for="inputSurname" class="col-sm-2 control-label">
+                {{'PURCHASE.SURNAME'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="surname" placeholder="{{'PURCHASE.SURNAME'|translate}}" required="true" ng-model="ic.insurance.surname">
+              </div>
+            </div>
+            <div class="form-group">
+
+              <label for="inputPassport" class="col-sm-2 control-label">
+                {{'PURCHASE.PASSPORT'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="passport" placeholder="{{'PURCHASE.PASSPORT'|translate}}" required="true" ng-model="ic.insurance.passportNumber">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputAddress" class="col-sm-2 control-label">
+                {{'PURCHASE.ADDRESS'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="address" placeholder="{{'PURCHASE.ADDRESS'|translate}}" required="true" ng-model="ic.insurance.address">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputPhoneNum" class="col-sm-2 control-label">
+                {{'PURCHASE.PHONE_NUMBER'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="phoneNum" placeholder="{{'PURCHASE.PHONE_NUMBER'|translate}}" required="true" ng-model="ic.insurance.phoneNumber">
+              </div>
+            </div>
+
+            <hr>
+          </div>
+          <hr>
+          <!-- ovde ce ici za one between -->
+
+
+
+          <hr>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-md-3">
+
+              <button type="button" ng-click="ic.save()" class="btn btn-success btn-large">
+                <span class="glyphicon glyphicon-shopping-cart">&nbsp;</span>{{'PURCHASE.PROCEED'|translate}}
+              </button>
+            </div>
+
+
+            <div class="col-md-4">
+
+              <button type="button" class="btn btn-info btn-large" ng-click="ic.viewRealEstateOptions()" scroll-to="realEstateFields">
+                <span class="glyphicon glyphicon-home">&nbsp;</span> {{'PURCHASE.REALESTATE'|translate}}
+              </button>
+            </div>
+
+            <div class="col-md-2">
+
+              <button type="button" class="btn btn-warning btn-large" ng-click="ic.viewVehicleOptions()" scroll-to="vehicleFields">
+                <span class="glyphicon glyphicon-road">&nbsp;</span> {{'PURCHASE.VEHICLE'|translate}}
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
