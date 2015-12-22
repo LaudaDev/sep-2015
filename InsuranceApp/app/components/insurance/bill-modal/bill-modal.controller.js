@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('BillModalController', BillModalController);
 
-  BillModalController.$inject = ['$uibModalInstance', 'insurance', '$translate'];
+  BillModalController.$inject = ['$modalInstance', 'insurance', '$translate'];
 
-  function BillModalController($uibModalInstance, insurance, $translate) {
+  function BillModalController($modalInstance, insurance, $translate) {
     var bmc = this;
 
     bmc.cancel = cancel;
@@ -23,7 +23,7 @@
     }
 
     function cancel() {
-      $uibModalInstance.close();
+      $modalInstance.close();
     }
 
   }

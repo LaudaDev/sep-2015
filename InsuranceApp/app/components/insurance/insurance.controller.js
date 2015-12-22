@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceController', InsuranceController);
 
-  InsuranceController.$inject = ['$window', '$location', '$uibModal', 'priceList', '$translate'];
+  InsuranceController.$inject = ['$window', '$location', '$modal', 'priceList', '$translate'];
 
-  function InsuranceController($window, $location, $uibModal, priceList, $translate) {
+  function InsuranceController($window, $location, $modal, priceList, $translate) {
     var ic = this;
 
     ic.priceList = priceList;
@@ -23,7 +23,7 @@
 
     function openModal() {
 
-      $uibModal.open({
+      $modal.open({
         animation: true,
         resolve: {
 
