@@ -109,10 +109,165 @@
       </button>
     </div>
 
+    <div class="col-md-8 col-md-offset-1">
+      <br>
+      <br>
+      <uib-accordion close-others="true">
+        <uib-accordion-group heading="{{'DETAILS_PAGE.VEHICLE'|translate}}">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
 
-    <div class="col-md-12">
-      <br>
-      <br>
-      <br>
+              <label for="inputInsuranceDurRE" class="col-sm-2 control-label">
+                {{'PURCHASE.INSURANCE_DURATION'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="idc.insurance.vehicle.duration">
+              </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="inputInsurPack" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_PACKAGE.MAIN'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <select class="form-control" id="selContinent" ng-model="idc.insurance.vehicle.package">
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</option>
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</option>
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</option>
+                  <option>{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceSizeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <select class="form-control" id="selContinent" ng-model="ic.insurance.vehicle.type" ng-options="type.make_display for type in idc.types">
+                  <option value="">{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}" required="true" ng-model="idc.insurance.vehicle.model">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceEsValueRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}" required="true" ng-model="idc.insurance.vehicle.productionYear">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}" required="true" ng-model="idc.insurance.vehicle.registrationNumber">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}" required="true" ng-model="idc.insurance.vehicle.vinNumber">
+              </div>
+            </div>
+          </form>
+
+        </uib-accordion-group>
+
+        <uib-accordion-group heading="{{'DETAILS_PAGE.REALESTATE'|translate}}">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+
+              <label for="inputInsuranceDurRE" class="col-sm-2 control-label">
+                {{'PURCHASE.INSURANCE_DURATION'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required="true" ng-model="ic.insurance.realEstate.duration">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceSizeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.RE_SIZE'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_SIZE'|translate}}" required="true" ng-model="ic.insurance.realEstate.size">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.RE_AGE'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_AGE'|translate}}" required="true" ng-model="ic.insurance.realEstate.age">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceEsValueRE" class="col-sm-2 control-label">
+                {{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}" required="true" ng-model="ic.insurance.realEstate.estimatedValue">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsurAmount" class="col-sm-2 control-label">
+                {{'PURCHASE.RE_PACKAGE.MAIN'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <select class="form-control" id="selContinent" ng-model="ic.insurance.realEstate.package">
+                  <option>{{'PURCHASE.RE_PACKAGE.FLOOD'|translate}}</option>
+                  <option>{{'PURCHASE.RE_PACKAGE.FIRE'|translate}}</option>
+                  <option>{{'PURCHASE.RE_PACKAGE.BURGLARY'|translate}}</option>
+                  <option>{{'PURCHASE.RE_PACKAGE.EARTHQUAKE'|translate}}</option>
+                </select>
+              </div>
+            </div>
+          </form>
+
+        </uib-accordion-group>
+      </uib-accordion>
+
     </div>
+
   </div>
+
+
+  <div class="col-md-12">
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+</div>
