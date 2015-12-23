@@ -12,7 +12,8 @@
 				"AMOUNT" : "Insurance price is: ",
 				"NEXT" : "Next",
 				"PREVIEW" : "Prewiew",
-				"PREVIEW_TOOLTIP" : "Insurance price prewiew"
+				"PREVIEW_TOOLTIP" : "Insurance price prewiew",
+				"AND" : "and"
 			},
 
 			"NAVBAR": {
@@ -123,6 +124,14 @@
 				"FOR_PAY" : "Price to pay",
 				"TOOLTIP" : "Proceed to next form where you enter details",
 				"INSURANCE_DURATION" : "Insurance duration"
+			},
+			"DETAILS_PAGE":{
+				"TITLE" : "Add insured persons",
+				"ADD_USER" : "Add insured",
+				"ADD_TOOLTIP" : "Add insured persons details",
+				"REALESTATE" : "Real Estate insurance",
+				"VEHICLE" : "Vehicle insurance",
+				"LEFT" : "Number of users to insert"
 			}
 
 		},
@@ -136,7 +145,8 @@
 				"AMOUNT" : "Ukupna cena osiguranja je: ",
 				"NEXT" : "Dalje",
 				"PREVIEW" : "Pregled",
-				"PREVIEW_TOOLTIP" : "Pregled preseka osiguranja"
+				"PREVIEW_TOOLTIP" : "Pregled preseka osiguranja",
+				"AND" : "i"
 			},
 
 			"NAVBAR": {
@@ -248,6 +258,14 @@
 				"FOR_PAY" : "Iznos koji treba uplatiti",
 				"TOOLTIP" : "Kliknite da odete na sledeću formu gde ćete uneti lične podatke",
 				"INSURANCE_DURATION" : "Trajanje osiguranja"
+			},
+			"DETAILS_PAGE":{
+				"TITLE" : "Dodajte korisnike osiguranja",
+				"ADD_USER" : "Dodaj osiguranika",
+				"ADD_TOOLTIP" : "Dodajte detalje osoba koje će biti osiguranje",
+				"REALESTATE" : "Osiguranje nekretnine",
+				"VEHICLE" : "Osiguranje vašeg vozila",
+				"LEFT" : "Broj preostalih osiguranika za uneti"
 			}
 
 		}

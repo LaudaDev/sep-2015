@@ -44,26 +44,35 @@
     function setObject(){
 
         ic.insuranceService.setInsurance(ic.insurance);
+        ic.insurance.travel.numOfPersons = 0;
+
+        if (ic.insurance.travel.less != null) {
+          ic.insurance.travel.numOfPersons += ic.insurance.travel.less;
+        }
+
+        if (ic.insurance.travel.between != null) {
+          ic.insurance.travel.numOfPersons += ic.insurance.travel.between;
+        }
+
+        if (ic.insurance.travel.over != null) {
+          ic.insurance.travel.numOfPersons += ic.insurance.travel.over;
+        }
     }
 
     function calculate() {
 
       ic.insurance.travel.amountToPay = ic.insurance.travel.duration + (ic.insurance.travel.region + '').length;
-      ic.insurance.travel.numOfPersons = 0;
 
       if (ic.insurance.travel.less != null) {
         ic.insurance.travel.amountToPay += ic.priceList.age.lessCf * ic.insurance.travel.less;
-        ic.insurance.travel.numOfPersons += ic.insurance.travel.less;
       }
 
       if (ic.insurance.travel.between != null) {
         ic.insurance.travel.amountToPay += ic.priceList.age.betweenCf * ic.insurance.travel.between;
-        ic.insurance.travel.numOfPersons += ic.insurance.travel.between;
       }
 
       if (ic.insurance.travel.over != null) {
         ic.insurance.travel.amountToPay += ic.priceList.age.overCf * ic.insurance.travel.over;
-        ic.insurance.travel.numOfPersons += ic.insurance.travel.over;
       }
 
       if (ic.insurance.travel.sport != null) {

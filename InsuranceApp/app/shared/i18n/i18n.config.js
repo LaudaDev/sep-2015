@@ -14,5 +14,6 @@
 		$translateProvider.translations('sr-latn', crTranslations["sr-latn"]);
 		$translateProvider.translations('en', crTranslations.en);
 		$translateProvider.preferredLanguage('en');
+		$translateProvider.useSanitizeValueStrategy('escape');
 	}
 })();
