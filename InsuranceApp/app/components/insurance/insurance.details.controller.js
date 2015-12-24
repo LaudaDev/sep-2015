@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceDetailsController', InsuranceDetailsController);
 
-  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal','vehicleModels'];
+  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels'];
 
-  function InsuranceDetailsController(insuranceService, $uibModal,vehicleModels) {
+  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels) {
     var idc = this;
 
     idc.insuranceService = insuranceService;
@@ -20,6 +20,9 @@
     idc.addUser = addUser;
     idc.editSelected = editSelected;
     idc.isEditable = false; //kad je false radi se add,a kad je true onda se radi dodavanje
+    idc.addOwnerModal = addOwnerModal;
+    idc.insurance.vehicle = {};
+    idc.users = [];
 
     //modal za dodavanje korisnika
     function openModal() {
@@ -41,9 +44,12 @@
 
           idc.insurance.travel.users.push(user);
           idc.numToInsert--;
+          //za potrebe usera koji su potencijalni vlasnici vozila
+          idc.users.push(user);
 
         }
         idc.user = {};
+        console.log(idc.users);
       });
     }
 
@@ -58,6 +64,27 @@
       idc.isEditable = false;
     }
 
-    console.log(idc.insurance);
+    function addOwnerModal() {
+      var modalInstance = $uibModal.open({
+        animation: true,
+        resolve: {
+
+          owner: function() {
+            return idc.owner;
+          }
+        },
+        templateUrl: 'app/components/insurance/owner-modal/owner-modal.html',
+        controller: 'OwnerModalController',
+        controllerAs: 'omc'
+      });
+
+      return modalInstance.result.then(function(owner) {
+
+        idc.users.push(owner);
+        idc.insurance.vehicle.owner = idc.users[idc.users.length - 1];
+
+      });
+    }
+
   }
 })();

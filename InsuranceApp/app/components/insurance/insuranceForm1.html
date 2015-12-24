@@ -150,12 +150,12 @@
 
           <div class="col-md-3">
             <br>
-            <button type="submit" ng-click="ic.calculate();ic.openModal()" class="btn btn-info btn-large pull-left" data-toggle="tooltip" data-placement="left" title="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
+            <button type="submit" ng-click="ic.calculate();ic.openModal()" class="btn btn-info btn-large pull-left" popover-trigger="mouseenter"  uib-popover="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
               {{'COMMON.PREVIEW'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="glyphicon glyphicon-zoom-in"></span>
             </button>
             &nbsp;&nbsp;&nbsp;
-            <button type="button" ui-sref='main.insuranceDetails' ng-click="ic.setObject()" class="btn btn-success btn-large" data-toggle="tooltip" data-placement="top" title="{{'MODAL.TOOLTIP'|translate}}">
+            <button type="button" ui-sref='main.insuranceDetails' ng-click="ic.setObject()" class="btn btn-success btn-large" popover-trigger="mouseenter"  uib-popover="{{'MODAL.TOOLTIP'|translate}}">
               {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
               <span class="glyphicon glyphicon-arrow-right"></span>
             </button>

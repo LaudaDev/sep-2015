@@ -13,7 +13,9 @@
 				"NEXT" : "Next",
 				"PREVIEW" : "Prewiew",
 				"PREVIEW_TOOLTIP" : "Insurance price prewiew",
-				"AND" : "and"
+				"AND" : "and",
+				"ADD_OWNER" : "Add owner",
+				"RE_OWNER" : "Real Estate owner"
 			},
 
 			"NAVBAR": {
@@ -87,10 +89,14 @@
 				},
 				"VEHICLE_PACKAGE" : {
 					"MAIN" : "Package you would like to purchase",
-					"TOWING" : "Towing up to 300km",
-					"REPAIR" : "Car repair cost up to 2000€",
-					"SLEEPOVER" : "Paid hotel costs for 4 days",
-					"ALTERNATIVE" : "Alternative ride"
+					"TOWING" : "Towing",
+					"REPAIR" : "Car repair",
+					"SLEEPOVER" : "Paid hotel",
+					"ALTERNATIVE" : "Alternative ride",
+					"UP_TO_KM" : "Up to(km) ",
+					"UP_TO_EURO" : "Costs up to(euro) ",
+					"FOR_DAYS" : "Costs for(days)",
+					"OWNER" : "Car owner"
 				},
 				"VEHICLE_INFO" : {
 					"TITLE" : "Vehicle information",
@@ -150,7 +156,9 @@
 				"NEXT" : "Dalje",
 				"PREVIEW" : "Pregled",
 				"PREVIEW_TOOLTIP" : "Pregled preseka osiguranja",
-				"AND" : "i"
+				"AND" : "i",
+				"ADD_OWNER" : "Unesite vlasnika",
+				"RE_OWNER" : "Vlasnik nekretnine"
 			},
 
 			"NAVBAR": {
@@ -224,10 +232,14 @@
 				},
 				"VEHICLE_PACKAGE" : {
 					"MAIN" : "Paket koji želite uzeti",
-					"TOWING" : "Šlepanje do 300km",
-					"REPAIR" : "Popravka automobila do 2000€",
-					"SLEEPOVER" : "Smeštaj u hotelu do 4 dana",
-					"ALTERNATIVE" : "Alternativni prevoz"
+					"TOWING" : "Šlepanje",
+					"REPAIR" : "Popravka automobila",
+					"SLEEPOVER" : "Smeštaj u hotelu",
+					"ALTERNATIVE" : "Alternativni prevoz",
+					"UP_TO_KM" : "Do(km) ",
+					"UP_TO_EURO" : "Do(eura) ",
+					"FOR_DAYS" : "Broj dana",
+					"OWNER" : "Vlasnik auta"
 				},
 				"VEHICLE_INFO" : {
 					"TITLE" : "Dodatne informacije o vozilu",

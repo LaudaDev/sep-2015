@@ -95,7 +95,7 @@
     </div>
 
     <div class="col-md-3 col-md-offset-1">
-      <button type="button" ng-click="idc.addUser();idc.openModal()" class="btn btn-info btn-large pull-left" data-toggle="tooltip" ng-disabled="idc.numToInsert == 0" data-placement="left" title="{{'DETAILS_PAGE.ADD_TOOLTIP'|translate}}">
+      <button type="button" ng-click="idc.addUser();idc.openModal()" class="btn btn-info btn-large pull-left" ng-disabled="idc.numToInsert == 0" popover-trigger="mouseenter" uib-popover="{{'DETAILS_PAGE.ADD_TOOLTIP'|translate}}">
         {{'DETAILS_PAGE.ADD_USER'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="glyphicon glyphicon-plus"></span>
         <span class="glyphicon glyphicon-user"></span>
@@ -103,7 +103,7 @@
     </div>
 
     <div class="col-md-3 col-md-offset-8">
-      <button type="button" ui-sref='main.insuranceDetails' ng-click="ic.setObject()" class="btn btn-success btn-large pull-right" ng-disabled="idc.numToInsert > 0" data-toggle="tooltip" data-placement="top" title="{{'MODAL.TOOLTIP'|translate}}">
+      <button type="button" ui-sref='main.insuranceDetails' ng-click="ic.setObject()" class="btn btn-success btn-large pull-right" ng-disabled="idc.numToInsert > 0" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
         {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="glyphicon glyphicon-arrow-right"></span>
       </button>
@@ -133,12 +133,42 @@
                 {{'PURCHASE.VEHICLE_PACKAGE.MAIN'|translate}}
               </label>
               <div class="col-sm-10">
-                <select class="form-control" id="selContinent" ng-model="idc.insurance.vehicle.package">
-                  <option>{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</option>
-                  <option>{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</option>
-                  <option>{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</option>
-                  <option>{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</option>
-                </select>
+                <div class="btn-group">
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.package" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.package" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.package" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.package" uib-btn-radio="'alternative'">{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" ng-show="idc.insurance.vehicle.package == 'towing'">
+              <label for="inputInsurPack" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}" required="true" ng-model="idc.insurance.vehicle.packageDetail">
+
+              </div>
+            </div>
+
+            <div class="form-group" ng-show="idc.insurance.vehicle.package == 'repair'">
+              <label for="inputInsurPack" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_PACKAGE.UP_TO_EURO'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_EURO'|translate}}" required="true" ng-model="idc.insurance.vehicle.packageDetail">
+
+              </div>
+            </div>
+
+            <div class="form-group" ng-show="idc.insurance.vehicle.package == 'sleepover'">
+              <label for="inputInsurPack" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_PACKAGE.FOR_DAYS'|translate}}
+              </label>
+              <div class="col-sm-10">
+                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.FOR_DAYS'|translate}}" required="true" ng-model="idc.insurance.vehicle.packageDetail">
+
               </div>
             </div>
 
@@ -149,10 +179,6 @@
               </label>
               <div class="col-sm-10">
                 <input type="text" ng-model="ic.insurance.vehicle.type" uib-typeahead="type.make_display for type in idc.vehicleModels.types | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}" required>
-
-                <!-- <select class="form-control" id="selContinent" ng-model="ic.insurance.vehicle.type" ng-options="type.make_display for type in idc.types">
-                  <option value="">{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}</option>
-                </select> -->
               </div>
             </div>
 
@@ -195,6 +221,21 @@
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="insurDur" placeholder="  {{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}" required="true" ng-model="idc.insurance.vehicle.vinNumber">
               </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'PURCHASE.VEHICLE_PACKAGE.OWNER'|translate}}
+              </label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="idc.insurance.vehicle.owner" ng-options=" owner.name as (owner.name+'&nbsp;'+ owner.surname) for owner in idc.users">
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-info col-sm-3" ng-click="idc.addOwnerModal()">+</button>
+              </div>
+
             </div>
           </form>
 
@@ -255,6 +296,21 @@
                   <option>{{'PURCHASE.RE_PACKAGE.EARTHQUAKE'|translate}}</option>
                 </select>
               </div>
+            </div>
+
+            <div class="form-group">
+
+              <label for="inputInsuranceAgeRE" class="col-sm-2 control-label">
+                {{'COMMON.RE_OWNER'|translate}}
+              </label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="idc.insurance.realEstate.owner" ng-options=" owner.name as (owner.name+'&nbsp;'+ owner.surname) for owner in idc.users">
+                </select>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-info col-sm-3" ng-click="idc.addOwnerModal()">+</button>
+              </div>
+
             </div>
           </form>
 
