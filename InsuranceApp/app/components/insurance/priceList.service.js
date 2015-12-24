@@ -16,7 +16,7 @@
       { "name":"fudbal",
         "koeficijent": 5
       },
-      { "name":"skiajnje",
+      { "name":"skijanje",
         "koeficijent": 9
       },
       { "name":"plivanje",

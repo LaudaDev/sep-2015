@@ -5,12 +5,13 @@
     .module('insurance-app.insurance')
     .controller('InsuranceDetailsController', InsuranceDetailsController);
 
-  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal'];
+  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal','vehicleModels'];
 
-  function InsuranceDetailsController(insuranceService, $uibModal) {
+  function InsuranceDetailsController(insuranceService, $uibModal,vehicleModels) {
     var idc = this;
 
     idc.insuranceService = insuranceService;
+    idc.vehicleModels = vehicleModels;
     idc.insurance = idc.insuranceService.getInsurance();
     idc.insurance.travel.users = [];
     idc.openModal = openModal;

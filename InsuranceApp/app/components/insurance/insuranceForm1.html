@@ -56,7 +56,17 @@
               {{'PURCHASE.TRAVELING_REGION'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" ng-model="ic.insurance.travel.region" uib-typeahead="state for state in ic.states | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.TRAVELING_REGION'|translate}}" required>
+              <!-- <input type="text" ng-model="ic.insurance.travel.region" uib-typeahead="state for state in ic.states | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.TRAVELING_REGION'|translate}}" required> -->
+              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.region">
+                <option>{{'CONTINENTS.EUROPE'|translate}}</option>
+                <option>{{'CONTINENTS.ASIA'|translate}}</option>
+                <option>{{'CONTINENTS.SOUTH_AMERICA'|translate}}</option>
+                <option>{{'CONTINENTS.NORTH_AMERICA'|translate}}</option>
+                <option>{{'CONTINENTS.AUSTALIA'|translate}}</option>
+                <option>{{'CONTINENTS.AFRICA'|translate}}</option>
+                <option>{{'CONTINENTS.ANTARCTIC'|translate}}</option>
+              </select>
+
             </div>
           </div>
 
@@ -105,10 +115,12 @@
           <div class="form-group" ng-hide="!ic.insurance.travel.doesSport">
             <br>
             <label for="inputSport" class="col-sm-2 ">
-              {{'PURCHASE.SPORT'|translate}}
+              {{'PURCHASE.WHICH_SPORT'|translate}}
             </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="sport" placeholder="{{'PURCHASE.SPORT'|translate}}" ng-model="ic.insurance.travel.sport">
+              <select class="form-control" name="" ng-model="ic.insurance.travel.sport" ng-options=" sport.name as sport.name for sport in ic.priceList.sport track by sport.name">
+
+              </select>
             </div>
           </div>
 
@@ -118,11 +130,7 @@
               {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount">
-                <option>10000</option>
-                <option>20000</option>
-                <option>30000</option>
-                <option>40000 </option>
+              <select class="form-control" id="selContinent" ng-model="ic.insurance.travel.insuredAmount" ng-options="insurance.price as insurance.price for insurance in ic.priceList.insuredAmount track by insurance.price">
               </select>
 
             </div>
@@ -168,6 +176,6 @@
     <br>
   </div>
 
-  
+
 
 </div>

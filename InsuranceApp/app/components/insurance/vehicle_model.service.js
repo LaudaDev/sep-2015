@@ -1,13 +1,8 @@
 (function() {
   "use strict";
 
-  var vehicleModels = function() {
+  var vehicleModels = {
 
-    var types = [];
-
-    var init = function() {
-
-      var data = {
         "types": [
 
           {
@@ -634,22 +629,8 @@
         ]
       };
 
-      types = data.types;
-    };
-
-    init();
-
-    var getTypes = function() {
-      return types;
-    };
-
-    return {
-      getTypes: getTypes
-    };
-
-  };
 
   angular
     .module('insurance-app.insurance')
-    .factory("vehicleModels", vehicleModels);
+    .constant("vehicleModels", vehicleModels);
 })();

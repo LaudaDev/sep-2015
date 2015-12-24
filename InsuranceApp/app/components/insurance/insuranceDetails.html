@@ -148,9 +148,11 @@
                 {{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}
               </label>
               <div class="col-sm-10">
-                <select class="form-control" id="selContinent" ng-model="ic.insurance.vehicle.type" ng-options="type.make_display for type in idc.types">
+                <input type="text" ng-model="ic.insurance.vehicle.type" uib-typeahead="type.make_display for type in idc.vehicleModels.types | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}" required>
+
+                <!-- <select class="form-control" id="selContinent" ng-model="ic.insurance.vehicle.type" ng-options="type.make_display for type in idc.types">
                   <option value="">{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}</option>
-                </select>
+                </select> -->
               </div>
             </div>
 

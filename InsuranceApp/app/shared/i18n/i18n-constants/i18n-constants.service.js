@@ -66,6 +66,7 @@
 				"PERSONS_AGE" : "Age of insured persons",
 				"DOES_SPORT" : "Participate in some sports",
 				"CLICK_SPORT" : "(Check if you do)",
+				"WHICH_SPORT" : "Which sport",
 				"SPORT" : "Which sport",
 				"INSURANCE_AMOUNT" : "Amount you are insured on(in €)",
 				"PROCEED" : "Checkout",
@@ -80,6 +81,9 @@
 					"FIRE" : "Fire",
 					"BURGLARY" : "Burglary",
 					"EARTHQUAKE" : "Earthquake"
+				},
+				"SPORT":{
+					"BASKETBALL" : "Basketball"
 				},
 				"VEHICLE_PACKAGE" : {
 					"MAIN" : "Package you would like to purchase",
@@ -199,6 +203,7 @@
 				"PERSONS_AGE" : "Godine osiguranih osoba",
 				"DOES_SPORT" : "Učestvovanje u nekom sportu",
 				"CLICK_SPORT" : "(Čekirajte ako se bavite)",
+				"WHICH_SPORT" : "Koji sport",
 				"SPORT" : "Koji sport",
 				"INSURANCE_AMOUNT" : "Iznos koji pokriva osiguranje(u €)",
 				"PROCEED" : "Kupite",
@@ -213,6 +218,9 @@
 					"FIRE" : "Požara",
 					"BURGLARY" : "Krađe",
 					"EARTHQUAKE" : "Zemljotresa"
+				},
+				"SPORT":{
+					"BASKETBALL" : "Kosarka"
 				},
 				"VEHICLE_PACKAGE" : {
 					"MAIN" : "Paket koji želite uzeti",
