@@ -17,6 +17,13 @@
 				"ADD_OWNER" : "Add owner",
 				"RE_OWNER" : "Real Estate owner"
 			},
+			"MESSAGES":{
+				"MIN_LENGTH" : "This field is too short",
+				"MAX_LENGTH" : "This field is too long",
+				"REQUIRED" : "This field is required",
+				"EMAIL" : "This needs to be a valid email(test@test)",
+				"CUSTOM" : "At least one of three fields is required"
+			},
 
 			"NAVBAR": {
 				"TEAM":"Team18 - Insurance",
@@ -159,6 +166,13 @@
 				"AND" : "i",
 				"ADD_OWNER" : "Unesite vlasnika",
 				"RE_OWNER" : "Vlasnik nekretnine"
+			},
+			"MESSAGES":{
+				"MIN_LENGTH" : "Ovo polje je prekratko",
+				"MAX_LENGTH" : "Ovo polje je predugačko",
+				"REQUIRED" : "Ovo polje je obavezno!",
+				"EMAIL" : "Potrebno je da ovo bude validna email adresa(test@test)",
+				"CUSTOM" : "Potrebno je uneti podatke bar u 1 polje"
 			},
 
 			"NAVBAR": {

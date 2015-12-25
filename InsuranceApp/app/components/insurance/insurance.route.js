@@ -15,7 +15,7 @@
         views: {
           'content@': {
 
-            templateUrl: 'app/components/insurance/insuranceForm1.html',
+            templateUrl: 'app/components/insurance/insuranceBasic.html',
             controller: 'InsuranceController',
             controllerAs: 'ic'
           }

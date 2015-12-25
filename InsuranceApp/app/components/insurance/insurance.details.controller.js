@@ -81,7 +81,7 @@
       return modalInstance.result.then(function(owner) {
 
         idc.users.push(owner);
-        idc.insurance.vehicle.owner = idc.users[idc.users.length - 1];
+        idc.insurance.vehicle.owner = idc.users[idc.users.length - 1]; // nzm zasto ne radi...
 
       });
     }
