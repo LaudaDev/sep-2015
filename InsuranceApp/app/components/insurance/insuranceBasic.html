@@ -82,27 +82,27 @@
             <label for="inputPersonsAge" class="col-sm-2">
               {{'YEARS.YOUNGER'|translate}} 18
             </label>
-            <div class="col-sm-1">
-              <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.less" ng-required="ic.isOneFieldRequired()">
+            <div class="col-xs-1">
+              <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.less" ng-maxlength="2" ng-required="ic.isOneFieldRequired()">
             </div>
 
             <label for="inputPersonsAge" class="col-sm-2">
               18-65
             </label>
-            <div class="col-sm-1">
-              <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.between" ng-required="ic.isOneFieldRequired()">
+            <div class="col-xs-1">
+              <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.between" ng-maxlength="2" ng-required="ic.isOneFieldRequired()">
             </div>
 
             <label for="inputPersonsAge" class="col-sm-2">
               {{'YEARS.OVER'|translate}}65
             </label>
-            <div class="col-sm-1">
-              <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.over" ng-required="ic.isOneFieldRequired()">
+            <div class="col-xs-1">
+              <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.over" ng-maxlength="2" ng-required="ic.isOneFieldRequired()">
             </div>
           </div>
           <div class="col-sm-10 col-md-offset-2">
             <div ng-messages="ic.stateForm.inputPersonsAge.$error" ng-show="ic.stateForm.inputPersonsAge.$touched">
-              <p ng-message="required">{{'MESSAGES.CUSTOM'|translate}}</p>
+                <div ng-messages-include="./app/shared/messages.html"></div>
             </div>
           </div>
 
