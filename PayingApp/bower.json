@@ -13,18 +13,21 @@
     "tim18",
     "angularjs"
   ],
-  "license": "MIT","dependencies": {
+  "license": "MIT",
+  "dependencies": {
     "angular": "~1.4.6",
     "angular-resource": "~1.4.6",
     "angular-ui-router": "~0.2.15",
     "angular-translate": "~2.8.0",
     "angular-dynamic-locale": "~0.1.27",
-    "angular-bootstrap": "~0.13.4",
     "angular-i18n": "~1.4.6",
     "angular-animate": "~1.4.7",
-    "ngSmoothScroll" : "2.0.0"
+    "ngSmoothScroll": "~2.0.0",
+    "angular-bootstrap": "~0.14.3",
+    "angular-messages": "~1.4.8"
   },
   "resolutions": {
-    "angular": "1.4.6"
+    "angular": "1.4.6",
+    "angular-bootstrap": "~0.13.4"
   }
 }
