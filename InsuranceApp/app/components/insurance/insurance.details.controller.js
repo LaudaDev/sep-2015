@@ -22,7 +22,11 @@
     idc.isEditable = false; //kad je false radi se add,a kad je true onda se radi dodavanje
     idc.addOwnerModal = addOwnerModal;
     idc.insurance.vehicle = {};
+    idc.insurance.realEstate = {};
     idc.users = [];
+    idc.areOtherFieldsRequired = areOtherFieldsRequired;
+    idc.validateVehicleInsurance = validateVehicleInsurance;
+    idc.validateRealEstateInsurance = validateRealEstateInsurance;
 
     //modal za dodavanje korisnika
     function openModal() {
@@ -49,7 +53,6 @@
 
         }
         idc.user = {};
-        console.log(idc.users);
       });
     }
 
@@ -86,5 +89,57 @@
       });
     }
 
+    function validateVehicleInsurance() {
+      if (idc.stateForm1.$valid) {
+        idc.stateForm1.$setUntouched();
+        console.log("tacanVeh");
+      } else {
+        touchControllsVehicles();
+        console.log("netacanVeh");
+
+      }
+    }
+
+    function touchControllsVehicles() {
+      //Prođi kroz sve propertie stateForm objekta
+      angular.forEach(idc.stateForm1, function(value, key) {
+        //Pronađi propertie čiji naziv počinje sa "input"
+        if (key.indexOf("input") === 0) {
+          //"Dodirni" polje
+          value.$setTouched();
+        }
+      });
+    }
+
+    function validateRealEstateInsurance() {
+      if (idc.stateForm2.$valid) {
+        idc.stateForm2.$setUntouched();
+        console.log("tacanRE");
+
+      } else {
+        touchControllsRealEstate();
+        console.log("netacanRE");
+
+      }
+    }
+
+    function touchControllsRealEstate() {
+      //Prođi kroz sve propertie stateForm objekta
+      angular.forEach(idc.stateForm2, function(value, key) {
+        //Pronađi propertie čiji naziv počinje sa "input"
+        if (key.indexOf("input") === 0) {
+          //"Dodirni" polje
+          value.$setTouched();
+        }
+      });
+    }
+
+    function areOtherFieldsRequired(text) {
+      if (text === 'vehicle') {
+        return (idc.insurance.vehicle.duration || idc.insurance.vehicle.typeVehicle || idc.insurance.vehicle.model || idc.insurance.vehicle.productionYear || idc.insurance.vehicle.registrationNumber || idc.insurance.vehicle.vinNumber || idc.insurance.vehicle.owner);
+      } else {
+        return (idc.insurance.realEstate.duration || idc.insurance.realEstate.sizeRE || idc.insurance.realEstate.age || idc.insurance.realEstate.estimatedValue || idc.insurance.realEstate.package || idc.insurance.realEstate.owner);
+      }
+    }
   }
 })();

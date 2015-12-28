@@ -26,9 +26,10 @@
     <div class="form-group" ng-class="{ 'has-error': imc.stateForm.inputJmbg.$touched && imc.stateForm.inputJmbg.$invalid }">
       <label class="control-label col-sm-4" for="inputJmbg">JMBG</label>
       <div class="col-sm-8">
-        <input class="form-control" type="text" id="postalCode" name="inputJmbg" ng-model="imc.user.jmbg" required ng-maxlength="13" ng-pattern="/^[0-9]*$/"/>
+        <input class="form-control" type="text" id="postalCode" name="inputJmbg" ng-model="imc.user.jmbg" required ng-maxlength="13" ng-pattern="/^[0-9]{13,}$/"/>
         <div ng-messages="imc.stateForm.inputJmbg.$error" ng-show="imc.stateForm.inputJmbg.$touched">
           <div ng-messages-include="./app/shared/messages.html"></div>
+          <p ng-message="pattern">{{'MESSAGES.NUMBER'|translate}} 13)</p>
         </div>
       </div>
     </div>
@@ -36,9 +37,10 @@
     <div class="form-group" ng-class="{ 'has-error': imc.stateForm.inputPassport.$touched && imc.stateForm.inputPassport.$invalid }">
       <label class="control-label col-sm-4" for="inputPassport">{{'PURCHASE.PASSPORT'|translate}}</label>
       <div class="col-sm-8">
-        <input class="form-control" type="text" id="postalCode" name="inputPassport" ng-model="imc.user.passportNum" required ng-maxlength="9" ng-pattern="/^[0-9]*$/"/>
+        <input class="form-control" type="text" id="postalCode" name="inputPassport" ng-model="imc.user.passportNum" required ng-maxlength="9" ng-pattern="/^[0-9]{9,}$/"/>
         <div ng-messages="imc.stateForm.inputPassport.$error" ng-show="imc.stateForm.inputPassport.$touched">
           <div ng-messages-include="./app/shared/messages.html"></div>
+            <p ng-message="pattern">{{'MESSAGES.NUMBER'|translate}} 9)</p>
         </div>
       </div>
     </div>

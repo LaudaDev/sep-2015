@@ -23,7 +23,7 @@
 				"REQUIRED" : "This field is required",
 				"EMAIL" : "This needs to be a valid email(test@test)",
 				"CUSTOM" : "At least one of three fields is required",
-				"NUMBER" : "This field accepts only numbers"
+				"NUMBER" : "This field accepts only numbers("
 			},
 
 			"NAVBAR": {
@@ -174,7 +174,7 @@
 				"REQUIRED" : "Ovo polje je obavezno!",
 				"EMAIL" : "Potrebno je da ovo bude validna email adresa(test@test)",
 				"CUSTOM" : "Potrebno je uneti podatke bar u 1 polje",
-				"NUMBER" : "Ovo polje prihvata samo brojeve"
+				"NUMBER" : "Ovo polje prihvata samo brojeve("
 			},
 
 			"NAVBAR": {
