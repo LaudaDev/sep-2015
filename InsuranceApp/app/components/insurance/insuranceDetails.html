@@ -103,7 +103,7 @@
     </div>
 
     <div class="col-md-3 col-md-offset-8">
-      <button type="submit" ng-click="idc.validateVehicleInsurance();idc.validateRealEstateInsurance()" class="btn btn-success btn-large pull-right" ng-disabled="idc.numToInsert > 0" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
+      <button type="submit" ng-click="idc.validateVehicleInsurance();idc.validateRealEstateInsurance()" class="btn btn-success btn-large pull-right"  popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
         {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="glyphicon glyphicon-arrow-right"></span>
       </button>
@@ -114,14 +114,14 @@
       <br>
       <uib-accordion close-others="true">
         <uib-accordion-group heading="{{'DETAILS_PAGE.VEHICLE'|translate}}">
-          <form novalidate class="state-form form-horizontal" name="idc.stateForm1">
-            <div class="form-group" ng-class="{ 'has-error': idc.stateForm1.inputDurationVehicle.$touched && idc.stateForm1.inputDurationVehicle.$invalid }">
+          <form novalidate class="state-form form-horizontal" name="idc.stateForm">
+            <div class="form-group" ng-class="{ 'has-error': idc.stateForm.inputDurationVehicle.$touched && idc.stateForm.inputDurationVehicle.$invalid }">
               <label for="inputDurationVehicle" class="col-sm-2 control-label">
                 {{'PURCHASE.INSURANCE_DURATION'|translate}}
               </label>
               <div class="col-sm-10">
                 <input type="number" min="0" class="form-control" name="inputDurationVehicle" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" ng-required="idc.areOtherFieldsRequired('vehicle')" ng-model="idc.insurance.vehicle.duration">
-                <div ng-messages="idc.stateForm1.inputDurationVehicle.$error" ng-show="idc.stateForm1.inputDurationVehicle.$touched">
+                <div ng-messages="idc.stateForm.inputDurationVehicle.$error" ng-show="idc.stateForm.inputDurationVehicle.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
               </div>
@@ -135,10 +135,10 @@
               </label>
               <div class="col-sm-10">
                 <div class="btn-group">
-                  <label class="btn btn-info" required ng-model="idc.insurance.vehicle.package" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
-                  <label class="btn btn-info" required ng-model="idc.insurance.vehicle.package" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
-                  <label class="btn btn-info" required ng-model="idc.insurance.vehicle.package" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>
-                  <label class="btn btn-info" required ng-model="idc.insurance.vehicle.package" uib-btn-radio="'alternative'">{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'alternative'">{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</label>
                 </div>
               </div>
             </div>
@@ -148,7 +148,7 @@
                 {{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}"  ng-model="idc.insurance.vehicle.packageDetail">
+                <input type="number" min="0" class="form-control" id="insurDur"  placeholder="{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}"  ng-model="idc.insurance.vehicle.packageDetail">
 
               </div>
             </div>
@@ -173,75 +173,75 @@
               </div>
             </div>
 
-            <div class="form-group" ng-class="{ 'has-error': idc.stateForm1.inputType.$touched && idc.stateForm1.inputType.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': idc.stateForm.inputType.$touched && idc.stateForm.inputType.$invalid }">
               <label for="inputType" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}
               </label>
               <div class="col-sm-10">
                 <input type="text" ng-model="idc.insurance.vehicle.typeVehicle" name="inputType" uib-typeahead="type.make_display for type in idc.vehicleModels.types | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}" ng-required="idc.areOtherFieldsRequired('vehicle')">
-                <div ng-messages="idc.stateForm1.inputType.$error" ng-show="idc.stateForm1.inputType.$touched">
+                <div ng-messages="idc.stateForm.inputType.$error" ng-show="idc.stateForm.inputType.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
               </div>
             </div>
 
 
-            <div class="form-group" ng-class="{ 'has-error': idc.stateForm1.inputModel.$touched && idc.stateForm1.inputModel.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': idc.stateForm.inputModel.$touched && idc.stateForm.inputModel.$invalid }">
               <label for="inputModel" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}
               </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="insurDur" name="inputModel" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="{{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}"  ng-model="idc.insurance.vehicle.model">
-                <div ng-messages="idc.stateForm1.inputModel.$error" ng-show="idc.stateForm1.inputModel.$touched">
+                <div ng-messages="idc.stateForm.inputModel.$error" ng-show="idc.stateForm.inputModel.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group" ng-class="{ 'has-error': idc.stateForm1.inputYear.$touched && idc.stateForm1.inputYear.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': idc.stateForm.inputYear.$touched && idc.stateForm.inputYear.$invalid }">
               <label for="inputYear" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}
               </label>
               <div class="col-sm-10">
                 <input type="number" min="0" class="form-control" id="insurDur" name="inputYear" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="  {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}"  ng-model="idc.insurance.vehicle.productionYear">
-                <div ng-messages="idc.stateForm1.inputYear.$error" ng-show="idc.stateForm1.inputYear.$touched">
+                <div ng-messages="idc.stateForm.inputYear.$error" ng-show="idc.stateForm.inputYear.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group" ng-class="{ 'has-error': idc.stateForm1.inputReg.$touched && idc.stateForm1.inputReg.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': idc.stateForm.inputReg.$touched && idc.stateForm.inputReg.$invalid }">
               <label for="inputReg" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}
               </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="insurDur" ng-required="idc.areOtherFieldsRequired('vehicle')" name="inputReg" placeholder="  {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}"  ng-model="idc.insurance.vehicle.registrationNumber">
-                <div ng-messages="idc.stateForm1.inputReg.$error" ng-show="idc.stateForm1.inputReg.$touched">
+                <div ng-messages="idc.stateForm.inputReg.$error" ng-show="idc.stateForm.inputReg.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group" ng-class="{ 'has-error': idc.stateForm1.inputVin.$touched && idc.stateForm1.inputVin.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': idc.stateForm.inputVin.$touched && idc.stateForm.inputVin.$invalid }">
               <label for="inputVin" class="control-label col-sm-2 ">
                 {{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}
               </label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="insurDur"  name="inputVin" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="{{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}"  ng-model="idc.insurance.vehicle.vinNumber">
-                <div ng-messages="idc.stateForm1.inputVin.$error" ng-show="idc.stateForm1.inputVin.$touched">
+                <div ng-messages="idc.stateForm.inputVin.$error" ng-show="idc.stateForm.inputVin.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
               </div>
             </div>
 
-            <div class="form-group" ng-class="{ 'has-error': idc.stateForm1.inputOwner1.$touched && idc.stateForm1.inputOwner1.$invalid }">
+            <div class="form-group" ng-class="{ 'has-error': idc.stateForm.inputOwner1.$touched && idc.stateForm.inputOwner1.$invalid }">
               <label for="inputOwner1" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_PACKAGE.OWNER'|translate}}
               </label>
               <div class="col-sm-6">
                 <select class="form-control" ng-required="idc.areOtherFieldsRequired('vehicle')" name="inputOwner1" ng-model="idc.insurance.vehicle.owner" ng-options=" owner.name as (owner.name+'&nbsp;'+ owner.surname) for owner in idc.users">
                 </select>
-                <div ng-messages="idc.stateForm1.inputOwner1.$error" ng-show="idc.stateForm1.inputOwner1.$touched">
+                <div ng-messages="idc.stateForm.inputOwner1.$error" ng-show="idc.stateForm.inputOwner1.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
               </div>

@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceDetailsController', InsuranceDetailsController);
 
-  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels'];
+  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels', 'insuranceResourceService'];
 
-  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels) {
+  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels, insuranceResourceService) {
     var idc = this;
 
     idc.insuranceService = insuranceService;
@@ -27,6 +27,21 @@
     idc.areOtherFieldsRequired = areOtherFieldsRequired;
     idc.validateVehicleInsurance = validateVehicleInsurance;
     idc.validateRealEstateInsurance = validateRealEstateInsurance;
+    idc.vehicleValid = false;
+    idc.realEstateValid = false;
+    //  idc.saveInsurance = saveInsurance;
+
+    // function saveInsurance() {
+    //   console.log(idc.vehicleValid && idc.saveInsurance);
+    //   if(idc.vehicleValid && idc.saveInsurance){
+    //     insuranceResourceService.save({},idc.insurance,onSuccesSave);
+    //   }
+    //
+    // }
+    //
+    // function onSuccesSave() {
+    //   console.log("uspesno je sacuvano pogledaj mongo");
+    // }
 
     //modal za dodavanje korisnika
     function openModal() {
@@ -90,8 +105,8 @@
     }
 
     function validateVehicleInsurance() {
-      if (idc.stateForm1.$valid) {
-        idc.stateForm1.$setUntouched();
+      if (idc.stateForm.$valid) {
+        idc.stateForm.$setUntouched();
         console.log("tacanVeh");
       } else {
         touchControllsVehicles();
@@ -102,7 +117,7 @@
 
     function touchControllsVehicles() {
       //Prođi kroz sve propertie stateForm objekta
-      angular.forEach(idc.stateForm1, function(value, key) {
+      angular.forEach(idc.stateForm, function(value, key) {
         //Pronađi propertie čiji naziv počinje sa "input"
         if (key.indexOf("input") === 0) {
           //"Dodirni" polje

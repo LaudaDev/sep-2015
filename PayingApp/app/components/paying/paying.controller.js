@@ -47,10 +47,7 @@
     }
 
     function isSecCodeNeeded(){
-
       return (pc.payment.creditCard == 'maestro') ? false : true;
-    //  return re
-
     }
 
   }
