@@ -10,14 +10,24 @@
   function config($stateProvider) {
 
     $stateProvider
-      .state('main.insurance', {
+      .state('main.insuranceBasic', {
         url: '/insurance',
         views: {
           'content@': {
 
-            templateUrl: 'app/components/insurance/insuranceForm.html',
+            templateUrl: 'app/components/insurance/insuranceBasic.html',
             controller: 'InsuranceController',
             controllerAs: 'ic'
+          }
+        }
+      })
+      .state('main.insuranceDetails', {
+        url: '/insuranceDetails',
+        views: {
+          'content@': {
+            templateUrl: 'app/components/insurance/insuranceDetails.html',
+            controller: 'InsuranceDetailsController',
+            controllerAs: 'idc'
           }
         }
       });

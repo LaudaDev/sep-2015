@@ -41,3 +41,11 @@ Thumbs.db
 **/.classpath
 **/.project
 **/.settings/*
+
+# ignore node_modules and bower assets globally
+
+**/node_modules
+**/assets/js
+
+# ignore dist folder globally
+**/dist
