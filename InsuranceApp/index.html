@@ -8,6 +8,23 @@
 
 	<!-- minified css -->
 	<link href="./dist/all.min.css" rel="stylesheet">
+
+	<!-- template css -->
+	<link rel="shortcut icon" href="./assets/images/favicon.ico" />
+	<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./assets/css/navbar.css" rel="stylesheet">
+	<!-- navbar hover css -->
+	<link href="./assets/css/navbarHover.css" rel="stylesheet">
+
+	<!-- aboutUs css -->
+	<link href="./assets/css/font-awesome.min.css" rel="stylesheet">
+	<link href="./assets/css/prettyPhoto.css" rel="stylesheet">
+	<link href="./assets/css/animate.min.css" rel="stylesheet">
+	<link href="./assets/css/main.css" rel="stylesheet">
+	<link href="./assets/css/responsive.css" rel="stylesheet">
+	<link href="./assets/css/insurance.css" rel="stylesheet">
+	<link href="./assets/css/carousel.css" rel="stylesheet">
+
 </head>
 
 <body ng-app="insurance-app">
@@ -30,6 +47,9 @@
 	<script src="./assets/js/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 	<script src="./assets/js/angular-animate/angular-animate.js"></script>
 	<script src="./assets/js/ngSmoothScroll/dist/angular-smooth-scroll.min.js"></script>
+	<script src="./assets/js/ngSmoothScroll/lib/angular-smooth-scroll.js"></script>
+	<script src="./assets/js/angular-messages/angular-messages.min.js"></script>
+
 
 
 	<!-- app modules -->
@@ -49,12 +69,19 @@
 	<script src="./app/components/core/header.controller.js"></script>
 	<script src="./app/components/insurance/insurance.controller.js"></script>
 	<script src="./app/components/insurance/bill-modal/bill-modal.controller.js"></script>
+	<script src="./app/components/insurance/insurance.details.controller.js"></script>
+	<script src="./app/components/insurance/insured-modal/insured-modal.contoller.js"></script>
+		<script src="./app/components/insurance/owner-modal/owner-modal.controller.js"></script>
+
 
 	<!-- app services -->
 	<script src="./app/components/insurance/insurance.service.js"></script>
 	<script src="./app/shared/i18n/i18n-constants/i18n-constants.service.js"></script>
 	<script src="./app/components/insurance/priceList.service.js"></script>
 	
+	<script src="./app/components/insurance/vehicle_model.service.js"></script>
+	<script src="./app/components/insurance/insurance.resource.service.js"></script>
+
 	<!-- shared -->
 	<script src="./app/shared/i18n/i18n.config.js"></script>
 </body>
