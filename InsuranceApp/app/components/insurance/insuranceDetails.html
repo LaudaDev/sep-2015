@@ -135,15 +135,15 @@
               </label>
               <div class="col-sm-10">
                 <div class="btn-group">
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.package" uib-btn-radio="'alternative'">{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>
+                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'alternative'">{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</label>
                 </div>
               </div>
             </div>
 
-            <div class="form-group" ng-show="idc.insurance.vehicle.package == 'towing'">
+            <div class="form-group" ng-show="idc.insurance.vehicle.packageV == 'towing'">
               <label for="inputInsurPack" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}
               </label>
@@ -153,7 +153,7 @@
               </div>
             </div>
 
-            <div class="form-group" ng-show="idc.insurance.vehicle.package == 'repair'">
+            <div class="form-group" ng-show="idc.insurance.vehicle.packageV == 'repair'">
               <label for="inputInsurPack" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_PACKAGE.UP_TO_EURO'|translate}}
               </label>
@@ -163,7 +163,7 @@
               </div>
             </div>
 
-            <div class="form-group" ng-show="idc.insurance.vehicle.package == 'sleepover'">
+            <div class="form-group" ng-show="idc.insurance.vehicle.packageV == 'sleepover'">
               <label for="inputInsurPack" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_PACKAGE.FOR_DAYS'|translate}}
               </label>
@@ -311,7 +311,7 @@
                 {{'PURCHASE.RE_PACKAGE.MAIN'|translate}}
               </label>
               <div class="col-sm-10">
-                <select class="form-control" id="selContinent" name="inputPackage" ng-model="idc.insurance.realEstate.package" ng-required="idc.areOtherFieldsRequired('realEstate')">
+                <select class="form-control" id="selContinent" name="inputPackage" ng-model="idc.insurance.realEstate.packageRE" ng-required="idc.areOtherFieldsRequired('realEstate')">
                   <option>{{'PURCHASE.RE_PACKAGE.FLOOD'|translate}}</option>
                   <option>{{'PURCHASE.RE_PACKAGE.FIRE'|translate}}</option>
                   <option>{{'PURCHASE.RE_PACKAGE.BURGLARY'|translate}}</option>

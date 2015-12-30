@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceDetailsController', InsuranceDetailsController);
 
-  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels', 'insuranceResourceService'];
+  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels', 'insuranceResourceService','testService'];
 
-  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels, insuranceResourceService) {
+  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels, insuranceResourceService,testService) {
     var idc = this;
 
     idc.insuranceService = insuranceService;
@@ -33,10 +33,12 @@
 
     function saveInsurance() {
       if (idc.vehicleValid && idc.saveInsurance) {
-        console.log(idc.insurance);
-        insuranceResourceService.save({}, idc.insurance, onSuccesSave);
-        idc.vehicleValid = false;
-        idc.realEstateValid = false;
+        // console.log(idc.insurance);
+         insuranceResourceService.save({}, idc.insurance, onSuccesSave);
+         idc.vehicleValid = false;
+         idc.realEstateValid = false;
+        //testService.save({}, idc.insurance, onSuccesSave);
+
       }else{
         console.log("ne moze da se sacuva nije validno");
       }
@@ -159,7 +161,7 @@
       if (text === 'vehicle') {
         return (idc.insurance.vehicle.duration || idc.insurance.vehicle.typeVehicle || idc.insurance.vehicle.model || idc.insurance.vehicle.productionYear || idc.insurance.vehicle.registrationNumber || idc.insurance.vehicle.vinNumber || idc.insurance.vehicle.owner);
       } else {
-        return (idc.insurance.realEstate.duration || idc.insurance.realEstate.sizeRE || idc.insurance.realEstate.age || idc.insurance.realEstate.estimatedValue || idc.insurance.realEstate.package || idc.insurance.realEstate.owner);
+        return (idc.insurance.realEstate.duration || idc.insurance.realEstate.sizeRE || idc.insurance.realEstate.age || idc.insurance.realEstate.estimatedValue || idc.insurance.realEstate.packageRE || idc.insurance.realEstate.owner);
       }
     }
   }
