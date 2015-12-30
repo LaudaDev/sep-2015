@@ -1,7 +1,6 @@
 (function () {
-  "use strict";
+	"use strict";
 
-  angular
-    .module('insurance-app',['insurance-app.core','insurance-app.shared','insurance-app.insurance']);
-
-}) ();
+	angular
+		.module('insurance-app',['insurance-app.core','insurance-app.shared','insurance-app.insurance']);
+})();
