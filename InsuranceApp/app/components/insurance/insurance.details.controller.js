@@ -29,19 +29,23 @@
     idc.validateRealEstateInsurance = validateRealEstateInsurance;
     idc.vehicleValid = false;
     idc.realEstateValid = false;
-    //  idc.saveInsurance = saveInsurance;
+    idc.saveInsurance = saveInsurance;
 
-    // function saveInsurance() {
-    //   console.log(idc.vehicleValid && idc.saveInsurance);
-    //   if(idc.vehicleValid && idc.saveInsurance){
-    //     insuranceResourceService.save({},idc.insurance,onSuccesSave);
-    //   }
-    //
-    // }
-    //
-    // function onSuccesSave() {
-    //   console.log("uspesno je sacuvano pogledaj mongo");
-    // }
+    function saveInsurance() {
+      if (idc.vehicleValid && idc.saveInsurance) {
+        console.log(idc.insurance);
+        insuranceResourceService.save({}, idc.insurance, onSuccesSave);
+        idc.vehicleValid = false;
+        idc.realEstateValid = false;
+      }else{
+        console.log("ne moze da se sacuva nije validno");
+      }
+
+    }
+
+    function onSuccesSave() {
+      console.log("uspesno je sacuvano pogledaj mongo");
+    }
 
     //modal za dodavanje korisnika
     function openModal() {
@@ -107,6 +111,7 @@
     function validateVehicleInsurance() {
       if (idc.stateForm.$valid) {
         idc.stateForm.$setUntouched();
+        idc.vehicleValid = true;
         console.log("tacanVeh");
       } else {
         touchControllsVehicles();
@@ -129,6 +134,7 @@
     function validateRealEstateInsurance() {
       if (idc.stateForm2.$valid) {
         idc.stateForm2.$setUntouched();
+        idc.realEstateValid = true;
         console.log("tacanRE");
 
       } else {

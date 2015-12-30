@@ -9,13 +9,6 @@
 
   function insuranceResourceService($resource) {
     var url = "http://localhost:8080/insurance";
-    return $resource(url, {}, {
-      update: {
-        method: 'PUT'
-      },
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
-    });
+    return $resource(url, {});
   }
 })();
