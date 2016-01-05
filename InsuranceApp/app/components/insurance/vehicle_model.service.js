@@ -1,10 +1,8 @@
 (function() {
-  "use strict";
+	"use strict";
 
-  var vehicleModels = {
-
-        "types": [
-
+	var vehicleModels = {
+		"types": [
           {
             "make_id": "abarth",
             "make_display": "Abarth",
@@ -629,8 +627,7 @@
         ]
       };
 
-
-  angular
-    .module('insurance-app.insurance')
-    .constant("vehicleModels", vehicleModels);
+	angular
+		.module('insurance-app.insurance')
+		.constant("vehicleModels", vehicleModels);
 })();
