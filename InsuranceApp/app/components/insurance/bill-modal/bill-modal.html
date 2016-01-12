@@ -6,12 +6,12 @@
     <div class="form-group">
       <label class="control-label col-sm-4" for="name">{{'MODAL.INSURANCE_DURATION'|translate}}</label>
       <div class="col-sm-8">
-        <label class="control-label col-sm-4" for="name">{{bmc.insurance.duration}}</label>
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.duration}}</label>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.TRAVELING_REGION'|translate}}</label>
         <div class="col-sm-8">
-          <label class="control-label col-sm-4" for="name">{{bmc.insurance.region}}</label>
+          <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.region}}</label>
         </div>
       </div>
       <hr>
@@ -19,35 +19,35 @@
         <label class="control-label col-sm-6" for="postalCode">{{'PURCHASE.NUMBER_OF_PERSONS'|translate}}</label>
       </div>
 
-      <div class="form-group" ng-hide="bmc.insurance.less == null">
+      <div class="form-group" ng-hide="bmc.insurance.travel.less == null">
         <label class="control-label col-sm-4" for="postalCode">{{'YEARS.YOUNGER'|translate}} 18</label>
         <div class="col-sm-8">
-          <label class="control-label col-sm-4" for="name">{{bmc.insurance.less}}</label>
+          <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.less}}</label>
         </div>
       </div>
-      <div class="form-group" ng-hide="bmc.insurance.between == null" >
+      <div class="form-group" ng-hide="bmc.insurance.travel.between == null" >
         <label class="control-label col-sm-4" for="postalCode">18-65</label>
         <div class="col-sm-8">
-          <label class="control-label col-sm-4" for="name">{{bmc.insurance.between}}</label>
+          <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.between}}</label>
         </div>
       </div>
-      <div class="form-group" ng-hide="bmc.insurance.over == null">
+      <div class="form-group" ng-hide="bmc.insurance.travel.over == null">
         <label class="control-label col-sm-4" for="postalCode">{{'YEARS.OVER'|translate}}65</label>
         <div class="col-sm-8">
-          <label class="control-label col-sm-4" for="name">{{bmc.insurance.over}}</label>
+          <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.over}}</label>
         </div>
       </div>
       <hr>
-      <div class="form-group" ng-hide="!bmc.insurance.doesSport">
+      <div class="form-group" ng-hide="!bmc.insurance.travel.doesSport">
         <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.WHICH_SPORT'|translate}}</label>
         <div class="col-sm-8">
-          <label class="control-label col-sm-4" for="name">{{bmc.insurance.sport}}</label>
+          <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.sport}}</label>
         </div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.INSURANCE_AMOUNT'|translate}}</label>
         <div class="col-sm-8">
-          <label class="control-label col-sm-4" for="name">{{bmc.insurance.insuredAmount}}</label>
+          <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.insuredAmount}}</label>
         </div>
       </div>
     </div>

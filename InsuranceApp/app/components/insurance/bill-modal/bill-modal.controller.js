@@ -5,10 +5,17 @@
 		.module('insurance-app.insurance')
 		.controller('BillModalController', BillModalController);
 
+<<<<<<< Updated upstream
 	BillModalController.$inject = ['$modalInstance', 'insurance', '$translate'];
 
 	function BillModalController($modalInstance, insurance, $translate) {
 		var bmc = this;
+=======
+  BillModalController.$inject = ['$uibModalInstance', 'insurance', '$translate'];
+
+  function BillModalController($uibModalInstance, insurance, $translate) {
+    var bmc = this;
+>>>>>>> Stashed changes
 
 		bmc.cancel = cancel;
 		bmc.insurance = insurance;
@@ -21,7 +28,11 @@
     }
 
     function cancel() {
+<<<<<<< Updated upstream
 		$modalInstance.close();
+=======
+      $uibModalInstance.close();
+>>>>>>> Stashed changes
     }
   }
 })();
