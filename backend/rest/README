@@ -1,0 +1,3 @@
+Debug As -> Maven build -> goal: "clean install"
+Run As -> Spring Boot App (eclipse MARS)
+Obican Run na ostalim verzijama ecl.
