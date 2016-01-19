@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.model.Transaction;
-import app.repository.local.TransactionLocalRepository;
+import app.repository.local.TransactionRepository;
 
 @Service
 public class TransactionService {
 
 	@Autowired
-	private TransactionLocalRepository transactionRepository;
+	private TransactionRepository transactionRepository;
 
 	
 	public Transaction save(Transaction transaction) {

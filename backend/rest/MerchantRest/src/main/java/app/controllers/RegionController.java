@@ -1,6 +1,5 @@
 package app.controllers;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,17 +23,7 @@ public class RegionController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Map<String, Object> createRegion(@RequestBody Region region) {
-		Map<String, Object> response = new LinkedHashMap<String, Object>();
-
-		if (region != null) {
-			regionService.create(region);
-			response.put("message", "Region created successfully");
-			response.put("region", region);
-		} else {
-			response.put("message", "Region is null");
-
-		}
-		return response;
+		return regionService.create(region);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -50,8 +39,8 @@ public class RegionController {
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{regionId}")
 	public String removeRegion(@PathVariable("regionId") String regionId) {
-		regionService.remove(regionId);
-		return "removed";
+		return regionService.remove(regionId);
+
 	}
 	
 }

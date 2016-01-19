@@ -1,6 +1,5 @@
 package app.controllers;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,19 +22,8 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createUser(@RequestBody User user) {
-		Map<String, Object> response = new LinkedHashMap<String, Object>();
-
-		if (user != null) {
-			userService.create(user);
-			response.put("message", "User created successfully");
-			response.put("user", user);
-		}else
-		{
-			response.put("message", "User is null");
-				
-		}
-		return response;
+	public Map<String, Object> createUser(@RequestBody User user) {		
+		return userService.create(user);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -51,8 +39,7 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{userId}")
 	public String removeUser(@PathVariable("userId") String userId) {
-		userService.remove(userId);
-		return "removed";
+		return userService.remove(userId);
 	}
 	
 }

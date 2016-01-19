@@ -9,7 +9,6 @@ public class RealestateInsurance implements Serializable{
 	 */
 	private static final long serialVersionUID = 5348136306628433221L;
 		//real estate insurance -- "re"
-
 		private int duration;
 		private double size;
 		private double age;

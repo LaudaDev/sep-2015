@@ -1,6 +1,5 @@
 package app.controllers;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +22,8 @@ public class PaymentController {
 	private PaymentService paymentService;
 
 	
-	@RequestMapping(method = RequestMethod.GET,value = "/{amount}")
-	public String buyInsurance(@RequestBody  Insurance insurance, RedirectAttributes redirectAttributes)
+	//@RequestMapping(method = RequestMethod.GET,value = "/{amount}")
+	public String buyInsurance(@RequestBody Insurance insurance, RedirectAttributes redirectAttributes)
 	{	
 		PaymentResponse instructions = paymentService.buyInsurance(insurance);
 		redirectAttributes.addFlashAttribute("paymentID", instructions.getPaymentID());

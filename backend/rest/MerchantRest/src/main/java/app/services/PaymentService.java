@@ -28,7 +28,7 @@ public class PaymentService {
 	
 	public PaymentResponse buyInsurance(Insurance insurance)
 	{
-		Insurance newInsurance = insuranceService.create(insurance);
+		Insurance newInsurance = (Insurance) insuranceService.create(insurance).get("insurance");
 		PaymentRequest paymentRequest = createPaymentRequest(newInsurance.getAmountToPay());
 		
 		PaymentResponse instructions = lookupService.getPaymentInstructions(paymentRequest);

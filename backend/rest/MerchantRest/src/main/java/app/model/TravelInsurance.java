@@ -9,7 +9,6 @@ public class TravelInsurance implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 2158996423429099545L;
-	
 	private List<User> users;
 	private int duration; //in days
 	private String region; //foreign key

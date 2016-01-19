@@ -1,6 +1,5 @@
 package app.controllers;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,38 +24,36 @@ public class InsuranceController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createinsurance(@RequestBody Insurance insurance) {
-		Map<String, Object> response = new LinkedHashMap<String, Object>();
-		if (insurance == null) {
-			response.put("message", "Error.Insurance is null.");
-		} else {
-			//dodati validacije 
-			System.out.println("ispiiis "+insurance.toString());
-			insuranceService.create(insurance);
-			response.put("message", "Insurance created successfully");
-			response.put("insurance", insurance);
-		}
-	
-		return response;
+	public Map<String, Object> createInsurance(@RequestBody Insurance insurance) {	
+		
+		return insuranceService.create(insurance);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{userId}")
 	public Insurance getInsuranceById(@PathVariable("userId") String insId) {
+		
 		return insuranceService.findById(insId);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Insurance> getAll() {
+		
 		return (List<Insurance>) insuranceService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{insuranceId}")
-	public String removeInsurance(@PathVariable("insuranceId") String insId) {
-		insuranceService.remove(insId);
-		return "removed";
+	public String removeInsurance(@PathVariable("insuranceId") String insId) {		
+		
+		return insuranceService.remove(insId);
+		
 	}
 	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Map<String, Object> editInsurance(@RequestBody  Insurance insurance) {	
+		
+		return insuranceService.edit(insurance);
+	}
 	
 	
 }

@@ -1,6 +1,5 @@
 package app.controllers;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,18 +21,8 @@ public class RealestatePackController {
 	private RealestateService realestateService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createRealestatePackage(@RequestBody RealestateInsPackage realestate) {
-		Map<String, Object> response = new LinkedHashMap<String, Object>();
-
-		if (realestate != null) {
-			realestateService.create(realestate);
-			response.put("message", "Package created successfully");
-			response.put("package", realestate);
-		} else {
-			response.put("message", "Package is null");
-
-		}
-		return response;
+	public Map<String, Object> createRealestatePackage(@RequestBody RealestateInsPackage realestate) {		
+		return realestateService.create(realestate);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -49,8 +38,8 @@ public class RealestatePackController {
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{packageId}")
 	public String removePackage(@PathVariable("packageId") String packageId) {
-		realestateService.remove(packageId);
-		return "removed";
+		return realestateService.remove(packageId);
+
 	}
 
 }
