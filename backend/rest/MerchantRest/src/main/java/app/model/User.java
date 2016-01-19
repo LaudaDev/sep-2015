@@ -5,10 +5,9 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import app.repository.commons.Common;
 
 @Document
-public class User extends Common implements Serializable{
+public class User implements Serializable{
 
 	/**
 	 * 
@@ -16,7 +15,6 @@ public class User extends Common implements Serializable{
 	private static final long serialVersionUID = -2312800478329505351L;
 	@Id
 	private String id;
-	
 	private String name;
 	private String surname;
 	private String jmbg;

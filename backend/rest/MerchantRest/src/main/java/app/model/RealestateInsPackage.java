@@ -5,10 +5,9 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import app.repository.commons.Common;
 
 @Document
-public class RealestateInsPackage extends Common implements Serializable{
+public class RealestateInsPackage implements Serializable{
 
 	/**
 	 * 

@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.javabeat</groupId>
-	<artifactId>AcquirerRestService</artifactId>
+	<artifactId>MerchantRestService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AcquirerRestService</name>
+	<name>MerchantRestService</name>
 	<properties>
 		<java.version>1.8</java.version>
 		<start-class>app.Application</start-class>
@@ -26,5 +26,9 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
+			<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-log4j</artifactId>
+    </dependency>
 	</dependencies>
 </project>

@@ -2,9 +2,7 @@ package app.model;
 
 import java.io.Serializable;
 
-import app.repository.commons.Common;
-
-public class RealestateInsurance extends Common implements Serializable{
+public class RealestateInsurance implements Serializable{
 
 	/**
 	 * 

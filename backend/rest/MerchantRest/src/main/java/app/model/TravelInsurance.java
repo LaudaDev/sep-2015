@@ -3,9 +3,7 @@ package app.model;
 import java.io.Serializable;
 import java.util.List;
 
-import app.repository.commons.Common;
-
-public class TravelInsurance extends Common implements Serializable{
+public class TravelInsurance implements Serializable{
 
 	/**
 	 * 

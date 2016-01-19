@@ -57,12 +57,6 @@ public class InsuranceController {
 		return "removed";
 	}
 	
-	/*@RequestMapping(method = RequestMethod.PUT)
-	public Map<String, Object> editInsurance(@RequestBody Insurance insurance) {
-		Map<String, Object> response = new LinkedHashMap<String, Object>();
 	
-
-		return response;
-	}*/
 	
 }
