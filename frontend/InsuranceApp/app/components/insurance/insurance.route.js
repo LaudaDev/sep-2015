@@ -12,6 +12,13 @@
 			url: '/insurance',
 			views: {
 				'content@': {
+				resolve : {
+
+						regions : getRegions,
+						sports : getSports
+						//amounts : getAmounts
+
+				},
 				templateUrl: 'app/components/insurance/insuranceBasic.html',
 				controller: 'InsuranceController',
 				controllerAs: 'ic'
@@ -28,5 +35,20 @@
 				}
 			}
 		});
+
+		getRegions.$inject = ['regionService'];
+		function getRegions(regionService) {
+			return regionService.query().$promise;
+		}
+
+		getSports.$inject = ['sportService'];
+		function getSports(sportService) {
+			return sportService.query().$promise;
+		}
+
+		getAmounts.$inject = ['amountService'];
+		function getAmounts(amountService) {
+			return amountService.query().$promise;
+		}
 	}
 })();

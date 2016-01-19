@@ -59,14 +59,7 @@
               {{'PURCHASE.TRAVELING_REGION'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="inputTravelRegion" id="selContinent" ng-model="ic.insurance.travel.region" required>
-                <option>{{'CONTINENTS.EUROPE'|translate}}</option>
-                <option>{{'CONTINENTS.ASIA'|translate}}</option>
-                <option>{{'CONTINENTS.SOUTH_AMERICA'|translate}}</option>
-                <option>{{'CONTINENTS.NORTH_AMERICA'|translate}}</option>
-                <option>{{'CONTINENTS.AUSTALIA'|translate}}</option>
-                <option>{{'CONTINENTS.AFRICA'|translate}}</option>
-                <option>{{'CONTINENTS.ANTARCTIC'|translate}}</option>
+              <select class="form-control" name="inputTravelRegion" id="selContinent" ng-model="ic.insurance.travel.region" ng-options=" region.name as region.name for region in ic.regions "required>
               </select>
               <div ng-messages="ic.stateForm.inputTravelRegion.$error" ng-show="ic.stateForm.inputTravelRegion.$touched">
                 <div ng-messages-include="./app/shared/messages.html"></div>
@@ -128,7 +121,7 @@
               {{'PURCHASE.WHICH_SPORT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="inputSport" ng-model="ic.insurance.travel.sport" ng-options=" sport.name as sport.name for sport in ic.priceList.sport " ng-required="ic.insurance.travel.doesSport">
+              <select class="form-control" name="inputSport" ng-model="ic.insurance.travel.sport" ng-options=" sport.name as sport.name for sport in ic.sports " ng-required="ic.insurance.travel.doesSport">
               </select>
               <div ng-messages="ic.stateForm.inputSport.$error" ng-show="ic.stateForm.inputSport.$touched">
                 <div ng-messages-include="./app/shared/messages.html"></div>
