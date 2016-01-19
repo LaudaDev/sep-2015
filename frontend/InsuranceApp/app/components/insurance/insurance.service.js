@@ -9,18 +9,32 @@
 
 	function insuranceService() {
 		var insurance = {};
-		
+	  insurance.travel = {};
+		insurance.travel.users = [];
+
 		var getInsurance = function() {
 			return insurance;
-		}
+		};
 
 		var setInsurance = function(value) {
 			insurance = value;
-		}
+		};
+
+		var getTravelInsurance = function() {
+			return insurance.travel;
+		};
+
+		var getInsuranceUsers = function() {
+			return insurance.travel.users;
+		};
+
 
 		return {
-		  getInsurance: getInsurance,
-		  setInsurance: setInsurance
+		  getInsurance : getInsurance,
+		  setInsurance : setInsurance,
+			getTravelInsurance : getTravelInsurance,
+			getInsuranceUsers : getInsuranceUsers
+
 		};
 	}
 })();

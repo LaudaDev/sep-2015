@@ -92,9 +92,6 @@
           "BURGLARY": "Burglary",
           "EARTHQUAKE": "Earthquake"
         },
-        "SPORT": {
-          "BASKETBALL": "Basketball"
-        },
         "VEHICLE_PACKAGE": {
           "MAIN": "Package you would like to purchase",
           "TOWING": "Towing",
@@ -243,9 +240,6 @@
           "FIRE": "Požara",
           "BURGLARY": "Krađe",
           "EARTHQUAKE": "Zemljotresa"
-        },
-        "SPORT": {
-          "BASKETBALL": "Kosarka"
         },
         "VEHICLE_PACKAGE": {
           "MAIN": "Paket koji želite uzeti",

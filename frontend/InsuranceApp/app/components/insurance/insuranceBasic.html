@@ -102,7 +102,7 @@
           </div>
           <div class="col-sm-10 col-md-offset-2">
             <div ng-messages="ic.stateForm.inputPersonsAge.$error" ng-show="ic.stateForm.inputPersonsAge.$touched">
-                <div ng-messages-include="./app/shared/messages.html"></div>
+              <div ng-messages-include="./app/shared/messages.html"></div>
             </div>
           </div>
 
@@ -128,7 +128,7 @@
               {{'PURCHASE.WHICH_SPORT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="inputSport" ng-model="ic.insurance.travel.sport" ng-options=" sport.name as sport.name for sport in ic.priceList.sport track by sport.name" ng-required="ic.insurance.travel.doesSport">
+              <select class="form-control" name="inputSport" ng-model="ic.insurance.travel.sport" ng-options=" sport.name as sport.name for sport in ic.priceList.sport " ng-required="ic.insurance.travel.doesSport">
               </select>
               <div ng-messages="ic.stateForm.inputSport.$error" ng-show="ic.stateForm.inputSport.$touched">
                 <div ng-messages-include="./app/shared/messages.html"></div>
@@ -142,7 +142,7 @@
               {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" id="selContinent" name="inputInsurAmount" ng-model="ic.insurance.travel.insuredAmount" required ng-options="insurance.price as insurance.price for insurance in ic.priceList.insuredAmount track by insurance.price">
+              <select class="form-control" id="selContinent" name="inputInsurAmount" ng-model="ic.insurance.travel.insuredAmount" required ng-options="insurance.price as insurance.price for insurance in ic.priceList.insuredAmount ">
               </select>
               <div ng-messages="ic.stateForm.inputInsurAmount.$error" ng-show="ic.stateForm.inputInsurAmount.$touched">
                 <div ng-messages-include="./app/shared/messages.html"></div>
@@ -164,7 +164,7 @@
                   <span class="glyphicon glyphicon-zoom-in"></span>
                 </button>
                 &nbsp;&nbsp;&nbsp;
-                <button type="submit"  ng-click="ic.validateInsurance('next')" class="btn btn-success btn-large" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
+                <button type="submit" ng-click="ic.validateInsurance('next')" class="btn btn-success btn-large" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
                   {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
                   <span class="glyphicon glyphicon-arrow-right"></span>
                 </button>
