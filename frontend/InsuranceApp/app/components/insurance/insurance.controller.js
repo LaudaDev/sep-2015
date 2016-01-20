@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceController', InsuranceController);
 
-  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state','regions','sports','amounts'];
+  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state', 'regions', 'sports', 'amounts'];
 
-  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports,amounts) {
+  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports, amounts) {
     var ic = this;
 
     ic.insuranceService = insuranceService;
@@ -54,11 +54,14 @@
       if (ic.insurance.travel.over !== null) {
         ic.insurance.travel.numOfPersons += ic.insurance.travel.over;
       }
-      calculate();
+
+      //calculate();
       ic.insuranceService.setInsurance(ic.insurance);
     }
 
     function calculate() {
+
+      //TODO odraditi na serverskoj strani racunanje cene 
 
       ic.insurance.amountToPay = ic.insurance.travel.duration + (ic.insurance.travel.region + '').length;
 

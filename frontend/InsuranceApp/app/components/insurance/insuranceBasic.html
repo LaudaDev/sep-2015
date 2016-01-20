@@ -43,7 +43,7 @@
           <div class="form-group" ng-class="{ 'has-error': ic.stateForm.inputDuration.$touched && ic.stateForm.inputDuration.$invalid }">
 
             <label for="inputDuration" class="control-label col-sm-2 ">
-              {{'PURCHASE.INSURANCE_DURATION'|translate}}
+              {{'PURCHASE.INSURANCE_DURATION'|translate}}*
             </label>
             <div class="col-sm-10">
               <input type="number" min="0" class="form-control" name="inputDuration" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" required ng-minlength="1" ng-maxlength="3" ng-model="ic.insurance.travel.duration">
@@ -56,7 +56,7 @@
           <div class="form-group" ng-class="{ 'has-error': ic.stateForm.inputTravelRegion.$touched && ic.stateForm.inputTravelRegion.$invalid }">
             <br>
             <label for="inputTravelRegion" class="control-label col-sm-2 ">
-              {{'PURCHASE.TRAVELING_REGION'|translate}}
+              {{'PURCHASE.TRAVELING_REGION'|translate}}*
             </label>
             <div class="col-sm-10">
               <select class="form-control" name="inputTravelRegion" id="selContinent" ng-model="ic.insurance.travel.region" ng-options=" region.name as region.name for region in ic.regions "required>
@@ -70,7 +70,7 @@
           <div class="form-group" ng-class="{ 'has-error': ic.stateForm.inputPersonsAge.$touched && ic.stateForm.inputPersonsAge.$invalid }">
             <br>
             <label for="inputPersonsAge" class="control-label col-sm-2 ">
-              {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}
+              {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}*
             </label>
             <label for="inputPersonsAge" class="col-sm-2">
               {{'YEARS.YOUNGER'|translate}} 18
@@ -132,7 +132,7 @@
           <div class="form-group" ng-class="{ 'has-error': ic.stateForm.inputInsurAmount.$touched && ic.stateForm.inputInsurAmount.$invalid }">
             <br>
             <label for="inputInsurAmount" class="control-label col-sm-2 ">
-              {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
+              {{'PURCHASE.INSURANCE_AMOUNT'|translate}}*
             </label>
             <div class="col-sm-10">
               <select class="form-control" id="selContinent" name="inputInsurAmount" ng-model="ic.insurance.travel.insuredAmount" required ng-options="insurance.amount as insurance.amount for insurance in ic.amounts ">
