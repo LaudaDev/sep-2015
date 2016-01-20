@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.model.Insurance;
 import app.services.InsuranceService;
+import app.transferData.JmbgResponse;
 
 @RestController
 @RequestMapping("/insurance")
-
+@CrossOrigin(origins = "http://localhost:8081")
 public class InsuranceController {
 
 	@Autowired
@@ -53,6 +55,13 @@ public class InsuranceController {
 	public Map<String, Object> editInsurance(@RequestBody  Insurance insurance) {	
 		
 		return insuranceService.edit(insurance);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value="/jmbg/{jmbg}")
+	public JmbgResponse validateJmbg(@PathVariable("jmbg") String  jmbg){
+		JmbgResponse response = new JmbgResponse();
+		response.setResult(insuranceService.checkJmbg(jmbg, true))           ;
+		return response;
 	}
 	
 	

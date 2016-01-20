@@ -135,7 +135,7 @@
               {{'PURCHASE.INSURANCE_AMOUNT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" id="selContinent" name="inputInsurAmount" ng-model="ic.insurance.travel.insuredAmount" required ng-options="insurance.price as insurance.price for insurance in ic.priceList.insuredAmount ">
+              <select class="form-control" id="selContinent" name="inputInsurAmount" ng-model="ic.insurance.travel.insuredAmount" required ng-options="insurance.amount as insurance.amount for insurance in ic.amounts ">
               </select>
               <div ng-messages="ic.stateForm.inputInsurAmount.$error" ng-show="ic.stateForm.inputInsurAmount.$touched">
                 <div ng-messages-include="./app/shared/messages.html"></div>

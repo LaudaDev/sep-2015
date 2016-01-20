@@ -15,8 +15,8 @@
 				resolve : {
 
 						regions : getRegions,
-						sports : getSports
-						//amounts : getAmounts
+						sports : getSports,
+						amounts : getAmounts
 
 				},
 				templateUrl: 'app/components/insurance/insuranceBasic.html',
@@ -46,9 +46,9 @@
 			return sportService.query().$promise;
 		}
 
-		getAmounts.$inject = ['amountService'];
-		function getAmounts(amountService) {
-			return amountService.query().$promise;
+		getAmounts.$inject = ['insuredAmountService'];
+		function getAmounts(insuredAmountService) {
+			return insuredAmountService.query().$promise;
 		}
 	}
 })();

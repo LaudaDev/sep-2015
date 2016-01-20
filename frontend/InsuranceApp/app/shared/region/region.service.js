@@ -2,13 +2,13 @@
 	"use strict";
 
 	angular
-		.module('insurance-app.insurance')
+		.module('insurance-app.shared')
 		.factory('regionService', regionService);
 
 	regionService.$inject = ['$resource'];
 
 	function regionService($resource) {
-		var url = "http://localhost:8080/region";
+		var url = "http://localhost:8080/MerchantApp/region";
 		return $resource(url, {});
 	}
 })();
