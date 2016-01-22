@@ -9,10 +9,10 @@ public class RealestateInsurance implements Serializable{
 	 */
 	private static final long serialVersionUID = 5348136306628433221L;
 		//real estate insurance -- "re"
-		private int duration;
-		private double size;
-		private double age;
-		private double estimatedValue;
+		private Integer duration;
+		private Double size;
+		private Double age;
+		private Double estimatedValue;
 		private User owner; // name + surname
 		private String packageRE;
 		
@@ -20,7 +20,7 @@ public class RealestateInsurance implements Serializable{
 			super();
 		}
 
-		public RealestateInsurance(int duration, double size, double age, double estimatedValue, User owner,
+		public RealestateInsurance(Integer duration, Double size, Double age, Double estimatedValue, User owner,
 				String packageRE) {
 			super();
 			this.duration = duration;
@@ -31,35 +31,35 @@ public class RealestateInsurance implements Serializable{
 			this.packageRE = packageRE;
 		}
 
-		public int getDuration() {
+		public Integer getDuration() {
 			return duration;
 		}
 
-		public void setDuration(int duration) {
+		public void setDuration(Integer duration) {
 			this.duration = duration;
 		}
 
-		public double getSize() {
+		public Double getSize() {
 			return size;
 		}
 
-		public void setSize(double size) {
+		public void setSize(Double size) {
 			this.size = size;
 		}
 
-		public double getAge() {
+		public Double getAge() {
 			return age;
 		}
 
-		public void setAge(double age) {
+		public void setAge(Double age) {
 			this.age = age;
 		}
 
-		public double getEstimatedValue() {
+		public Double getEstimatedValue() {
 			return estimatedValue;
 		}
 
-		public void setEstimatedValue(double estimatedValue) {
+		public void setEstimatedValue(Double estimatedValue) {
 			this.estimatedValue = estimatedValue;
 		}
 

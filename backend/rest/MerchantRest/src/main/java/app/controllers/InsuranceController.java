@@ -23,46 +23,50 @@ public class InsuranceController {
 
 	@Autowired
 	private InsuranceService insuranceService;
-	
-	
+
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createInsurance(@RequestBody Insurance insurance) {	
-		
+	public Map<String, Object> createInsurance(@RequestBody Insurance insurance) {
+
 		return insuranceService.create(insurance);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{userId}")
 	public Insurance getInsuranceById(@PathVariable("userId") String insId) {
-		
+
 		return insuranceService.findById(insId);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public List<Insurance> getAll() {
-		
+
 		return (List<Insurance>) insuranceService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{insuranceId}")
-	public String removeInsurance(@PathVariable("insuranceId") String insId) {		
-		
+	public String removeInsurance(@PathVariable("insuranceId") String insId) {
+
 		return insuranceService.remove(insId);
-		
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.PUT)
-	public Map<String, Object> editInsurance(@RequestBody  Insurance insurance) {	
-		
+	public Map<String, Object> editInsurance(@RequestBody Insurance insurance) {
+
 		return insuranceService.edit(insurance);
 	}
-	
-	@RequestMapping(method = RequestMethod.GET, value="/jmbg/{jmbg}")
-	public JmbgResponse validateJmbg(@PathVariable("jmbg") String  jmbg){
+
+	@RequestMapping(method = RequestMethod.GET, value = "/jmbg/{jmbg}")
+	public JmbgResponse validateJmbg(@PathVariable("jmbg") String jmbg) {
 		JmbgResponse response = new JmbgResponse();
-		response.setResult(insuranceService.checkJmbg(jmbg, true))           ;
+		response.setResult(insuranceService.checkJmbg(jmbg, true));
 		return response;
 	}
-	
-	
+
+	@RequestMapping(method = RequestMethod.POST, value = "/calculate")
+	public Insurance calculatePrice(@RequestBody Insurance insurance) {
+
+		return insuranceService.calculateInsurance(insurance);
+	}
+
 }

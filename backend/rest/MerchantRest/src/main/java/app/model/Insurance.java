@@ -17,19 +17,19 @@ public class Insurance implements Serializable{
 	private String id;
 	private VehicleInsurance vehicle;
 	private RealestateInsurance realEstate;
-	private TravelInsurance travel;
+	private Travel travel;
 	private double amountToPay;
 
 	public Insurance() {
 		super();		
 	}
 	
-	public Insurance(VehicleInsurance vehicleIns, RealestateInsurance realstateIns, TravelInsurance travelIns,
+	public Insurance(VehicleInsurance vehicleIns, RealestateInsurance realstateIns, Travel travel,
 			double totalPrice) {
 		super();
 		this.vehicle = vehicleIns;
 		this.realEstate = realstateIns;
-		this.travel = travelIns;
+		this.travel = travel;
 		this.amountToPay = totalPrice;
 	}
 
@@ -57,11 +57,11 @@ public class Insurance implements Serializable{
 		this.realEstate = realEstate;
 	}
 
-	public TravelInsurance getTravel() {
+	public Travel getTravel() {
 		return travel;
 	}
 
-	public void setTravel(TravelInsurance travel) {
+	public void setTravel(Travel travel) {
 		this.travel = travel;
 	}
 

@@ -14,22 +14,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.model.Insurance;
+import app.model.InsuredAmount;
+import app.model.RealestateInsPackage;
+import app.model.Region;
+import app.model.Sport;
 import app.repository.local.InsuranceRepository;
+import app.repository.local.InsuredAmountRepository;
+import app.repository.local.RealestatePackRepository;
+import app.repository.local.RegionRepository;
+import app.repository.local.SportRepository;
 import app.services.exceptions.BadRequestException;
 import app.services.exceptions.NotFoundException;
 import app.validators.InsuranceValidation;
 
 @Service
 public class InsuranceService {
+
 	@Autowired
 	private InsuranceRepository insuranceRepository;
+
+	@Autowired
+	private RegionRepository regionRepository;
+
+	@Autowired
+	private SportRepository sportRepository;
+
+	@Autowired
+	private InsuredAmountRepository insuredAmountRepository;
+
+	@Autowired
+	private RealestatePackRepository realEstatePackRepository;
+
 	public static final int JMBG_OK = 0;
 	public static final int JMBG_INVALID = 1;
 	public static final int JMBG_WARNING = 2;
-	
 	private static Pattern jmbgPattern = Pattern.compile("\\d{13}");
 	private static SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-
 
 	private static final Logger logger = Logger.getLogger(InsuranceService.class);
 
@@ -93,9 +113,9 @@ public class InsuranceService {
 
 		return response;
 	}
-	
-	//validacija jmbg
-	
+
+	// validacija jmbg
+
 	public boolean checkJmbg(String jmbg, boolean withChecksum) {
 		if (jmbg == null)
 			return false;
@@ -204,5 +224,114 @@ public class InsuranceService {
 
 	private static int char2int(char c) {
 		return (int) c - 48;
+	}
+
+	public Insurance calculateInsurance(Insurance insurance) {
+
+		Region region = regionRepository.findRegionByName(insurance.getTravel().getRegion());
+		System.out.println(region);
+		Sport sport = sportRepository.findSportByName(insurance.getTravel().getSport());
+		System.out.println(sport);
+		InsuredAmount iAmount = insuredAmountRepository
+				.findInsuredAmountByAmount(insurance.getTravel().getInsuredAmount());
+		System.out.println(iAmount);
+
+		double amountToPay = insurance.getTravel().getDuration() + region.getCoefficient() + iAmount.getCoefficient();
+
+		if (insurance.getTravel().getLess() != 0) {
+
+			amountToPay += insurance.getTravel().getLess() * 4;// 4 je
+																// koeficijent
+																// za ovu grupu
+																// da ne cuvam
+																// to u bazi,
+																// moram da
+																// pravim klasu
+																// samo za to, a
+																// mrzi me
+
+		} else if (insurance.getTravel().getBetween() != 0) {
+
+			amountToPay += insurance.getTravel().getBetween() * 3;
+
+		} else if (insurance.getTravel().getOver() != 0) {
+
+			amountToPay += insurance.getTravel().getOver() * 2;
+		}
+
+		if (insurance.getTravel().isDoesSport() == true) {
+
+			amountToPay += sport.getCoefficient();
+		}
+
+		if (insurance.getRealEstate() != null) { // ako je uzeo i realEstate
+
+			RealestateInsPackage realestateInsPackage = realEstatePackRepository
+					.findRealestateInsPackageByName(insurance.getRealEstate().getPackageRE());
+
+			if (realestateInsPackage != null) {
+
+				amountToPay += realestateInsPackage.getCoefficient();
+			}
+
+			if (insurance.getRealEstate().getDuration() != null) {
+
+				amountToPay += insurance.getRealEstate().getDuration();
+			}
+
+			if (insurance.getRealEstate().getSize() != null) {
+
+				amountToPay += +insurance.getRealEstate().getSize() / 10;
+			}
+
+			if (insurance.getRealEstate().getEstimatedValue() != null) {
+
+				amountToPay += insurance.getRealEstate().getEstimatedValue() / 10000;
+			}
+
+			if (insurance.getRealEstate().getAge() != null) {
+				if (insurance.getRealEstate().getAge() < 10) {
+					amountToPay += insurance.getRealEstate().getAge();
+				} else {
+					amountToPay += insurance.getRealEstate().getAge() / 10;
+				}
+
+			}
+		}
+
+		if (insurance.getVehicle() != null) { // ako je uzeo i vehicle
+
+			double vehicleInsurPrice = 0;
+
+			if (insurance.getVehicle().getPackageV() != null) {
+				if (insurance.getVehicle().getPackageV().equals("towing")) {
+
+					vehicleInsurPrice = insurance.getVehicle().getPackageDetail() / 100;
+
+				} else if (insurance.getVehicle().getPackageV().equals("repair")) {
+
+					vehicleInsurPrice = insurance.getVehicle().getPackageDetail() / 50;
+
+				} else if (insurance.getVehicle().getPackageV().equals("sleepover")) {
+
+					vehicleInsurPrice = insurance.getVehicle().getPackageDetail() / 50;
+
+				} else {
+
+					vehicleInsurPrice = 4; // ako uzme alternativni paket
+				}
+			}
+
+			if (insurance.getVehicle().getDuration() != null) {
+
+				vehicleInsurPrice *= insurance.getVehicle().getDuration();
+				amountToPay += vehicleInsurPrice;
+			}
+
+		}
+
+		insurance.setAmountToPay(amountToPay);
+
+		return insurance;
 	}
 }

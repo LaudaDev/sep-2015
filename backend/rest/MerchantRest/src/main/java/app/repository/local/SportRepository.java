@@ -7,4 +7,5 @@ import app.model.Sport;
 
 public interface SportRepository extends MongoRepository<Sport,String> {
 
+	public Sport findSportByName(String name);
 }

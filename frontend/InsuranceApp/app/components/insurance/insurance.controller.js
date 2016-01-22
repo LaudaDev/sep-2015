@@ -5,15 +5,16 @@
     .module('insurance-app.insurance')
     .controller('InsuranceController', InsuranceController);
 
-  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state', 'regions', 'sports', 'amounts'];
+  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state', 'regions', 'sports', 'amounts', 'calculateService'];
 
-  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports, amounts) {
+  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports, amounts, calculateService) {
     var ic = this;
 
     ic.insuranceService = insuranceService;
     ic.regions = regions;
     ic.sports = sports;
     ic.amounts = amounts;
+    ic.calculateService = calculateService;
     ic.priceList = priceList;
     ic.insurance = ic.insuranceService.getInsurance();
     ic.insurance.travel = ic.insuranceService.getTravelInsurance();
@@ -21,6 +22,8 @@
     ic.validateInsurance = validateInsurance;
     ic.isOneFieldRequired = isOneFieldRequired;
     ic.setObject = setObject;
+
+    console.log(ic.insurance);
 
     function openModal() {
 
@@ -40,63 +43,38 @@
 
     function setObject() {
 
-
       ic.insurance.travel.numOfPersons = 0;
 
-      if (ic.insurance.travel.less !== null) {
+      if (ic.insurance.travel.less !== undefined) {
         ic.insurance.travel.numOfPersons += ic.insurance.travel.less;
       }
 
-      if (ic.insurance.travel.between !== null) {
+      if (ic.insurance.travel.between !== undefined) {
         ic.insurance.travel.numOfPersons += ic.insurance.travel.between;
       }
 
-      if (ic.insurance.travel.over !== null) {
+      if (ic.insurance.travel.over !== undefined) {
         ic.insurance.travel.numOfPersons += ic.insurance.travel.over;
       }
-
-      //calculate();
+    
       ic.insuranceService.setInsurance(ic.insurance);
     }
 
     function calculate() {
 
-      //TODO odraditi na serverskoj strani racunanje cene 
+      ic.calculateService.save({}, ic.insurance, onSuccesCalculation, onError);
 
-      ic.insurance.amountToPay = ic.insurance.travel.duration + (ic.insurance.travel.region + '').length;
+    }
 
-      if (ic.insurance.travel.less !== null) {
-        ic.insurance.amountToPay += ic.priceList.age.lessCf * ic.insurance.travel.less;
-      }
+    function onError(reason) {
+      console.log(reason);
+    }
 
-      if (ic.insurance.travel.between !== null) {
-        ic.insurance.amountToPay += ic.priceList.age.betweenCf * ic.insurance.travel.between;
-      }
-
-      if (ic.insurance.travel.over !== null) {
-        ic.insurance.amountToPay += ic.priceList.age.overCf * ic.insurance.travel.over;
-      }
-
-      if (ic.insurance.travel.sport !== null && ic.insurance.travel.doesSport !== false) {
-
-        for (var i = 0; i < ic.priceList.sport.length; i++) {
-          if (ic.priceList.sport[i].name === ic.insurance.travel.sport) {
-            ic.insurance.amountToPay += ic.priceList.sport[i].koeficijent;
-          }
-        }
-
-      }
-
-      if (ic.insurance.travel.insuredAmount) {
-        for (var j = 0; j < ic.priceList.insuredAmount.length; j++) {
-          if (ic.priceList.insuredAmount[j].price === ic.insurance.travel.insuredAmount) {
-            ic.insurance.amountToPay += ic.priceList.insuredAmount[j].koeficijent;
-          }
-        }
-      }
-
-
-
+    function onSuccesCalculation(response) {
+      console.log(response);
+      console.log("uspesno je odradjen calculate");
+      ic.insurance = response;
+      ic.validateInsurance('preview');
     }
 
     function validateInsurance(text) {

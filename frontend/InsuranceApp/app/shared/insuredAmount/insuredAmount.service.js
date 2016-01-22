@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('insurance-app.insurance')
+		.module('insurance-app.shared')
 		.factory('insuredAmountService', insuredAmountService);
 
 	insuredAmountService.$inject = ['$resource'];

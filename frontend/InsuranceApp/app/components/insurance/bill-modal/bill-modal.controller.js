@@ -13,6 +13,7 @@
     bmc.cancel = cancel;
     bmc.insurance = insurance;
     bmc.currentLocale = currentLocale;
+    
 
     function currentLocale() {
       if ($translate.use() === 'sr-latn') {

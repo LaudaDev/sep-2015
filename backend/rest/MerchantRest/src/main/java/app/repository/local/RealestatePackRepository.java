@@ -7,4 +7,5 @@ import app.model.RealestateInsPackage;
 
 public interface RealestatePackRepository extends MongoRepository<RealestateInsPackage, String>{
 
+	public RealestateInsPackage findRealestateInsPackageByName(String name);
 }

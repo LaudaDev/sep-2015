@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import app.model.Insurance;
 import app.model.RealestateInsurance;
-import app.model.TravelInsurance;
+import app.model.Travel;
 import app.model.VehicleInsurance;
 
 public final class InsuranceValidation {
@@ -109,7 +109,7 @@ public final class InsuranceValidation {
 		return true;
 	}
 	
-	public  static boolean validateTravelInsurance(TravelInsurance travelIns)
+	public  static boolean validateTravelInsurance(Travel travelIns)
 	{
 		
 		if(travelIns.getUsers() == null)
@@ -136,7 +136,7 @@ public final class InsuranceValidation {
 			return false;
 		}
 		
-		if(travelIns.getAmount() < 0)
+		if(travelIns.getInsuredAmount() < 0)
 		{
 			logger.error("Travel insurance amount< 0");
 			return false;

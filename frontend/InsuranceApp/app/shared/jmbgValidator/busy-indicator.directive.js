@@ -6,10 +6,10 @@ angular.module('insurance-app.shared').directive('busyIndicator', ['$compile', f
         controller: function () {
             //funkcije koje ćemo koristiti u unique-jmbg direktivi
             var indicator = this;
-            indicator.show = function () { indicator.busy = true; }
-            indicator.hide = function () { indicator.busy = false; }
+            indicator.show = function () { indicator.busy = true; };
+            indicator.hide = function () { indicator.busy = false; };
         },
         controllerAs: 'indicator',
         bindToController: true
-    }
+    };
 }]);

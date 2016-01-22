@@ -1,6 +1,5 @@
 (function() {
-	'use strict'
-
+	'use strict';
 	angular
 		.module('insurance-app.shared')
 		.factory('jmbgService', jmbgService);

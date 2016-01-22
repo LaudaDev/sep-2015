@@ -3,12 +3,12 @@ package app.model;
 import java.io.Serializable;
 
 public class VehicleInsurance implements Serializable {
-	
-		/**
-	 * 
-	 */
+
+	/**
+	* 
+	*/
 	private static final long serialVersionUID = -1027548365143014756L;
-	private int duration;
+	private Integer duration;
 	private String model;
 	private String type;
 	private String owner;
@@ -16,13 +16,14 @@ public class VehicleInsurance implements Serializable {
 	private String registrationNumber;
 	private String vinNumber;
 	private String packageV;
+	private double packageDetail;
 
 	public VehicleInsurance() {
 		super();
 	}
 
-	public VehicleInsurance(int duration, String model, String type, String owner, int productionYear,
-			String registrationNumber, String vinNumber, String packageV) {
+	public VehicleInsurance(Integer duration, String model, String type, String owner, int productionYear,
+			String registrationNumber, String vinNumber, String packageV, double packageDetail) {
 		super();
 		this.duration = duration;
 		this.model = model;
@@ -32,13 +33,22 @@ public class VehicleInsurance implements Serializable {
 		this.registrationNumber = registrationNumber;
 		this.vinNumber = vinNumber;
 		this.packageV = packageV;
+		this.packageDetail = packageDetail;
 	}
 
-	public int getDuration() {
+	public double getPackageDetail() {
+		return packageDetail;
+	}
+
+	public void setPackageDetail(double packageDetail) {
+		this.packageDetail = packageDetail;
+	}
+
+	public Integer getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 
@@ -105,5 +115,4 @@ public class VehicleInsurance implements Serializable {
 				+ vinNumber + ", packageV=" + packageV + "]";
 	}
 
-		
 }
