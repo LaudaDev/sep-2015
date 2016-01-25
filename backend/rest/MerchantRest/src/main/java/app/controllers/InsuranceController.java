@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.model.Insurance;
+import app.model.transferData.JmbgResponse;
 import app.services.InsuranceService;
-import app.transferData.JmbgResponse;
 
 @RestController
 @RequestMapping("/insurance")
@@ -26,7 +27,7 @@ public class InsuranceController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createInsurance(@RequestBody Insurance insurance) {	
+	public Map<String, Object> createInsurance(@Validated @RequestBody Insurance insurance) {	
 		
 		return insuranceService.create(insurance);
 	}
@@ -52,7 +53,7 @@ public class InsuranceController {
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
-	public Map<String, Object> editInsurance(@RequestBody  Insurance insurance) {	
+	public Map<String, Object> editInsurance(@Validated @RequestBody  Insurance insurance) {	
 		
 		return insuranceService.edit(insurance);
 	}
@@ -60,7 +61,7 @@ public class InsuranceController {
 	@RequestMapping(method = RequestMethod.GET, value="/jmbg/{jmbg}")
 	public JmbgResponse validateJmbg(@PathVariable("jmbg") String  jmbg){
 		JmbgResponse response = new JmbgResponse();
-		response.setResult(insuranceService.checkJmbg(jmbg, true))           ;
+		response.setResult(insuranceService.checkJmbg(jmbg, true));
 		return response;
 	}
 	

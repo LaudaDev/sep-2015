@@ -2,19 +2,37 @@ package app.model;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 public class VehicleInsurance implements Serializable {
 	
 		/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1027548365143014756L;
+	
+	@NotNull(message = "error.duration.notnull")
 	private int duration;
+	
+	@NotNull(message = "error.model.notnull")
 	private String model;
+	
+	@NotNull(message = "error.type.notnull")
 	private String type;
+	
+	@NotNull(message = "error.owner.notnull")
 	private String owner;
+	
+	@NotNull(message = "error.productionYear.notnull")
 	private int productionYear;
+	
+	@NotNull(message = "error.registrationNumber.notnull")
 	private String registrationNumber;
+	
+	@NotNull(message = "error.vinNumber.notnull")
 	private String vinNumber;
+	
+	@NotNull(message = "error.packageV.notnull")
 	private String packageV;
 
 	public VehicleInsurance() {

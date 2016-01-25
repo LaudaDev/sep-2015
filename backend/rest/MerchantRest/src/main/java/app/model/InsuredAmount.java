@@ -1,12 +1,18 @@
 package app.model;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 
 public class InsuredAmount {
 
 	@Id
 	private String id;
+	
+	@NotNull(message = "error.amount.notnull")
 	private double amount;
+	
+	@NotNull(message = "error.coefficient.notnull")
 	private double coefficient;
 	
 	

@@ -1,12 +1,13 @@
 package app.services;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.model.Transaction;
-import app.repository.local.TransactionRepository;
+import app.repository.TransactionRepository;
 
 @Service
 public class TransactionService {
@@ -26,11 +27,13 @@ public class TransactionService {
 	}
 
 	public Transaction findById(String id) {
+
 		return transactionRepository.findOne(id);
 	}
 
 	
 	public void remove(String id) {
+
 		transactionRepository.delete(id);		
 	}
 
@@ -44,8 +47,13 @@ public class TransactionService {
 		return transactionRepository.findByPaymentID(paymentID);
 	}
 	
-	 public Transaction findByMerchantOrderId(int merchantOrderId)
+	 public Transaction findByMerchantOrderIdAndTimestamp(int merchantOrderId, Date merchantTimestamp)
 	 {
-			return transactionRepository.findByMerchantOrderId(merchantOrderId);
+			return transactionRepository.findByMerchantOrderIdAndTimestamp(merchantOrderId, merchantTimestamp);
+	 }
+	 
+	 public Transaction findByMerchantOrderAndPaymentId(int merchantOrderId, int paymentID)
+	 {
+		 return transactionRepository.findByMerchantOrderAndPaymentId(merchantOrderId, paymentID);
 	 }
 }

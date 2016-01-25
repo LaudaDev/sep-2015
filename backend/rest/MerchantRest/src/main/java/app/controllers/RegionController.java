@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,7 @@ public class RegionController {
 	private RegionService regionService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createRegion(@RequestBody Region region) {
+	public Map<String, Object> createRegion(@Validated @RequestBody Region region) {
 		return regionService.create(region);
 	}
 
@@ -43,6 +44,11 @@ public class RegionController {
 	public String removeRegion(@PathVariable("regionId") String regionId) {
 		return regionService.remove(regionId);
 
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Map<String, Object> updateRegion(@Validated @RequestBody Region region) {
+		return regionService.update(region);
 	}
 	
 }

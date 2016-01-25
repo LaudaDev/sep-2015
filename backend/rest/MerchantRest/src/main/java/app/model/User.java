@@ -2,6 +2,8 @@ package app.model;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,11 +17,23 @@ public class User implements Serializable{
 	private static final long serialVersionUID = -2312800478329505351L;
 	@Id
 	private String id;
+	
+	@NotNull(message = "error.name.notnull")
 	private String name;
+	
+	@NotNull(message = "error.surname.notnull")
 	private String surname;
+	
+	@NotNull(message = "error.jmbg.notnull")
 	private String jmbg;
+	
+	@NotNull(message = "error.phoneNum.notnull")
 	private String phoneNum;
+	
+	@NotNull(message = "error.address.notnull")
 	private String address;
+	
+	@NotNull(message = "error.passportNum.notnull")
 	private String passportNum;
 
 		

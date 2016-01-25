@@ -1,4 +1,4 @@
-package app.transferData;
+package app.model.transferData;
 
 public class JmbgResponse {
 

@@ -13,8 +13,8 @@ public class BadRequestException  extends RuntimeException
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(BadRequestException.class);
 	
-	public BadRequestException()
+	public BadRequestException(String message)
 	{
-		logger.error("Bad request exception.");
+		logger.error(message);
 	}
 }

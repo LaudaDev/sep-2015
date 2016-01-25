@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.model.Region;
-import app.repository.local.RegionRepository;
+import app.repository.RegionRepository;
 import app.services.exceptions.BadRequestException;
 import app.services.exceptions.NotFoundException;
 
@@ -24,23 +24,15 @@ public class RegionService {
 	public Map<String, Object> create(Region region) {
 	
 		Map<String, Object> response;
-
-		if (region == null) {
-			throw new BadRequestException();		
-		}
-		
 		response = new LinkedHashMap<String, Object>();
 		regionRepository.save(region);
-		response.put("message", "Region created successfully");
-		response.put("region", region);
-		
-		logger.info("Region created successfully");
+		response.put("message", "Region successfully created");
+		response.put("region", region);	
+		logger.info("Region successfully created");
 		return response;
 	}
 
 	public List<Region> findAll() {
-		
-		logger.info("List all regions");
 		return (List<Region>) regionRepository.findAll();
 	}
 
@@ -48,14 +40,11 @@ public class RegionService {
 		
 		if(id == null)
 		{
-			throw new BadRequestException();
-		} 
-		
-		logger.info("Find region with id: " + id);
-		Region region = regionRepository.findOne(id);
-		
+			throw new BadRequestException("regionId is null");
+		} 	
+		Region region = regionRepository.findOne(id);	
 		if (region == null) {
-			throw new NotFoundException();
+			throw new NotFoundException("Region with id " + id + " doesn't exist.");
 		}
 		return region;
 	}
@@ -65,8 +54,9 @@ public class RegionService {
 		
 		if(id == null)
 		{
-			throw new BadRequestException();
+			throw new BadRequestException("regionId is null");
 		}
+		
 		logger.info("Removing region with id: " + id);		
 		regionRepository.delete(id);	
 		return "removed";
@@ -75,17 +65,12 @@ public class RegionService {
 	public Map<String, Object>  update(Region region) {
 		
 		Map<String, Object> response;
-
-		if (region == null) {
-			throw new BadRequestException();		
-		}
-		
 		response = new LinkedHashMap<String, Object>();
 		regionRepository.save(region);
-		response.put("message", "Region updated successfully");
+		response.put("message", "Region successfully  updated");
 		response.put("region", region);
 		
-		logger.info("Region updated successfully");
+		logger.info("Region successfully  updated");
 		return response;
 	}
 }

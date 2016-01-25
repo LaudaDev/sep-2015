@@ -2,6 +2,9 @@ package app.model;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,7 +20,12 @@ public class Insurance implements Serializable{
 	private String id;
 	private VehicleInsurance vehicle;
 	private RealestateInsurance realEstate;
+	
+	@NotNull(message = "error.travelInsurance.notnull")
 	private TravelInsurance travel;
+	
+	@NotNull(message = "error.amountToPay.notnull")
+	@Min(1)
 	private double amountToPay;
 
 	public Insurance() {
