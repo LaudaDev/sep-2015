@@ -18,7 +18,7 @@ import app.transferData.JmbgResponse;
 
 @RestController
 @RequestMapping("/insurance")
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8081") 
 public class InsuranceController {
 
 	@Autowired

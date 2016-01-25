@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.model.VehicleInsurance;
+import app.model.Vehicle;
 import app.repository.local.VehicleInsuranceRepository;
 import app.services.exceptions.BadRequestException;
 import app.services.exceptions.NotFoundException;
@@ -21,7 +21,7 @@ public class VehicleInsuranceService {
 	
 	private static final Logger logger = Logger.getLogger(VehicleInsuranceService.class);
 
-	public Map<String, Object> create(VehicleInsurance vehicle) {
+	public Map<String, Object> create(Vehicle vehicle) {
 	
 		Map<String, Object> response;
 
@@ -39,12 +39,12 @@ public class VehicleInsuranceService {
 
 	}
 
-	public List<VehicleInsurance> findAll() {
+	public List<Vehicle> findAll() {
 		logger.info("List all insurances");
-		return (List<VehicleInsurance>) vehicleRepository.findAll();
+		return (List<Vehicle>) vehicleRepository.findAll();
 	}
 
-	public VehicleInsurance findById(String id) {
+	public Vehicle findById(String id) {
 
 		if(id == null)
 		{
@@ -52,7 +52,7 @@ public class VehicleInsuranceService {
 		} 
 		
 		logger.info("Find vehicle insurance with id: " + id);
-		VehicleInsurance vehicle = vehicleRepository.findOne(id);;
+		Vehicle vehicle = vehicleRepository.findOne(id);;
 		
 		if (vehicle == null) {
 			throw new NotFoundException();

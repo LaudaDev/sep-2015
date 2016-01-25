@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import app.model.RealestateInsPackage;
 import app.services.RealestateService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:8081") 
 @RequestMapping("/realestate")
 public class RealestatePackController {
 	@Autowired

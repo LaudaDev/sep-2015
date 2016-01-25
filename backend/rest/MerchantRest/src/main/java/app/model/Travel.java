@@ -10,22 +10,22 @@ public class Travel implements Serializable {
 	 */
 	private static final long serialVersionUID = 2158996423429099545L;
 	private List<User> users;
-	private int duration; // in days
+	private Integer duration; // in days
 	private String region; // foreign key
-	private int less; // users younger than 18
-	private int between;// users between 18 and 65
-	private int over; // users older than 65
+	private Integer less; // users younger than 18
+	private Integer between;// users between 18 and 65
+	private Integer over; // users older than 65
 	private boolean doesSport; // foreign key
 	private String sport;
-	private int numOfPersons;// less + between + over
-	private double insuredAmount;
+	private Integer numOfPersons;// less + between + over
+	private Double insuredAmount;
 
 	public Travel() {
 		super();
 	}
 
-	public Travel(List<User> users, int duration, String region, int less, int between, int over, boolean doesSport,
-			String sport, int numOfPersons, double insuredAmount) {
+	public Travel(List<User> users, Integer duration, String region, Integer less, Integer between, Integer over, boolean doesSport,
+			String sport, Integer numOfPersons, Double insuredAmount) {
 		super();
 		this.users = users;
 		this.duration = duration;
@@ -47,11 +47,11 @@ public class Travel implements Serializable {
 		this.users = users;
 	}
 
-	public int getDuration() {
+	public Integer getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 
@@ -63,27 +63,27 @@ public class Travel implements Serializable {
 		this.region = region;
 	}
 
-	public int getLess() {
+	public Integer getLess() {
 		return less;
 	}
 
-	public void setLess(int less) {
+	public void setLess(Integer less) {
 		this.less = less;
 	}
 
-	public int getBetween() {
+	public Integer getBetween() {
 		return between;
 	}
 
-	public void setBetween(int between) {
+	public void setBetween(Integer between) {
 		this.between = between;
 	}
 
-	public int getOver() {
+	public Integer getOver() {
 		return over;
 	}
 
-	public void setOver(int over) {
+	public void setOver(Integer over) {
 		this.over = over;
 	}
 
@@ -103,19 +103,19 @@ public class Travel implements Serializable {
 		this.sport = sport;
 	}
 
-	public int getNumOfPersons() {
+	public Integer getNumOfPersons() {
 		return numOfPersons;
 	}
 
-	public void setNumOfPersons(int numOfPersons) {
+	public void setNumOfPersons(Integer numOfPersons) {
 		this.numOfPersons = numOfPersons;
 	}
 
-	public double getInsuredAmount() {
+	public Double getInsuredAmount() {
 		return insuredAmount;
 	}
 
-	public void setInsuredAmount(double insuredAmount) {
+	public void setInsuredAmount(Double insuredAmount) {
 		this.insuredAmount = insuredAmount;
 	}
 

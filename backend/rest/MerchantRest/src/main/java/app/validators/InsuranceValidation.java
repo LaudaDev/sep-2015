@@ -3,9 +3,9 @@ package app.validators;
 import org.apache.log4j.Logger;
 
 import app.model.Insurance;
-import app.model.RealestateInsurance;
+import app.model.RealEstate;
 import app.model.Travel;
-import app.model.VehicleInsurance;
+import app.model.Vehicle;
 
 public final class InsuranceValidation {
 
@@ -57,7 +57,7 @@ public final class InsuranceValidation {
 	}
 	
 	
-	public  static boolean validateVehicleInsurance(VehicleInsurance vehicleIns)
+	public  static boolean validateVehicleInsurance(Vehicle vehicleIns)
 	{
 		
 		if(vehicleIns.getDuration() < 0)
@@ -74,7 +74,7 @@ public final class InsuranceValidation {
 		return true;
 	}
 	
-	public  static boolean validateRealestateInsurance(RealestateInsurance realestateIns)
+	public  static boolean validateRealestateInsurance(RealEstate realestateIns)
 	{
 		if(realestateIns.getDuration() < 0)
 		{

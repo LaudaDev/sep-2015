@@ -57,9 +57,9 @@ public class InsuranceService {
 
 		Map<String, Object> response;
 
-		if (!InsuranceValidation.validateInsurance(insurance)) {
-			throw new BadRequestException();
-		}
+//		if (!InsuranceValidation.validateInsurance(insurance)) {
+//			throw new BadRequestException();
+//		}
 
 		response = new LinkedHashMap<String, Object>();
 		insuranceRepository.save(insurance);
@@ -236,7 +236,22 @@ public class InsuranceService {
 				.findInsuredAmountByAmount(insurance.getTravel().getInsuredAmount());
 		System.out.println(iAmount);
 
-		double amountToPay = insurance.getTravel().getDuration() + region.getCoefficient() + iAmount.getCoefficient();
+		double amountToPay = 0;
+
+		if (insurance.getTravel().getDuration() != null) {
+
+			amountToPay += insurance.getTravel().getDuration();
+		}
+
+		if (region != null) {
+
+			amountToPay += region.getCoefficient();
+		}
+
+		if (iAmount != null) {
+
+			amountToPay += iAmount.getCoefficient();
+		}
 
 		if (insurance.getTravel().getLess() != 0) {
 
@@ -259,7 +274,7 @@ public class InsuranceService {
 			amountToPay += insurance.getTravel().getOver() * 2;
 		}
 
-		if (insurance.getTravel().isDoesSport() == true) {
+		if (insurance.getTravel().isDoesSport() == true && sport != null) {
 
 			amountToPay += sport.getCoefficient();
 		}
@@ -279,9 +294,9 @@ public class InsuranceService {
 				amountToPay += insurance.getRealEstate().getDuration();
 			}
 
-			if (insurance.getRealEstate().getSize() != null) {
+			if (insurance.getRealEstate().getSizeRE() != null) {
 
-				amountToPay += +insurance.getRealEstate().getSize() / 10;
+				amountToPay += +insurance.getRealEstate().getSizeRE() / 10;
 			}
 
 			if (insurance.getRealEstate().getEstimatedValue() != null) {

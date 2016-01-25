@@ -1,0 +1,12 @@
+{
+  "insurance": {
+    "travel": {
+      "doesSport": true,
+      "duration": 2,
+      "insuredAmount": 20000,
+      "less": 1,
+      "region": "Africa",
+      "sport": "basketball"
+    }
+  }
+}

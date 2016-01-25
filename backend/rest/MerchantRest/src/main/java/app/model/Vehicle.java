@@ -2,7 +2,7 @@ package app.model;
 
 import java.io.Serializable;
 
-public class VehicleInsurance implements Serializable {
+public class Vehicle implements Serializable {
 
 	/**
 	* 
@@ -10,24 +10,24 @@ public class VehicleInsurance implements Serializable {
 	private static final long serialVersionUID = -1027548365143014756L;
 	private Integer duration;
 	private String model;
-	private String type;
+	private String typeVehicle;
 	private String owner;
-	private int productionYear;
+	private Integer productionYear;
 	private String registrationNumber;
 	private String vinNumber;
 	private String packageV;
-	private double packageDetail;
+	private Double packageDetail;
 
-	public VehicleInsurance() {
+	public Vehicle() {
 		super();
 	}
 
-	public VehicleInsurance(Integer duration, String model, String type, String owner, int productionYear,
-			String registrationNumber, String vinNumber, String packageV, double packageDetail) {
+	public Vehicle(Integer duration, String model, String type, String owner, Integer productionYear,
+			String registrationNumber, String vinNumber, String packageV, Double packageDetail) {
 		super();
 		this.duration = duration;
 		this.model = model;
-		this.type = type;
+		this.typeVehicle = type;
 		this.owner = owner;
 		this.productionYear = productionYear;
 		this.registrationNumber = registrationNumber;
@@ -36,11 +36,11 @@ public class VehicleInsurance implements Serializable {
 		this.packageDetail = packageDetail;
 	}
 
-	public double getPackageDetail() {
+	public Double getPackageDetail() {
 		return packageDetail;
 	}
 
-	public void setPackageDetail(double packageDetail) {
+	public void setPackageDetail(Double packageDetail) {
 		this.packageDetail = packageDetail;
 	}
 
@@ -60,12 +60,12 @@ public class VehicleInsurance implements Serializable {
 		this.model = model;
 	}
 
-	public String getType() {
-		return type;
+	public String getTypeVehicle() {
+		return typeVehicle;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setTypeVehicle(String typeVehicle) {
+		this.typeVehicle = typeVehicle;
 	}
 
 	public String getOwner() {
@@ -76,11 +76,11 @@ public class VehicleInsurance implements Serializable {
 		this.owner = owner;
 	}
 
-	public int getProductionYear() {
+	public Integer getProductionYear() {
 		return productionYear;
 	}
 
-	public void setProductionYear(int productionYear) {
+	public void setProductionYear(Integer productionYear) {
 		this.productionYear = productionYear;
 	}
 
@@ -110,9 +110,9 @@ public class VehicleInsurance implements Serializable {
 
 	@Override
 	public String toString() {
-		return "VehicleInsurance [duration=" + duration + ", model=" + model + ", type=" + type + ", owner=" + owner
-				+ ", productionYear=" + productionYear + ", registrationNumber=" + registrationNumber + ", vinNumber="
-				+ vinNumber + ", packageV=" + packageV + "]";
+		return "VehicleInsurance [duration=" + duration + ", model=" + model + ", type=" + typeVehicle + ", owner="
+				+ owner + ", productionYear=" + productionYear + ", registrationNumber=" + registrationNumber
+				+ ", vinNumber=" + vinNumber + ", packageV=" + packageV + "]";
 	}
 
 }

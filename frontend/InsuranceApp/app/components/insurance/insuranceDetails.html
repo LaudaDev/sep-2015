@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col-md-1">
       </div>
-      <div class="col-md-10">
+      <div class="col-md-8">
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -90,6 +90,31 @@
           </tbody>
         </table>
       </div>
+      <div class="col-md-2">
+        <div class="panel panel-success">
+          <div class="cnrflash">
+            <div class="cnrflash-inner">
+              <span class="cnrflash-label">  {{'COMMON.TEAM'|translate}}
+                <br>   {{'COMMON.INSURANCE'|translate}}
+              </span>
+            </div>
+          </div>
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              {{'COMMON.PRICE'|translate}}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="the-price">
+              <h1>
+                {{idc.insurance.amountToPay | currency }}
+                <span class="subscript"></span>
+              </h1>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
       <div class="col-md-1">
       </div>
     </div>
@@ -120,7 +145,8 @@
                 {{'PURCHASE.INSURANCE_DURATION'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" name="inputDurationVehicle" id="insurDur" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" ng-required="idc.areOtherFieldsRequired('vehicle')" ng-model="idc.insurance.vehicle.duration">
+                <input type="number" min="0" ng-change="idc.calculate()" class="form-control" name="inputDurationVehicle" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}"
+                ng-required="idc.areOtherFieldsRequired('vehicle')" ng-model="idc.insurance.vehicle.duration">
                 <div ng-messages="idc.stateForm.inputDurationVehicle.$error" ng-show="idc.stateForm.inputDurationVehicle.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -129,16 +155,16 @@
             </div>
 
 
-            <div class="form-group" >
+            <div class="form-group">
               <label for="inputInsurPack" class="col-sm-2 control-label">
                 {{'PURCHASE.VEHICLE_PACKAGE.MAIN'|translate}}
               </label>
               <div class="col-sm-10">
                 <div class="btn-group">
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>
-                  <label class="btn btn-info"   ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'alternative'">{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</label>
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>
+                  <label class="btn btn-info" ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'alternative'">{{'PURCHASE.VEHICLE_PACKAGE.ALTERNATIVE'|translate}}</label>
                 </div>
               </div>
             </div>
@@ -148,7 +174,8 @@
                 {{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur"  placeholder="{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}"  ng-model="idc.insurance.vehicle.packageDetail">
+                <input type="number" min="0" class="form-control" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}"
+                ng-model="idc.insurance.vehicle.packageDetail">
 
               </div>
             </div>
@@ -158,7 +185,8 @@
                 {{'PURCHASE.VEHICLE_PACKAGE.UP_TO_EURO'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_EURO'|translate}}"  ng-model="idc.insurance.vehicle.packageDetail">
+                <input type="number" min="0" class="form-control" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_EURO'|translate}}"
+                ng-model="idc.insurance.vehicle.packageDetail">
 
               </div>
             </div>
@@ -168,7 +196,8 @@
                 {{'PURCHASE.VEHICLE_PACKAGE.FOR_DAYS'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.FOR_DAYS'|translate}}"  ng-model="idc.insurance.vehicle.packageDetail">
+                <input type="number" min="0" class="form-control" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" placeholder="{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}&nbsp;{{'PURCHASE.VEHICLE_PACKAGE.FOR_DAYS'|translate}}"
+                ng-model="idc.insurance.vehicle.packageDetail">
 
               </div>
             </div>
@@ -178,7 +207,8 @@
                 {{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="text" ng-model="idc.insurance.vehicle.typeVehicle" name="inputType" uib-typeahead="type.make_display for type in idc.vehicleModels.types | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}" ng-required="idc.areOtherFieldsRequired('vehicle')">
+                <input type="text" ng-model="idc.insurance.vehicle.typeVehicle" name="inputType" uib-typeahead="type.make_display for type in idc.vehicleModels.types | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{'PURCHASE.VEHICLE_INFO.TYPE'|translate}}"
+                ng-required="idc.areOtherFieldsRequired('vehicle')">
                 <div ng-messages="idc.stateForm.inputType.$error" ng-show="idc.stateForm.inputType.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -191,7 +221,7 @@
                 {{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="insurDur" name="inputModel" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="{{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}"  ng-model="idc.insurance.vehicle.model">
+                <input type="text" class="form-control" id="insurDur" name="inputModel" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="{{'PURCHASE.VEHICLE_INFO.MODEL'|translate}}" ng-model="idc.insurance.vehicle.model">
                 <div ng-messages="idc.stateForm.inputModel.$error" ng-show="idc.stateForm.inputModel.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -203,7 +233,7 @@
                 {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" name="inputYear" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="  {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}"  ng-model="idc.insurance.vehicle.productionYear">
+                <input type="number" min="0" class="form-control" id="insurDur" name="inputYear" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="  {{'PURCHASE.VEHICLE_INFO.YEAR_OF_PRODUCTION'|translate}}" ng-model="idc.insurance.vehicle.productionYear">
                 <div ng-messages="idc.stateForm.inputYear.$error" ng-show="idc.stateForm.inputYear.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -215,7 +245,7 @@
                 {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="insurDur" ng-required="idc.areOtherFieldsRequired('vehicle')" name="inputReg" placeholder="  {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}"  ng-model="idc.insurance.vehicle.registrationNumber">
+                <input type="text" class="form-control" id="insurDur" ng-required="idc.areOtherFieldsRequired('vehicle')" name="inputReg" placeholder="  {{'PURCHASE.VEHICLE_INFO.REGISTRATION_NUM'|translate}}" ng-model="idc.insurance.vehicle.registrationNumber">
                 <div ng-messages="idc.stateForm.inputReg.$error" ng-show="idc.stateForm.inputReg.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -227,7 +257,7 @@
                 {{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="insurDur"  name="inputVin" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="{{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}"  ng-model="idc.insurance.vehicle.vinNumber">
+                <input type="text" class="form-control" id="insurDur" name="inputVin" ng-required="idc.areOtherFieldsRequired('vehicle')" placeholder="{{'PURCHASE.VEHICLE_INFO.VIN_NUM'|translate}}" ng-model="idc.insurance.vehicle.vinNumber">
                 <div ng-messages="idc.stateForm.inputVin.$error" ng-show="idc.stateForm.inputVin.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -239,7 +269,7 @@
                 {{'PURCHASE.VEHICLE_PACKAGE.OWNER'|translate}}
               </label>
               <div class="col-sm-6">
-                <select class="form-control" ng-required="idc.areOtherFieldsRequired('vehicle')" name="inputOwner1" ng-model="idc.insurance.vehicle.owner" ng-options=" owner.name as (owner.name+'&nbsp;'+ owner.surname) for owner in idc.users">
+                <select class="form-control" ng-required="idc.areOtherFieldsRequired('vehicle')" name="inputOwner1" ng-model="idc.insurance.vehicle.owner" ng-options=" owner as (owner.name+'&nbsp;'+ owner.surname) for owner in idc.users">
                 </select>
                 <div ng-messages="idc.stateForm.inputOwner1.$error" ng-show="idc.stateForm.inputOwner1.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
@@ -261,7 +291,8 @@
                 {{'PURCHASE.INSURANCE_DURATION'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" name="inputDuration2" ng-required="idc.areOtherFieldsRequired('realEstate')" placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}"  ng-model="idc.insurance.realEstate.duration">
+                <input type="number" min="0" class="form-control" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" name="inputDuration2" ng-required="idc.areOtherFieldsRequired('realEstate')"
+                placeholder="{{'PURCHASE.INSURANCE_DURATION'|translate}}" ng-model="idc.insurance.realEstate.duration">
                 <div ng-messages="idc.stateForm2.inputDuration2.$error" ng-show="idc.stateForm2.inputDuration2.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -273,7 +304,8 @@
                 {{'PURCHASE.RE_SIZE'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" name="inputSize" ng-required="idc.areOtherFieldsRequired('realEstate')" placeholder="{{'PURCHASE.RE_SIZE'|translate}}"  ng-model="idc.insurance.realEstate.sizeRE">
+                <input type="number" min="0" class="form-control" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" name="inputSize" ng-required="idc.areOtherFieldsRequired('realEstate')"
+                placeholder="{{'PURCHASE.RE_SIZE'|translate}}" ng-model="idc.insurance.realEstate.sizeRE">
                 <div ng-messages="idc.stateForm2.inputSize.$error" ng-show="idc.stateForm2.inputSize.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -285,7 +317,8 @@
                 {{'PURCHASE.RE_AGE'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" name="inputAge" ng-required="idc.areOtherFieldsRequired('realEstate')" placeholder="{{'PURCHASE.RE_AGE'|translate}}"  ng-model="idc.insurance.realEstate.age">
+                <input type="number" min="0" class="form-control" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" name="inputAge" ng-required="idc.areOtherFieldsRequired('realEstate')" placeholder="{{'PURCHASE.RE_AGE'|translate}}"
+                ng-model="idc.insurance.realEstate.age">
                 <div ng-messages="idc.stateForm2.inputAge.$error" ng-show="idc.stateForm2.inputAge.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -298,7 +331,8 @@
                 {{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}
               </label>
               <div class="col-sm-10">
-                <input type="number" min="0" class="form-control" id="insurDur" name="inputValue" ng-required="idc.areOtherFieldsRequired('realEstate')" placeholder="{{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}"  ng-model="idc.insurance.realEstate.estimatedValue">
+                <input type="number" min="0" class="form-control" id="insurDur" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" name="inputValue" ng-required="idc.areOtherFieldsRequired('realEstate')"
+                placeholder="{{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}" ng-model="idc.insurance.realEstate.estimatedValue">
                 <div ng-messages="idc.stateForm2.inputValue.$error" ng-show="idc.stateForm2.inputValue.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
                 </div>
@@ -311,11 +345,7 @@
                 {{'PURCHASE.RE_PACKAGE.MAIN'|translate}}
               </label>
               <div class="col-sm-10">
-                <select class="form-control" id="selContinent" name="inputPackage" ng-model="idc.insurance.realEstate.packageRE" ng-required="idc.areOtherFieldsRequired('realEstate')">
-                  <option>{{'PURCHASE.RE_PACKAGE.FLOOD'|translate}}</option>
-                  <option>{{'PURCHASE.RE_PACKAGE.FIRE'|translate}}</option>
-                  <option>{{'PURCHASE.RE_PACKAGE.BURGLARY'|translate}}</option>
-                  <option>{{'PURCHASE.RE_PACKAGE.EARTHQUAKE'|translate}}</option>
+                <select class="form-control" id="selContinent" name="inputPackage" ng-options=" packageRE.name as packageRE.name for packageRE in idc.realEstatePackage" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" ng-model="idc.insurance.realEstate.packageRE" ng-required="idc.areOtherFieldsRequired('realEstate')">
                 </select>
                 <div ng-messages="idc.stateForm2.inputPackage.$error" ng-show="idc.stateForm2.inputPackage.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>
@@ -329,7 +359,7 @@
                 {{'COMMON.RE_OWNER'|translate}}
               </label>
               <div class="col-sm-6">
-                <select class="form-control" ng-model="idc.insurance.realEstate.owner" name="inputOwner" ng-required="idc.areOtherFieldsRequired('realEstate')" ng-options=" owner.name as (owner.name+'&nbsp;'+ owner.surname) for owner in idc.users">
+                <select class="form-control" ng-model="idc.insurance.realEstate.owner" name="inputOwner" ng-required="idc.areOtherFieldsRequired('realEstate')" ng-options=" owner as (owner.name+'&nbsp;'+ owner.surname) for owner in idc.users">
                 </select>
                 <div ng-messages="idc.stateForm2.inputOwner.$error" ng-show="idc.stateForm2.inputOwner.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>

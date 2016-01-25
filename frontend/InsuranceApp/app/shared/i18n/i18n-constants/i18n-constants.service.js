@@ -15,7 +15,10 @@
         "PREVIEW_TOOLTIP": "Insurance price prewiew",
         "AND": "and",
         "ADD_OWNER": "Add owner",
-        "RE_OWNER": "Real Estate owner"
+        "RE_OWNER": "Real Estate owner",
+        "PRICE" : "Price to pay",
+        "TEAM" : "Team18",
+        "INSURANCE" : "Insurance"
       },
       "MESSAGES": {
         "MIN_LENGTH": "This field is too short",
@@ -165,7 +168,10 @@
         "PREVIEW_TOOLTIP": "Pregled preseka osiguranja",
         "AND": "i",
         "ADD_OWNER": "Unesite vlasnika",
-        "RE_OWNER": "Vlasnik nekretnine"
+        "RE_OWNER": "Vlasnik nekretnine",
+        "PRICE" : "Za uplatu",
+        "TEAM" : "Tim18",
+        "INSURANCE" : "Osiguranje"
       },
       "MESSAGES": {
         "MIN_LENGTH": "Ovo polje je prekratko",

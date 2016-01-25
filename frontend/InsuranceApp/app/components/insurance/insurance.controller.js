@@ -22,6 +22,7 @@
     ic.validateInsurance = validateInsurance;
     ic.isOneFieldRequired = isOneFieldRequired;
     ic.setObject = setObject;
+    ic.calculateAndOpenModal = false;
 
     console.log(ic.insurance);
 
@@ -56,7 +57,7 @@
       if (ic.insurance.travel.over !== undefined) {
         ic.insurance.travel.numOfPersons += ic.insurance.travel.over;
       }
-    
+
       ic.insuranceService.setInsurance(ic.insurance);
     }
 
@@ -71,20 +72,26 @@
     }
 
     function onSuccesCalculation(response) {
-      console.log(response);
-      console.log("uspesno je odradjen calculate");
+      console.log("uspesno je odradjen calculate u ic");
       ic.insurance = response;
-      ic.validateInsurance('preview');
+      if (ic.calculateAndOpenModal === true) {
+        openModal();
+      } else {
+        setObject();
+        $state.go('main.insuranceDetails');
+      }
     }
 
     function validateInsurance(text) {
       if (ic.stateForm.$valid) {
         ic.stateForm.$setUntouched();
         if (text === 'preview') { //otvori samo modal
-          openModal();
+          ic.calculateAndOpenModal = true;
+          calculate();
         } else {
-          setObject();
-          $state.go('main.insuranceDetails'); // prebaci se na sledecu stranu i pre toga sacuvaj objekat
+          ic.calculateAndOpenModal = false;
+          calculate();
+          //$state.go('main.insuranceDetails'); // prebaci se na sledecu stranu i pre toga sacuvaj objekat
         }
 
       } else {

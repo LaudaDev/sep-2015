@@ -5,31 +5,58 @@
     .module('insurance-app.insurance')
     .controller('InsuranceDetailsController', InsuranceDetailsController);
 
-  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels', 'insuranceResourceService', '$window', '$location'];
+  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels', 'insuranceResourceService', '$window', '$location', 'calculateService','realEstatePackage'];
 
-  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels, insuranceResourceService, $window, $location) {
+  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels, insuranceResourceService, $window, $location, calculateService,realEstatePackage) {
     var idc = this;
 
     idc.insuranceService = insuranceService;
     idc.vehicleModels = vehicleModels;
+    idc.calculateService = calculateService;
     idc.insurance = idc.insuranceService.getInsurance();
     idc.insurance.travel.users = idc.insuranceService.getInsuranceUsers();
+    idc.insurance.realEstate = idc.insuranceService.getRealEstateInsurance();
+    idc.insurance.vehicle = idc.insuranceService.getVehicleInsurance();
     idc.openModal = openModal;
+    idc.realEstatePackage = realEstatePackage;
     idc.user = {};
     idc.numToInsert = idc.insurance.travel.numOfPersons - idc.insurance.travel.users.length;
     idc.addUser = addUser;
     idc.editSelected = editSelected;
     idc.isEditable = false; //kad je false radi se add,a kad je true onda se radi dodavanje
     idc.addOwnerModal = addOwnerModal;
-    idc.insurance.vehicle = {};
-    idc.insurance.realEstate = {};
-    idc.users = [];
+    idc.users = idc.insuranceService.getOwners();
     idc.areOtherFieldsRequired = areOtherFieldsRequired;
     idc.validateVehicleInsurance = validateVehicleInsurance;
     idc.validateRealEstateInsurance = validateRealEstateInsurance;
     idc.vehicleValid = false;
     idc.realEstateValid = false;
     idc.saveInsurance = saveInsurance;
+    idc.calculate = calculate;
+
+    function calculate() {
+
+      idc.calculateService.save({}, idc.insurance, onSuccesCalculation, onError);
+
+    }
+
+    function onError(reason) {
+      console.log(reason);
+    }
+
+    function onSuccesCalculation(response) {
+      console.log("uspesno je odradjen calculate u idc-u");
+      idc.insurance = response;
+      console.log("ovo je objekat koji cuvam");
+      console.log(idc.insurance);
+      idc.insuranceService.setInsurance(idc.insurance);
+      // if (ic.calculateAndOpenModal === true) {
+      //   openModal();
+      // } else {
+      //   setObject();
+      //   $state.go('main.insuranceDetails');
+      // }
+    }
 
     function saveInsurance() {
       if (idc.vehicleValid && idc.saveInsurance) {
@@ -37,8 +64,6 @@
         insuranceResourceService.save({}, idc.insurance, onSuccesSave);
         idc.vehicleValid = false;
         idc.realEstateValid = false;
-        //testService.save({}, idc.insurance, onSuccesSave);
-
       } else {
         console.log("ne moze da se sacuva nije validno");
       }
@@ -74,6 +99,7 @@
           idc.numToInsert--;
           //za potrebe usera koji su potencijalni vlasnici vozila
           idc.users.push(user);
+          idc.insuranceService.setOwners(idc.users);
 
         }
         idc.user = {};
@@ -106,10 +132,12 @@
       });
 
       return uibModalInstance.result.then(function(owner) {
+        console.log("Owner je");
 
         idc.users.push(owner);
         idc.insurance.vehicle.owner = owner; //idc.users[idc.users.length - 1]; // nzm zasto ne radi...
-
+        idc.insuranceService.setOwners(idc.users);
+        console.log(idc.insurance.vehicle.owner);
       });
     }
 

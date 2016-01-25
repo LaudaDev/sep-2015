@@ -25,8 +25,8 @@
 
       <div class="form-group" ng-class="{ 'has-error': omc.stateForm.inputJmbg.$touched && omc.stateForm.inputJmbg.$invalid }" busy-indicator>
         <label class="control-label col-sm-4" for="inputJmbg">JMBG*</label>
-        <div class="col-sm-8">
-          <input class="form-control" type="text" id="postalCode" name="inputJmbg" ng-model="omc.owner.jmbg" required ng-pattern="/^[0-9]*$/" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" unique-jmbg ng-minlength="13" ng-maxlength="13" />
+        <div class="col-sm-7">
+          <input class="form-control" type="text" id="postalCode" name="inputJmbg" ng-model="omc.owner.jmbg" required ng-pattern="/^[0-9]*$/" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" unique-jmbg ng-maxlength="13" />
           <div ng-messages="omc.stateForm.inputJmbg.$error" ng-show="omc.stateForm.inputJmbg.$touched">
             <div ng-messages-include="./app/shared/messages.html"></div>
             <p ng-message="pattern">{{'MESSAGES.NUMBER'|translate}} 13)</p>

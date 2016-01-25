@@ -1,54 +1,67 @@
 (function() {
-	"use strict";
+  "use strict";
 
-	angular
-		.module('insurance-app.insurance')
-		.config(config);
+  angular
+    .module('insurance-app.insurance')
+    .config(config);
 
-	config.$inject = ['$stateProvider'];
+  config.$inject = ['$stateProvider'];
 
-	function config($stateProvider) {
-		$stateProvider.state('main.insuranceBasic', {
-			url: '/insurance',
-			views: {
-				'content@': {
-				resolve : {
+  function config($stateProvider) {
+    $stateProvider.state('main.insuranceBasic', {
+        url: '/insurance',
+        views: {
+          'content@': {
+            resolve: {
 
-						regions : getRegions,
-						sports : getSports,
-						amounts : getAmounts
+              regions: getRegions,
+              sports: getSports,
+              amounts: getAmounts
 
-				},
-				templateUrl: 'app/components/insurance/insuranceBasic.html',
-				controller: 'InsuranceController',
-				controllerAs: 'ic'
-				}
-			}
-		})
-		.state('main.insuranceDetails', {
-			url: '/insuranceDetails',
-			views: {
-			  'content@': {
-					templateUrl: 'app/components/insurance/insuranceDetails.html',
-					controller: 'InsuranceDetailsController',
-					controllerAs: 'idc'
-				}
-			}
-		});
+            },
+            templateUrl: 'app/components/insurance/insuranceBasic.html',
+            controller: 'InsuranceController',
+            controllerAs: 'ic'
+          }
+        }
+      })
+      .state('main.insuranceDetails', {
+        url: '/insuranceDetails',
+        views: {
+          'content@': {
+            resolve: {
 
-		getRegions.$inject = ['regionService'];
-		function getRegions(regionService) {
-			return regionService.query().$promise;
-		}
+              realEstatePackage: getRealEstatePackage
+            },
+            templateUrl: 'app/components/insurance/insuranceDetails.html',
+            controller: 'InsuranceDetailsController',
+            controllerAs: 'idc'
+          }
+        }
+      });
 
-		getSports.$inject = ['sportService'];
-		function getSports(sportService) {
-			return sportService.query().$promise;
-		}
+    getRegions.$inject = ['regionService'];
 
-		getAmounts.$inject = ['insuredAmountService'];
-		function getAmounts(insuredAmountService) {
-			return insuredAmountService.query().$promise;
-		}
-	}
+    function getRegions(regionService) {
+      return regionService.query().$promise;
+    }
+
+    getSports.$inject = ['sportService'];
+
+    function getSports(sportService) {
+      return sportService.query().$promise;
+    }
+
+    getAmounts.$inject = ['insuredAmountService'];
+
+    function getAmounts(insuredAmountService) {
+      return insuredAmountService.query().$promise;
+    }
+
+		getRealEstatePackage.$inject = ['realEstatePackageService'];
+
+    function getRealEstatePackage(realEstatePackageService) {
+      return realEstatePackageService.query().$promise;
+    }
+  }
 })();

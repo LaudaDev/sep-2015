@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.model.VehicleInsurance;
+import app.model.Vehicle;
 import app.services.VehicleInsuranceService;
 
 @RestController
@@ -22,19 +22,19 @@ public class VehicleInsuranceController {
 	private VehicleInsuranceService vehicleService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createVehicle(@RequestBody  VehicleInsurance vehicle) {
+	public Map<String, Object> createVehicle(@RequestBody  Vehicle vehicle) {
 		
 		return vehicleService.create(vehicle);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	public List<VehicleInsurance> getAll() {
-		return (List<VehicleInsurance>) vehicleService.findAll();
+	public List<Vehicle> getAll() {
+		return (List<Vehicle>) vehicleService.findAll();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/{vehicleId}")
-	public VehicleInsurance getVehicleById(@PathVariable("vehicleId") String vehicleId) {
+	public Vehicle getVehicleById(@PathVariable("vehicleId") String vehicleId) {
 		return vehicleService.findById(vehicleId);
 	}
 
