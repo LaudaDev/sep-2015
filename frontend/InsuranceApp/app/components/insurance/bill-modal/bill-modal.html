@@ -1,9 +1,14 @@
 <div class="modal-header" data-ng-init="bmc.currentLocale()">
-  <h2 class="modal-title" align="center"><strong>{{'MODAL.TITLE'|translate}}</strong></h2>
+  <h2 class="modal-title" align="center">
+    <strong>{{'MODAL.TITLE'|translate}}</strong>
+  </h2>
 </div>
 <div class="modal-body">
   <form class="form-horizontal">
     <div class="form-group">
+      <div class="form-group">
+        <label class="control-label col-sm-7" for="postalCode">{{'MARKETING.PART1'|translate}}</label>
+      </div>
       <label class="control-label col-sm-4" for="name">{{'MODAL.INSURANCE_DURATION'|translate}}</label>
       <div class="col-sm-8">
         <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.duration}}</label>
@@ -14,7 +19,6 @@
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.region}}</label>
         </div>
       </div>
-      <hr>
       <div class="form-group">
         <label class="control-label col-sm-6" for="postalCode">{{'PURCHASE.NUMBER_OF_PERSONS'|translate}}</label>
       </div>
@@ -25,7 +29,7 @@
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.less}}</label>
         </div>
       </div>
-      <div class="form-group" ng-hide="bmc.insurance.travel.between == null" >
+      <div class="form-group" ng-hide="bmc.insurance.travel.between == null">
         <label class="control-label col-sm-4" for="postalCode">18-65</label>
         <div class="col-sm-8">
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.between}}</label>
@@ -37,12 +41,12 @@
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.over}}</label>
         </div>
       </div>
-      <hr>
       <div class="form-group" ng-hide="!bmc.insurance.travel.doesSport">
         <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.WHICH_SPORT'|translate}}</label>
         <div class="col-sm-8">
           <label class="control-label col-sm-4" for="name">{{bmc.insurance.travel.sport}}</label>
         </div>
+        <hr>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.INSURANCE_AMOUNT'|translate}}</label>
@@ -51,6 +55,88 @@
         </div>
       </div>
     </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.vehicle.duration == null">
+      <hr>
+      <label class="control-label col-sm-7" for="postalCode">{{'DETAILS_PAGE.VEHICLE'|translate}}</label>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.vehicle.duration == null">
+      <label class="control-label col-sm-4" for="postalCode">{{'MODAL.INSURANCE_DURATION'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.vehicle.duration}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.vehicle.packageV == null">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.VEHICLE_PACKAGE.MAIN'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.vehicle.packageV}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.vehicle.packageV !== 'towing'">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_KM'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.vehicle.packageDetail}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide=" bmc.insurance.vehicle.packageV !== 'repair'">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.VEHICLE_PACKAGE.UP_TO_EURO'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.vehicle.packageDetail}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide=" bmc.insurance.vehicle.packageV !== 'sleepover'">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.VEHICLE_PACKAGE.FOR_DAYS'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.vehicle.packageDetail}}</label>
+      </div>
+    </div>
+
+
+    <div class="form-group" ng-hide="bmc.insurance.realEstate.duration == null">
+      <hr>
+      <label class="control-label col-sm-7" for="postalCode">{{'DETAILS_PAGE.REALESTATE'|translate}}</label>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.realEstate.duration == null">
+      <label class="control-label col-sm-4" for="postalCode">{{'MODAL.INSURANCE_DURATION'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.realEstate.duration}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.realEstate.sizeRE == null">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.RE_SIZE'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.realEstate.sizeRE}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.realEstate.age == null">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.RE_AGE'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.realEstate.age}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.realEstate.estimatedValue == null">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.RE_ESTIMATE_VALUE'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.realEstate.estimatedValue}}</label>
+      </div>
+    </div>
+
+    <div class="form-group" ng-hide="bmc.insurance.realEstate.packageRE == null">
+      <label class="control-label col-sm-4" for="postalCode">{{'PURCHASE.RE_PACKAGE.MAIN'|translate}}</label>
+      <div class="col-sm-8">
+        <label class="control-label col-sm-4" for="name">{{bmc.insurance.realEstate.packageRE}}</label>
+      </div>
+    </div>
+
     <hr>
     <div class="modal-body">
       <div class="form-group">
@@ -62,6 +148,5 @@
     </div>
 
     <div class="modal-footer">
-      <!-- <button class="btn btn-success" type="button" ui-sref='main.insuranceDetails'>{{'MODAL.OK'|translate}}</button> -->
       <button class="btn btn-primary" type="button" ng-click="bmc.cancel()">{{'COMMON.BACK'|translate}}</button>
     </div>

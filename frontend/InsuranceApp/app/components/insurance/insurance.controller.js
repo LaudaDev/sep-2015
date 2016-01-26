@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceController', InsuranceController);
 
-  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state', 'regions', 'sports', 'amounts', 'calculateService','$translate'];
+  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state', 'regions', 'sports', 'amounts', 'calculateService'];
 
-  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports, amounts, calculateService,$translate) {
+  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports, amounts, calculateService) {
     var ic = this;
 
     ic.insuranceService = insuranceService;

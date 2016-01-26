@@ -72,24 +72,24 @@
             <label for="inputPersonsAge" class="control-label col-sm-2 ">
               {{'PURCHASE.NUMBER_OF_PERSONS'|translate}}*
             </label>
-            <label for="inputPersonsAge" class="col-sm-2">
+            <label for="inputPersonsAge" class="col-sm-1">
               {{'YEARS.YOUNGER'|translate}} 18
             </label>
-            <div class="col-xs-1">
+            <div class="col-xs-2">
               <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.less" ng-maxlength="2" ng-required="ic.isOneFieldRequired()">
             </div>
 
-            <label for="inputPersonsAge" class="col-sm-2">
+            <label for="inputPersonsAge" class="col-sm-1">
               18-65
             </label>
-            <div class="col-xs-1">
+            <div class="col-xs-2">
               <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.between" ng-maxlength="2" ng-required="ic.isOneFieldRequired()">
             </div>
 
-            <label for="inputPersonsAge" class="col-sm-2">
+            <label for="inputPersonsAge" class="col-sm-1">
               {{'YEARS.OVER'|translate}}65
             </label>
-            <div class="col-xs-1">
+            <div class="col-xs-2">
               <input type="number" min="0" max="99" class="form-control" name="inputPersonsAge" ng-model="ic.insurance.travel.over" ng-maxlength="2" ng-required="ic.isOneFieldRequired()">
             </div>
           </div>
@@ -145,20 +145,13 @@
 
           <div class="form-group">
 
-            <div class="row">
-              <div class="col-md-9">
-                <br>
-              </div>
-
-              <div class="col-md-3">
-                <br>
+            <div class="col-md-3 col-md-offset-8">
                 <button type="submit" ng-click="ic.validateInsurance('preview')" class="btn btn-info btn-large pull-left" popover-trigger="mouseenter" uib-popover="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
-                  {{'COMMON.PREVIEW'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
+                  {{'COMMON.PREVIEW'|translate}}
                   <span class="glyphicon glyphicon-zoom-in"></span>
                 </button>
-                &nbsp;&nbsp;&nbsp;
-                <button type="submit" ng-click="ic.validateInsurance('next')" class="btn btn-success btn-large" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
-                  {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="submit" ng-click="ic.validateInsurance('next')" class="btn btn-success btn-large pull-right" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
+                  {{'COMMON.NEXT'|translate}}
                   <span class="glyphicon glyphicon-arrow-right"></span>
                 </button>
 
