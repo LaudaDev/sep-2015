@@ -47,7 +47,7 @@
     <div class="row">
       <div class="col-md-1">
       </div>
-      <div class="col-md-8">
+      <div class="col-md-10">
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -90,7 +90,7 @@
           </tbody>
         </table>
       </div>
-      <div class="col-md-2">
+      <!-- <div class="col-md-2">
         <div class="panel panel-success">
           <div class="cnrflash">
             <div class="cnrflash-inner">
@@ -114,7 +114,7 @@
 
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="col-md-1">
       </div>
     </div>
@@ -128,8 +128,14 @@
     </div>
 
     <div class="col-md-3 col-md-offset-8">
+
+      <button type="submit" ng-click="idc.openPreviewModal()" class="btn btn-info btn-large pull-left" popover-trigger="mouseenter" uib-popover="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
+        {{'COMMON.PREVIEW'|translate}}
+        <span class="glyphicon glyphicon-zoom-in"></span>
+      </button>
+
       <button type="submit" ng-click="idc.validateVehicleInsurance();idc.validateRealEstateInsurance();idc.saveInsurance()" class="btn btn-success btn-large pull-right" ng-disabled="idc.numToInsert > 0" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP_BUY'|translate}}">
-        {{'COMMON.NEXT'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
+        {{'COMMON.NEXT'|translate}}
         <span class="glyphicon glyphicon-arrow-right"></span>
       </button>
     </div>
@@ -160,7 +166,7 @@
                 {{'PURCHASE.VEHICLE_PACKAGE.MAIN'|translate}}
               </label>
               <div class="col-sm-10">
-                <div class="btn-group">
+                <div class="btn-group pull-left">
                   <label class="btn btn-info" ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'towing'">{{'PURCHASE.VEHICLE_PACKAGE.TOWING'|translate}}</label>
                   <label class="btn btn-info" ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'repair'">{{'PURCHASE.VEHICLE_PACKAGE.REPAIR'|translate}}</label>
                   <label class="btn btn-info" ng-model="idc.insurance.vehicle.packageV" uib-btn-radio="'sleepover'">{{'PURCHASE.VEHICLE_PACKAGE.SLEEPOVER'|translate}}</label>

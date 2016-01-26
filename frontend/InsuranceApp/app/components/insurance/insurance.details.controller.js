@@ -33,6 +33,23 @@
     idc.realEstateValid = false;
     idc.saveInsurance = saveInsurance;
     idc.calculate = calculate;
+    idc.openPreviewModal = openPreviewModal;
+
+    function openPreviewModal() {
+
+      $uibModal.open({
+        animation: true,
+        resolve: {
+
+          insurance: function() {
+            return idc.insurance;
+          }
+        },
+        templateUrl: 'app/components/insurance/bill-modal/bill-modal.html',
+        controller: 'BillModalController',
+        controllerAs: 'bmc'
+      });
+    }
 
     function calculate() {
 
@@ -50,7 +67,6 @@
       console.log("ovo je objekat koji cuvam");
       console.log(idc.insurance);
       idc.insuranceService.setInsurance(idc.insurance);
-
     }
 
     function saveInsurance() {

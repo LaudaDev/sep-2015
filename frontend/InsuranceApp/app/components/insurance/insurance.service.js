@@ -9,10 +9,10 @@
 
   function insuranceService() {
     var insurance = {};
+    insurance.vehicle = {};
     insurance.travel = {};
     insurance.travel.users = [];
     insurance.realEstate = {};
-    insurance.vehicle = {};
 
     var owners = [];
 
