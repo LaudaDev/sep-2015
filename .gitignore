@@ -49,3 +49,5 @@ Thumbs.db
 
 # ignore dist folder globally
 **/dist
+**/.idea
+*.iml

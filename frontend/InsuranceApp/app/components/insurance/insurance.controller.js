@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceController', InsuranceController);
 
-  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state', 'regions', 'sports', 'amounts', 'calculateService'];
+  InsuranceController.$inject = ['$uibModal', 'priceList', 'insuranceService', '$state', 'regions', 'sports', 'amounts', 'calculateService','$translate'];
 
-  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports, amounts, calculateService) {
+  function InsuranceController($uibModal, priceList, insuranceService, $state, regions, sports, amounts, calculateService,$translate) {
     var ic = this;
 
     ic.insuranceService = insuranceService;
@@ -23,8 +23,6 @@
     ic.isOneFieldRequired = isOneFieldRequired;
     ic.setObject = setObject;
     ic.calculateAndOpenModal = false;
-
-    console.log(ic.insurance);
 
     function openModal() {
 
