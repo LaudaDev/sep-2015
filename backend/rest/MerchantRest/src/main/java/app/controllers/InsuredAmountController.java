@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,7 @@ public class InsuredAmountController {
 	private InsuredAmountService insuredAmountService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createInsuredAmount(@RequestBody InsuredAmount amount) {
+	public Map<String, Object> createInsuredAmount(@Validated @RequestBody InsuredAmount amount) {
 		return insuredAmountService.create(amount);	
 	}
 
@@ -42,6 +43,11 @@ public class InsuredAmountController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{amountId}")
 	public String removeInsuredAmount(@PathVariable("amountId") String amountId) {
 		return insuredAmountService.remove(amountId);
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Map<String, Object> editInsuredAmount(@Validated @RequestBody InsuredAmount amount) {
+		return insuredAmountService.edit(amount);
 	}
 
 }

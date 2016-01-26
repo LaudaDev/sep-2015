@@ -50,12 +50,7 @@
       console.log("ovo je objekat koji cuvam");
       console.log(idc.insurance);
       idc.insuranceService.setInsurance(idc.insurance);
-      // if (ic.calculateAndOpenModal === true) {
-      //   openModal();
-      // } else {
-      //   setObject();
-      //   $state.go('main.insuranceDetails');
-      // }
+
     }
 
     function saveInsurance() {

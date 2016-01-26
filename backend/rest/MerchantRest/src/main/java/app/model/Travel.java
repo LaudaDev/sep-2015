@@ -3,29 +3,34 @@ package app.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 public class Travel implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2158996423429099545L;
+
+	@NotNull(message = "error.users.notnull")
 	private List<User> users;
+	@NotNull(message = "error.duration.notnull")
 	private Integer duration; // in days
+	@NotNull(message = "error.region.notnull")
 	private String region; // foreign key
 	private Integer less; // users younger than 18
 	private Integer between;// users between 18 and 65
 	private Integer over; // users older than 65
 	private boolean doesSport; // foreign key
 	private String sport;
+	@NotNull(message = "error.numOfPersons.notnull")
 	private Integer numOfPersons;// less + between + over
+	@NotNull(message = "error.insuredAmount.notnull")
 	private Double insuredAmount;
 
 	public Travel() {
 		super();
 	}
 
-	public Travel(List<User> users, Integer duration, String region, Integer less, Integer between, Integer over, boolean doesSport,
-			String sport, Integer numOfPersons, Double insuredAmount) {
+	public Travel(List<User> users, Integer duration, String region, Integer less, Integer between, Integer over,
+			boolean doesSport, String sport, Integer numOfPersons, Double insuredAmount) {
 		super();
 		this.users = users;
 		this.duration = duration;
@@ -37,22 +42,6 @@ public class Travel implements Serializable {
 		this.sport = sport;
 		this.numOfPersons = numOfPersons;
 		this.insuredAmount = insuredAmount;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
-	public Integer getDuration() {
-		return duration;
-	}
-
-	public void setDuration(Integer duration) {
-		this.duration = duration;
 	}
 
 	public String getRegion() {
@@ -117,6 +106,22 @@ public class Travel implements Serializable {
 
 	public void setInsuredAmount(Double insuredAmount) {
 		this.insuredAmount = insuredAmount;
+	}
+
+	public void setDuration(Integer duration) {
+		this.duration = duration;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	public Integer getDuration() {
+		return duration;
 	}
 
 	@Override

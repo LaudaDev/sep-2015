@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class RealestatePackController {
 	private RealestateService realestateService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createRealestatePackage(@RequestBody RealestateInsPackage realestate) {		
+	public Map<String, Object> createRealestatePackage(@Validated @RequestBody RealestateInsPackage realestate) {		
 		return realestateService.create(realestate);
 	}
 
@@ -42,6 +43,11 @@ public class RealestatePackController {
 	public String removePackage(@PathVariable("packageId") String packageId) {
 		return realestateService.remove(packageId);
 
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Map<String, Object> editRealestatePackage(@Validated @RequestBody RealestateInsPackage realestate) {		
+		return realestateService.edit(realestate);
 	}
 
 }

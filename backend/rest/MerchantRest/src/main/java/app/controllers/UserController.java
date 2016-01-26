@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class UserController {
 	private UserService userService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createUser(@RequestBody User user) {		
+	public Map<String, Object> createUser(@Validated @RequestBody User user) {		
 		return userService.create(user);
 	}
 
@@ -40,6 +41,11 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{userId}")
 	public String removeUser(@PathVariable("userId") String userId) {
 		return userService.remove(userId);
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT)
+	public Map<String, Object> updateUser(@Validated @RequestBody User user) {		
+		return userService.edit(user);
 	}
 	
 }

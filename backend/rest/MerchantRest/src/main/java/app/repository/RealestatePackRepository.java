@@ -1,4 +1,4 @@
-package app.repository.local;
+package app.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

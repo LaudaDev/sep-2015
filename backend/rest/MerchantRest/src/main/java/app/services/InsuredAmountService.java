@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.model.InsuredAmount;
-import app.repository.local.InsuredAmountRepository;
+import app.repository.InsuredAmountRepository;
 import app.services.exceptions.BadRequestException;
 import app.services.exceptions.NotFoundException;
 
@@ -25,48 +25,50 @@ public class InsuredAmountService {
 	public Map<String, Object> create(InsuredAmount amount) {
 
 		Map<String, Object> response;
-
-		if (amount == null) {
-			throw new BadRequestException();
-		}
-
 		response = new LinkedHashMap<String, Object>();
 		insuredAmountRepository.save(amount);
-		response.put("message", "Amount created successfully");
-		response.put("region", amount);
-
-		logger.info("Amount created successfully");
+		response.put("message", "Amount successfully created");
+		response.put("amount", amount);
+		logger.info("Amount successfully created");
 
 		return response;
 	}
 
 	public List<InsuredAmount> findAll() {
-
-		logger.info("List all insured amounts");
 		return (List<InsuredAmount>) insuredAmountRepository.findAll();
 	}
 
 	public InsuredAmount findById(String id) {
 
 		if (id == null) {
-			throw new BadRequestException();
+			throw new BadRequestException("amountId is null");
 		}
-		logger.info("Find amount with id: " + id);
 		InsuredAmount amount = insuredAmountRepository.findOne(id);
-
 		if (amount == null) {
-			throw new NotFoundException();
-		}
+			throw new NotFoundException("InsuredAmount with id " + id + " doesn't exist.");		
+		}		
 		return amount;
 	}
 
 	public String remove(String id) {
 
 		if (id == null) {
-			throw new BadRequestException();
-		}
+			throw new BadRequestException("amountId is null");
+		}	
 		logger.info("Removing insured amount with id: " + id);
 		insuredAmountRepository.delete(id);
 		return "removed";
+	}
+	
+	public Map<String, Object> edit(InsuredAmount amount) {
+
+		Map<String, Object> response;
+		response = new LinkedHashMap<String, Object>();
+		insuredAmountRepository.save(amount);
+		response.put("message", "Amount updated successfully");
+		response.put("amount", amount);
+		logger.info("Amount updated successfully");
+
+		return response;
 	}
 }

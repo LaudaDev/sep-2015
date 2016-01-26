@@ -9,71 +9,66 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.model.RealestateInsPackage;
-import app.repository.local.RealestatePackRepository;
+import app.repository.RealestatePackRepository;
 import app.services.exceptions.BadRequestException;
 import app.services.exceptions.NotFoundException;
 
 @Service
 public class RealestateService {
-	
+
 	@Autowired
 	private RealestatePackRepository realestateRepository;
-	
+
 	private static final Logger logger = Logger.getLogger(RealestateService.class);
 
-	
 	public Map<String, Object> create(RealestateInsPackage realestate) {
-		
+
 		Map<String, Object> response;
-		
-		if (realestate == null) {
-			throw new BadRequestException();		
-		}
-		
 		response = new LinkedHashMap<String, Object>();
 		realestateRepository.save(realestate);
 		response.put("message", "Package created successfully");
 		response.put("package", realestate);
 		logger.info("Package created successfully");
-		
 		return response;
-	
+
 	}
 
-
 	public List<RealestateInsPackage> findAll() {
-		logger.info("List all packages");
 		return (List<RealestateInsPackage>) realestateRepository.findAll();
 	}
 
-	
-	public RealestateInsPackage findById( String packageId) {
-		
-		if(packageId == null)
-		{
-			throw new BadRequestException();
-		} 
-		
-		logger.info("Find package with id: " + packageId);
-		RealestateInsPackage rPackage =realestateRepository.findOne(packageId);
-		
+	public RealestateInsPackage findById(String packageId) {
+
+		if (packageId == null) {
+			throw new BadRequestException("packageId is null");
+		}
+		RealestateInsPackage rPackage = realestateRepository.findOne(packageId);
 		if (rPackage == null) {
-			throw new NotFoundException();
+			throw new NotFoundException("Realestate package with id " + packageId + " doesn't exist.");
 		}
 		return rPackage;
 	}
 
-	
 	public String remove(String packageId) {
 
-		if(packageId == null)
-		{
-			throw new BadRequestException();
+		if (packageId == null) {
+			throw new BadRequestException("package id is null");
 		}
-		logger.info("Removing package with id: " + packageId);		
-		realestateRepository.delete(packageId);	
+		logger.info("Removing package with id: " + packageId);
+		realestateRepository.delete(packageId);
 		return "removed";
-	
+
+	}
+
+	public Map<String, Object> edit(RealestateInsPackage realestate) {
+
+		Map<String, Object> response;
+		response = new LinkedHashMap<String, Object>();
+		realestateRepository.save(realestate);
+		response.put("message", "Package updated successfully");
+		response.put("package", realestate);
+		logger.info("Package updated successfully");
+		return response;
 
 	}
 }

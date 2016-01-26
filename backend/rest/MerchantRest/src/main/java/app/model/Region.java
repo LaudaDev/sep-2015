@@ -1,5 +1,7 @@
 package app.model;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,7 +14,11 @@ public class Region{
 	private static final long serialVersionUID = 1921425395458244178L;
 	@Id
 	private String id;
+	
+	@NotNull(message = "error.name.notnull")
 	private String name;
+	
+	@NotNull(message = "error.coefficient.notnull")
 	private double coefficient;
 	
 	public Region() {

@@ -13,19 +13,19 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import app.commons.Consts;
 import app.model.Insurance;
 import app.model.InsuredAmount;
 import app.model.RealestateInsPackage;
 import app.model.Region;
 import app.model.Sport;
-import app.repository.local.InsuranceRepository;
-import app.repository.local.InsuredAmountRepository;
-import app.repository.local.RealestatePackRepository;
-import app.repository.local.RegionRepository;
-import app.repository.local.SportRepository;
+import app.repository.InsuranceRepository;
+import app.repository.InsuredAmountRepository;
+import app.repository.RealestatePackRepository;
+import app.repository.RegionRepository;
+import app.repository.SportRepository;
 import app.services.exceptions.BadRequestException;
 import app.services.exceptions.NotFoundException;
-import app.validators.InsuranceValidation;
 
 @Service
 public class InsuranceService {
@@ -56,61 +56,53 @@ public class InsuranceService {
 	public Map<String, Object> create(Insurance insurance) {
 
 		Map<String, Object> response;
-
-//		if (!InsuranceValidation.validateInsurance(insurance)) {
-//			throw new BadRequestException();
-//		}
-
 		response = new LinkedHashMap<String, Object>();
 		insuranceRepository.save(insurance);
-		response.put("message", "Insurance created successfully");
+		response.put("message", "Insurance successfully created");
 		response.put("insurance", insurance);
 
-		logger.info("Insurance created successfully");
+		logger.info("Insurance successfully created");
 
 		return response;
 	}
 
 	public List<Insurance> findAll() {
 
-		logger.info("List all insurances");
 		return insuranceRepository.findAll();
 	}
 
 	public Insurance findById(String insId) {
-
+		
+		if (insId == null) {
+			throw new BadRequestException("insuranceId is null");
+		}
+		
 		Insurance insurance = insuranceRepository.findOne(insId);
-		logger.info("Find insurance with id: " + insId);
-
 		if (insurance == null) {
-			throw new NotFoundException();
+			throw new NotFoundException("Insurance with id " + insId + " doesn't exist.");
 		}
 
 		return insurance;
 	}
 
 	public String remove(String insId) {
-
+		
+		if (insId == null) {
+			throw new BadRequestException("insurance id is null");
+		}
+		
 		logger.info("Removing insurance with id: " + insId);
 		insuranceRepository.delete(insId);
 		return "removed";
 	}
 
 	public Map<String, Object> edit(Insurance insurance) {
-
 		Map<String, Object> response;
-
-		if (!InsuranceValidation.validateInsurance(insurance)) {
-			throw new BadRequestException();
-		}
-
 		response = new LinkedHashMap<String, Object>();
 		insuranceRepository.save(insurance);
-		response.put("message", "Insurance updated successfully");
+		response.put("message", "Insurance successfully updated");
 		response.put("insurance", insurance);
-
-		logger.info("Insurance updated successfully");
-
+		logger.info("Insurance successfully updated");
 		return response;
 	}
 
@@ -131,12 +123,12 @@ public class InsuranceService {
 
 	public static int checkJmbgWithWarning(String jmbg) {
 		if (jmbg == null)
-			return JMBG_INVALID;
+			return Consts.JMBG_INVALID;
 		Matcher matcher = jmbgPattern.matcher(jmbg);
 		if (!matcher.matches())
-			return JMBG_INVALID;
+			return Consts.JMBG_INVALID;
 		if (extractDateFromJmbg(jmbg) == null)
-			return JMBG_INVALID;
+			return Consts.JMBG_INVALID;
 
 		return jmbgChecksumWithWarning(jmbg);
 	}
@@ -191,9 +183,9 @@ public class InsuranceService {
 			check = 0;
 
 		if (h != 6)
-			return m == check ? JMBG_OK : JMBG_INVALID;
+			return m == check ? Consts.JMBG_OK : Consts.JMBG_INVALID;
 		else
-			return m == check ? JMBG_OK : JMBG_WARNING;
+			return m == check ? Consts.JMBG_OK : Consts.JMBG_WARNING;
 	}
 
 	private static boolean jmbgChecksum(String jmbg) {

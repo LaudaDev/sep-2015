@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class VehicleInsuranceController {
 	private VehicleInsuranceService vehicleService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Map<String, Object> createVehicle(@RequestBody  Vehicle vehicle) {
+	public Map<String, Object> createVehicle(@Validated @RequestBody Vehicle vehicle) {
 		
 		return vehicleService.create(vehicle);
 	}
@@ -42,5 +43,5 @@ public class VehicleInsuranceController {
 	public String removeVehicle(@PathVariable("vehicleId") String vehicleId) {
 		return vehicleService.remove(vehicleId);
 	}
-
+	
 }

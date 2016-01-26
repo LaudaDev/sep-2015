@@ -2,19 +2,32 @@ package app.model;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 public class Vehicle implements Serializable {
 
 	/**
 	* 
 	*/
 	private static final long serialVersionUID = -1027548365143014756L;
+	@NotNull(message = "error.duration.notnull")
 	private Integer duration;
+	@NotNull(message = "error.model.notnull")
 	private String model;
+	@NotNull(message = "error.typeVehicle.notnull")
 	private String typeVehicle;
-	private String owner;
+	
+	private User owner;
+	@NotNull(message = "error.productionYear.notnull")
 	private Integer productionYear;
+	
+	@NotNull(message = "error.registrationNumber.notnull")
 	private String registrationNumber;
+	
+	@NotNull(message = "error.vinNumber.notnull")
 	private String vinNumber;
+	
+	@NotNull(message = "error.packageV.notnull")
 	private String packageV;
 	private Double packageDetail;
 
@@ -22,7 +35,7 @@ public class Vehicle implements Serializable {
 		super();
 	}
 
-	public Vehicle(Integer duration, String model, String type, String owner, Integer productionYear,
+	public Vehicle(Integer duration, String model, String type, User owner, Integer productionYear,
 			String registrationNumber, String vinNumber, String packageV, Double packageDetail) {
 		super();
 		this.duration = duration;
@@ -68,11 +81,12 @@ public class Vehicle implements Serializable {
 		this.typeVehicle = typeVehicle;
 	}
 
-	public String getOwner() {
+
+	public User getOwner() {
 		return owner;
 	}
 
-	public void setOwner(String owner) {
+	public void setOwner(User owner) {
 		this.owner = owner;
 	}
 
