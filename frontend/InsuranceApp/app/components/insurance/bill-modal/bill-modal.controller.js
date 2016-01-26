@@ -12,6 +12,7 @@
 
     bmc.cancel = cancel;
     bmc.insurance = insurance;
+    console.log(bmc.insurance);
     bmc.currentLocale = currentLocale;
 
 

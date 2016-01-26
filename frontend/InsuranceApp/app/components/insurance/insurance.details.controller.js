@@ -18,6 +18,7 @@
     idc.insurance.realEstate = idc.insuranceService.getRealEstateInsurance();
     idc.insurance.vehicle = idc.insuranceService.getVehicleInsurance();
     idc.openModal = openModal;
+    idc.openPreviewModal = openPreviewModal;
     idc.realEstatePackage = realEstatePackage;
     idc.user = {};
     idc.numToInsert = idc.insurance.travel.numOfPersons - idc.insurance.travel.users.length;
@@ -36,6 +37,22 @@
     idc.openPreviewModal = openPreviewModal;
 
     function openPreviewModal() {
+      $uibModal.open({
+        animation: true,
+        resolve: {
+
+          insurance: function() {
+            return idc.insurance;
+          }
+        },
+        templateUrl: 'app/components/insurance/bill-modal/bill-modal.html',
+        controller: 'BillModalController',
+        controllerAs: 'bmc'
+      });
+    }
+
+    function openPreviewModal() {
+
       $uibModal.open({
         animation: true,
         resolve: {
