@@ -36,7 +36,6 @@
     idc.openPreviewModal = openPreviewModal;
 
     function openPreviewModal() {
-
       $uibModal.open({
         animation: true,
         resolve: {
