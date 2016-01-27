@@ -5,9 +5,9 @@
     .module('insurance-app.insurance')
     .controller('InsuranceDetailsController', InsuranceDetailsController);
 
-  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels', 'insuranceResourceService', '$window', '$location', 'calculateService','realEstatePackage'];
+  InsuranceDetailsController.$inject = ['insuranceService', '$uibModal', 'vehicleModels', 'insuranceResourceService', '$window', '$location', 'calculateService', 'realEstatePackage'];
 
-  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels, insuranceResourceService, $window, $location, calculateService,realEstatePackage) {
+  function InsuranceDetailsController(insuranceService, $uibModal, vehicleModels, insuranceResourceService, $window, $location, calculateService, realEstatePackage) {
     var idc = this;
 
     idc.insuranceService = insuranceService;
@@ -35,9 +35,11 @@
     idc.saveInsurance = saveInsurance;
     idc.calculate = calculate;
     idc.openPreviewModal = openPreviewModal;
+    idc.openCarrierModal = openCarrierModal;
+    idc.insurance.carrier = idc.insuranceService.getCarrier();
 
-    function openPreviewModal() {
-      $uibModal.open({
+    function openCarrierModal() {
+      var uibCarrierInstance = $uibModal.open({
         animation: true,
         resolve: {
 
@@ -45,9 +47,16 @@
             return idc.insurance;
           }
         },
-        templateUrl: 'app/components/insurance/bill-modal/bill-modal.html',
-        controller: 'BillModalController',
-        controllerAs: 'bmc'
+        templateUrl: 'app/components/insurance/carrier-modal/carrier-modal.html',
+        controller: 'CarrierModalController',
+        controllerAs: 'cmc'
+      });
+
+      return uibCarrierInstance.result.then(function(carrier) {
+        console.log(carrier);
+        idc.insurance.carrier = carrier;
+        idc.insuranceService.setInsurance(idc.insurance);
+
       });
     }
 

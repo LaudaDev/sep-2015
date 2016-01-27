@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{'COMMON.CARRIER'|translate}}</h3>
+</div>
+<div class="modal-body">
+  <form novalidate class="state-form form-horizontal" name="cmc.stateForm">
+    <div class="form-group" ng-class="{ 'has-error': cmc.stateForm.inputCarrier.$touched && cmc.stateForm.inputCarrier.$invalid }">
+        <label class="control-label col-sm-4" for="inputCarrier">{{'COMMON.CARRIER'|translate}}*</label>
+        <div class="col-sm-8">
+          <select class="form-control" ng-required="idc.areOtherFieldsRequired('vehicle')" name="inputCarrier" ng-model="cmc.carrier" ng-options=" carrier as (carrier.name+'&nbsp;'+ carrier.surname) for carrier in cmc.carriers">
+          </select>
+          <div ng-messages="cmc.stateForm.inputCarrier.$error" ng-show="cmc.stateForm.inputCarrier.$touched">
+            <div ng-messages-include="./app/shared/messages.html"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error': cmc.stateForm.inputEmail.$touched && cmc.stateForm.inputEmail.$invalid }">
+        <label class="control-label col-sm-4" for="inputEmail">{{'COMMON.CARRIER_EMAIL'|translate}}*</label>
+        <div class="col-sm-8">
+          <input class="form-control" type="email" id="postalCode" name="inputEmail" ng-model="cmc.carrier.email" required ng-minlength="2" ng-maxlength="40" />
+          <div ng-messages="cmc.stateForm.inputEmail.$error" ng-show="cmc.stateForm.inputEmail.$touched">
+            <div ng-messages-include="./app/shared/messages.html"></div>
+          </div>
+        </div>
+      </div>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" type="button" ng-click="cmc.validateUser()">{{'COMMON.SAVE'|translate}}</button>
+  <button class="btn btn-danger" type="button" ng-click="cmc.cancel()">{{'MODAL.CANCEL'|translate}}</button>
+</div>
+</form>

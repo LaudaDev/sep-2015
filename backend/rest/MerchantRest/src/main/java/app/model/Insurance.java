@@ -19,26 +19,41 @@ public class Insurance implements Serializable {
 	// travel insurance
 	@Id
 	private String id;
+
 	private Vehicle vehicle;
+
 	private RealEstate realEstate;
+
+	@NotNull(message = "error.amountToPay.notnull")
+	@Min(1)
 	private BigDecimal amountToPay;
 
 	@NotNull(message = "error.travelInsurance.notnull")
 	private Travel travel;
 
-	@NotNull(message = "error.amountToPay.notnull")
-	@Min(1)
+	private User carrier;
 
 	public Insurance() {
 		super();
 	}
 
-	public Insurance(Vehicle vehicleIns, RealEstate realstateIns, Travel travel, BigDecimal totalPrice) {
+	public Insurance(String id, Vehicle vehicle, RealEstate realEstate, BigDecimal amountToPay, Travel travel,
+			User carrier) {
 		super();
-		this.vehicle = vehicleIns;
-		this.realEstate = realstateIns;
+		this.id = id;
+		this.vehicle = vehicle;
+		this.realEstate = realEstate;
+		this.amountToPay = amountToPay;
 		this.travel = travel;
-		this.amountToPay = totalPrice;
+		this.carrier = carrier;
+	}
+
+	public User getCarrier() {
+		return carrier;
+	}
+
+	public void setCarrier(User carrier) {
+		this.carrier = carrier;
 	}
 
 	public String getId() {

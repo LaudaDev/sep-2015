@@ -90,31 +90,6 @@
           </tbody>
         </table>
       </div>
-      <!-- <div class="col-md-2">
-        <div class="panel panel-success">
-          <div class="cnrflash">
-            <div class="cnrflash-inner">
-              <span class="cnrflash-label">  {{'COMMON.TEAM'|translate}}
-                <br>   {{'COMMON.INSURANCE'|translate}}
-              </span>
-            </div>
-          </div>
-          <div class="panel-heading">
-            <h3 class="panel-title">
-              {{'COMMON.PRICE'|translate}}</h3>
-          </div>
-          <div class="panel-body">
-            <div class="the-price">
-              <h1>
-                {{idc.insurance.amountToPay | currency }}
-                <span class="subscript"></span>
-              </h1>
-
-            </div>
-
-          </div>
-        </div>
-      </div> -->
       <div class="col-md-1">
       </div>
     </div>
@@ -129,9 +104,15 @@
 
     <div class="col-md-3 col-md-offset-8">
 
-      <button type="submit" ng-click="idc.openPreviewModal()" class="btn btn-info btn-large pull-left" popover-trigger="mouseenter" uib-popover="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
+      <button type="submit" style="margin-right: 50px" ng-click="idc.openPreviewModal()" class="btn btn-info btn-large pull-left" popover-trigger="mouseenter" uib-popover="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
         {{'COMMON.PREVIEW'|translate}}
         <span class="glyphicon glyphicon-zoom-in"></span>
+      </button>
+
+      <button type="submit" ng-click="idc.openCarrierModal()" class="btn btn-info btn-large" popover-trigger="mouseenter" ng-disabled="idc.numToInsert > 0" uib-popover="{{'COMMON.CARRIER_TOOLTIP'|translate}}">
+        {{'COMMON.ADD_CARRIER'|translate}}
+        <span class="glyphicon glyphicon-plus"></span>
+        <span class="glyphicon glyphicon-user"></span>
       </button>
 
       <button type="submit" ng-click="idc.validateVehicleInsurance();idc.validateRealEstateInsurance();idc.saveInsurance()" class="btn btn-success btn-large pull-right" ng-disabled="idc.numToInsert > 0" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP_BUY'|translate}}">

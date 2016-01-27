@@ -18,7 +18,11 @@
         "RE_OWNER": "Real Estate owner",
         "PRICE" : "Price to pay",
         "TEAM" : "Team18",
-        "INSURANCE" : "Insurance"
+        "INSURANCE" : "Insurance",
+        "CARRIER" : "Insurance carrier",
+        "CARRIER_TOOLTIP" : "Choose insurance carrier",
+        "ADD_CARRIER" : "Add carrier",
+        "CARRIER_EMAIL": "Carrier's email"
       },
       "MESSAGES": {
         "MIN_LENGTH": "This field is too short",
@@ -171,7 +175,11 @@
         "RE_OWNER": "Vlasnik nekretnine",
         "PRICE" : "Za uplatu",
         "TEAM" : "Tim18",
-        "INSURANCE" : "Osiguranje"
+        "INSURANCE" : "Osiguranje",
+        "CARRIER" : "Nosilac osiguranja",
+        "CARRIER_TOOLTIP" : "Izaberite nosioca osiguranja",
+        "ADD_CARRIER" : "Dodaj nosioca",
+        "CARRIER_EMAIL": "Email nosioca"
       },
       "MESSAGES": {
         "MIN_LENGTH": "Ovo polje je prekratko",

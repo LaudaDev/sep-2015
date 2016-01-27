@@ -13,6 +13,7 @@
     insurance.travel = {};
     insurance.travel.users = [];
     insurance.realEstate = {};
+    insurance.carrier = {};
 
     var owners = [];
 
@@ -48,6 +49,10 @@
 			return insurance.vehicle;
 		};
 
+    var getCarrier = function() {
+			return insurance.carrier;
+		};
+
     return {
       getInsurance: getInsurance,
       setInsurance: setInsurance,
@@ -56,7 +61,8 @@
       getRealEstateInsurance: getRealEstateInsurance,
 			getVehicleInsurance : getVehicleInsurance,
       getOwners : getOwners,
-      setOwners : setOwners
+      setOwners : setOwners,
+      getCarrier : getCarrier
 
     };
   }
