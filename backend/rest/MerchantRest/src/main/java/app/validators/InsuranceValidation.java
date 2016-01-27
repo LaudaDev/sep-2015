@@ -1,5 +1,7 @@
 package app.validators;
 
+import java.math.BigDecimal;
+
 import org.apache.log4j.Logger;
 
 import app.model.Insurance;
@@ -14,7 +16,7 @@ public final class InsuranceValidation {
 	public static boolean validateInsurance(Insurance insurance)
 	{
 
-		if(insurance.getAmountToPay()<0)
+		if(insurance.getAmountToPay().compareTo(BigDecimal.ZERO) < 0)
 		{
 			logger.error("Amount to pay < 0");
 			return false;

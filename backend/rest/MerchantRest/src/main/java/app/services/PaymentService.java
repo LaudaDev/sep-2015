@@ -1,5 +1,6 @@
 package app.services;
 
+import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Date;
@@ -107,7 +108,7 @@ public class PaymentService {
 		return instructions;
 	}
 
-	public MerchantPaymentRequest createPaymentRequest(double amount) {
+	public MerchantPaymentRequest createPaymentRequest(BigDecimal amount) {
 
 		int transactionId = RandomGenerator.getTransactionId();
 		Date timestamp = new Date();
