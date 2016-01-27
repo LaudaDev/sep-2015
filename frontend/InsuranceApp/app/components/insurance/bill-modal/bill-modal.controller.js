@@ -13,12 +13,13 @@
     bmc.cancel = cancel;
     bmc.insurance = insurance;
     console.log(bmc.insurance);
+    bmc.finalPrice = bmc.insurance.amountToPay;
     bmc.currentLocale = currentLocale;
 
 
     function currentLocale() {
       if ($translate.use() === 'sr-latn') {
-        bmc.insurance.amountToPay *= 112.69;
+        bmc.finalPrice *= 112.69;
       }
     }
 
