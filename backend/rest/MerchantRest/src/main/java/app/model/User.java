@@ -14,9 +14,7 @@ public class User implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -2312800478329505351L;
-	@Id
-	private String id;
-
+	
 	@NotNull(message = "error.name.notnull")
 	private String name;
 
@@ -41,10 +39,10 @@ public class User implements Serializable {
 		super();
 	}
 
-	public User(String id, String name, String surname, String jmbg, String phoneNum, String address,
+	public User(String name, String surname, String jmbg, String phoneNum, String address,
 			String passportNum, String email) {
 		super();
-		this.id = id;
+
 		this.name = name;
 		this.surname = surname;
 		this.jmbg = jmbg;
@@ -62,14 +60,6 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getName() {

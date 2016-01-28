@@ -14,6 +14,7 @@ public final class Consts {
 	public static final int JMBG_OK = 0;
 	public static final int JMBG_INVALID = 1;
 	public static final int JMBG_WARNING = 2;
+	public static final int ALT_PACKAGE_INDEX = 4;
 	
 	public static final String SUCCESS_MESSAGE = "You have successfully purchased the insurance ."+
 												" Thank you for your trust.";

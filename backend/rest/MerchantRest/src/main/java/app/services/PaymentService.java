@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Date;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,8 +90,24 @@ public class PaymentService {
 			e.printStackTrace();
 		}
 
-		mailService.send(userMessage, "zdeuric@gmail.com", "Zorana Deuric");
-
+		if(transaction.getInsuranceId()!=null)
+		{
+			Map<String, String> carrierMailInfo =insuranceService.getCarrierEmailInfo(transaction.getInsuranceId());
+			String carrierEmail = carrierMailInfo.get("email");
+			String carrierNameAndSurname = carrierMailInfo.get("name")+carrierMailInfo.get("surname");
+			if(carrierEmail != null){
+				
+				mailService.send(userMessage, carrierEmail, carrierNameAndSurname);
+			}
+			else
+			{
+				logger.info("Carrier mail is null.");
+			}
+		}else
+		{
+			logger.error("Insurance id in transaction with id "+transaction.getId()+" is null");
+		}
+		
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 
 	}

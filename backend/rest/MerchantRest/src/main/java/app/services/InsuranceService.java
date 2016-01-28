@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,9 +47,6 @@ public class InsuranceService {
 	@Autowired
 	private RealestatePackRepository realEstatePackRepository;
 
-	public static final int JMBG_OK = 0;
-	public static final int JMBG_INVALID = 1;
-	public static final int JMBG_WARNING = 2;
 	private static Pattern jmbgPattern = Pattern.compile("\\d{13}");
 	private static SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
 
@@ -73,11 +71,11 @@ public class InsuranceService {
 	}
 
 	public Insurance findById(String insId) {
-		
+
 		if (insId == null) {
 			throw new BadRequestException("insuranceId is null");
 		}
-		
+
 		Insurance insurance = insuranceRepository.findOne(insId);
 		if (insurance == null) {
 			throw new NotFoundException("Insurance with id " + insId + " doesn't exist.");
@@ -86,12 +84,33 @@ public class InsuranceService {
 		return insurance;
 	}
 
+	public Map<String, String> getCarrierEmailInfo(String insId) {
+		if (insId == null) {
+			throw new BadRequestException("insuranceId is null");
+		}
+
+		Insurance insurance = insuranceRepository.getCarrierEmailInfo(insId);
+		if (insurance == null) {
+			throw new NotFoundException("Insurance with id " + insId + " doesn't exist.");
+		}
+
+		Map<String, String> carrierEmailInfo = new HashMap<String, String>();
+
+		if (insurance.getCarrier() != null) {
+
+			carrierEmailInfo.put("email", insurance.getCarrier().getEmail());
+			carrierEmailInfo.put("name", insurance.getCarrier().getName());
+			carrierEmailInfo.put("surname", insurance.getCarrier().getSurname());
+		}
+		return carrierEmailInfo;
+	}
+
 	public String remove(String insId) {
-		
+
 		if (insId == null) {
 			throw new BadRequestException("insurance id is null");
 		}
-		
+
 		logger.info("Removing insurance with id: " + insId);
 		insuranceRepository.delete(insId);
 		return "removed";
@@ -326,7 +345,7 @@ public class InsuranceService {
 
 				} else {
 
-					vehicleInsurPrice = 4; // ako uzme alternativni paket
+					vehicleInsurPrice = Consts.ALT_PACKAGE_INDEX; // ako uzme alternativni paket
 				}
 			}
 

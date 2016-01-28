@@ -55,7 +55,9 @@ public class InsuranceController {
 		
 		return insuranceService.edit(insurance);
 	}
-
+	
+	
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/jmbg/{jmbg}")
 	public JmbgResponse validateJmbg(@PathVariable("jmbg") String jmbg) {
 		JmbgResponse response = new JmbgResponse();

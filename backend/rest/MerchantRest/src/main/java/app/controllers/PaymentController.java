@@ -25,12 +25,13 @@ public class PaymentController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String buyInsurance(@Validated @RequestBody Insurance insurance, RedirectAttributes redirectAttributes)
+	public PaymentInstructionsAcquirerResponse buyInsurance(@Validated @RequestBody Insurance insurance, RedirectAttributes redirectAttributes)
 	{	
 		PaymentInstructionsAcquirerResponse instructions = paymentService.buyInsurance(insurance);
 		
 	//	redirectAttributes.addFlashAttribute("paymentID", instructions.getPaymentID());
-		return "redirect:"+instructions.getPaymentURL()+"/"+instructions.getPaymentID();
+		return instructions;
+	//"redirect:"+instructions.getPaymentURL()+"/"+instructions.getPaymentID();
 	
 	}
 	
