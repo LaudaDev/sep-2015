@@ -37,6 +37,7 @@
     idc.openPreviewModal = openPreviewModal;
     idc.openCarrierModal = openCarrierModal;
     idc.insurance.carrier = idc.insuranceService.getCarrier();
+    idc.indicatorBusy = false;
 
     function openCarrierModal() {
       var uibCarrierInstance = $uibModal.open({
@@ -96,7 +97,7 @@
 
     function saveInsurance() {
       if (idc.vehicleValid && idc.saveInsurance) {
-        // console.log(idc.insurance);
+        idc.indicatorBusy = true;
         insuranceResourceService.save({}, idc.insurance, onSuccesSave);
         idc.vehicleValid = false;
         idc.realEstateValid = false;
@@ -106,11 +107,13 @@
 
     }
 
-    function onSuccesSave() {
+    function onSuccesSave(response) {
+      idc.indicatorBusy = false;
+      console.log(response);
       console.log("uspesno je sacuvano pogledaj mongo");
       var emptyInsurance = {};
       idc.insuranceService.setInsurance(emptyInsurance); // kad novi korisnik pokrene aplikaciju da polja budu prazna
-      $window.location.href = 'http://localhost:8082';
+      //$window.location.href = 'http://localhost:8082';
     }
 
     //modal za dodavanje korisnika

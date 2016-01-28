@@ -34,7 +34,7 @@ public final class Consts {
 	static {
         URL acquirerURL;
         try {
-        	acquirerURL = new URL("http://localhost:8081/api/payment/paying");
+        	acquirerURL = new URL("http://localhost:8082/api/payment/paying");
         } catch (java.net.MalformedURLException e) {
         	acquirerURL = null;
         }
@@ -44,7 +44,7 @@ public final class Consts {
 	static {
         URL successURL;
         try {
-        	successURL = new URL("http://localhost:8081/api/payment/success");
+        	successURL = new URL("http://localhost:8082/api/payment/success");
         } catch (java.net.MalformedURLException e) {
         	successURL = null;
         }
@@ -54,7 +54,7 @@ public final class Consts {
 	static {
         URL failedURL;
         try {
-        	failedURL = new URL("http://localhost:8081/api/payment/failed");
+        	failedURL = new URL("http://localhost:8082/api/payment/failed");
         } catch (java.net.MalformedURLException e) {
         	failedURL = null;
         }
