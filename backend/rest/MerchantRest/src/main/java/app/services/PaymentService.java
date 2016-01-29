@@ -19,6 +19,7 @@ import app.commons.Consts;
 import app.commons.RandomGenerator;
 import app.model.Insurance;
 import app.model.Transaction;
+import app.model.transferData.MerchantInfo;
 import app.model.transferData.MerchantPaymentRequest;
 import app.model.transferData.PaymentInstructionsAcquirerResponse;
 import app.model.transferData.TransactionResults;
@@ -49,8 +50,7 @@ public class PaymentService {
 
 		logger.info("PaymentInstructions received");
 
-		Transaction transaction = createTransaction(paymentRequest.getMerchantOrderId(),
-				paymentRequest.getMerchantTimestamp(), newInsurance.getId(), instructions.getPaymentID());
+		Transaction transaction = createTransaction(paymentRequest.getMerchantInfo(), newInsurance.getId(), instructions.getPaymentID());
 
 		transactionService.save(transaction);
 		return instructions;
@@ -62,14 +62,10 @@ public class PaymentService {
 		String userMessage = "";
 
 		Transaction transaction = transactionService.findByMerchantOrderAndPaymentId(transactionResults.getMerchantOrderId(), transactionResults.getPaymentId());
-		transaction.setAcquirerOrderId(transactionResults.getAcquirerOrderId());
-		transaction.setAcquirerTimestamp(transactionResults.getAcquirerTimestamp());
-		transaction.setTransactionSucceded(transactionResults.isTransactionSucceded());
-		transaction.setCardAuthenticated(transactionResults.isCardAuthenticated());
-		transaction.setCardAuthorized(transactionResults.isCardAuthorized());
-
-		if (transactionResults.isTransactionSucceded() && transactionResults.isCardAuthorized()
-				&& transactionResults.isCardAuthenticated()) {
+		transaction.setAcquirerInfo(transactionResults.getAcquirerInfo());
+		transaction.setTransactionStatus(transactionResults.getTransactionStatus());
+	
+		if (transaction.getTransactionStatus().getCode().equals(Consts.SUCCESS_TRANSACTION_CODE)) {
 
 			resultURL = Consts.SUCCESS_URL;
 			userMessage = Consts.SUCCESS_MESSAGE;
@@ -79,6 +75,8 @@ public class PaymentService {
 			userMessage = Consts.CARD_PROBLEM_MESSAGE;
 
 		}
+		logger.info("Issuer response "+transaction.getTransactionStatus().getMessage());
+		
 
 		transactionService.update(transaction);
 
@@ -130,24 +128,20 @@ public class PaymentService {
 		int transactionId = RandomGenerator.getTransactionId();
 		Date timestamp = new Date();
 		MerchantPaymentRequest newPaymentRequest = new MerchantPaymentRequest(Consts.MERCHANT_ID,
-				Consts.MERCHANT_PASSWORD, amount, transactionId, timestamp, Consts.ERROR_URL);
+				Consts.MERCHANT_PASSWORD, amount,new MerchantInfo(transactionId,timestamp), Consts.ERROR_URL);
 		logger.info("Payment request successfully created");
 		logger.info(newPaymentRequest.toString());
 		return newPaymentRequest;
 
 	}
 
-	public Transaction createTransaction(int merchantOrderId, Date merchantTimestamp, String insuranceId,
+	public Transaction createTransaction(MerchantInfo merchantInfo, String insuranceId,
 			int paymentID) {
 		Transaction transaction = new Transaction();
-		transaction.setMerchantOrderId(merchantOrderId);
-		transaction.setMerchantTimestamp(merchantTimestamp);
+		transaction.setMerchantInfo(merchantInfo);
 		transaction.setInsuranceId(insuranceId);
 		transaction.setPaymentID(paymentID);
-		transaction.setTransactionSucceded(false);
-		transaction.setCardAuthenticated(false);
-		transaction.setCardAuthorized(false);
-
+		transaction.setTransactionStatus(null);
 		return transaction;
 
 	}

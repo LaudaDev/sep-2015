@@ -2,7 +2,7 @@ package app.commons;
 
 public final class RandomGenerator {
 
-	private static int transactionId = 0;
+	private static int transactionId = 1;
 	
 	
 	public static int getTransactionId()

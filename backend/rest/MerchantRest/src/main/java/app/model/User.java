@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
