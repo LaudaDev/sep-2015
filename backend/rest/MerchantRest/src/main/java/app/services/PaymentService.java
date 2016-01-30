@@ -16,7 +16,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import app.commons.Consts;
-import app.commons.RandomGenerator;
+import app.commons.CustomIdGenerator;
 import app.model.Insurance;
 import app.model.Transaction;
 import app.model.transferData.MerchantInfo;
@@ -125,7 +125,7 @@ public class PaymentService {
 
 	public MerchantPaymentRequest createPaymentRequest(BigDecimal amount) {
 
-		int transactionId = RandomGenerator.getTransactionId();
+		int transactionId = CustomIdGenerator.getTransactionId();
 		Date timestamp = new Date();
 		MerchantPaymentRequest newPaymentRequest = new MerchantPaymentRequest(Consts.MERCHANT_ID,
 				Consts.MERCHANT_PASSWORD, amount,new MerchantInfo(transactionId,timestamp), Consts.ERROR_URL);
