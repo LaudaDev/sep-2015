@@ -8,7 +8,7 @@
 	insuredAmountService.$inject = ['$resource'];
 
 	function insuredAmountService($resource) {
-		var url = "http://localhost:8080/api/merchant/insuredAmount";
+		var url = "https://localhost:8080/api/merchant/insuredAmount";
 		return $resource(url, {});
 	}
 })();

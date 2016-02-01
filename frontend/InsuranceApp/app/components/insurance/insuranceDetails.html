@@ -117,7 +117,7 @@
 
       <span class="pull-right" ng-show="idc.indicatorBusy">&nbsp;&nbsp;&nbsp;<img src="assets/img/loader.gif"></span>
 
-      <button type="submit" ng-click="idc.validateVehicleInsurance();idc.validateRealEstateInsurance();idc.saveInsurance()" class="btn btn-success btn-large pull-right" ng-disabled="idc.numToInsert > 0" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP_BUY'|translate}}">
+      <button type="submit" ng-click="idc.validateVehicleInsurance();idc.validateRealEstateInsurance();idc.saveInsurance()" class="btn btn-success btn-large pull-right" ng-disabled="idc.numToInsert > 0 || idc.insurance.carrier.email == null" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP_BUY'|translate}}">
         {{'COMMON.NEXT'|translate}}
         <span class="glyphicon glyphicon-arrow-right"></span>
       </button>

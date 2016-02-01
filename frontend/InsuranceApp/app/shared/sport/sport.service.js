@@ -8,7 +8,7 @@
 	sportService.$inject = ['$resource'];
 
 	function sportService($resource) {
-		var url = "http://localhost:8080/api/merchant/sport";
+		var url = "https://localhost:8080/api/merchant/sport";
 		return $resource(url, {});
 	}
 })();

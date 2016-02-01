@@ -8,7 +8,7 @@
 	regionService.$inject = ['$resource'];
 
 	function regionService($resource) {
-		var url = "http://localhost:8080/api/merchant/region";
+		var url = "https://localhost:8080/api/merchant/region";
 		return $resource(url, {});
 	}
 })();

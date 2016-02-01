@@ -31,7 +31,7 @@ public class PaymentController {
 		
 	//	redirectAttributes.addFlashAttribute("paymentID", instructions.getPaymentID());
 		return instructions;
-	//"redirect:"+instructions.getPaymentURL()+"/"+instructions.getPaymentID();
+
 	
 	}
 	
