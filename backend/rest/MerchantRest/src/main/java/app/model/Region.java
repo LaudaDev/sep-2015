@@ -7,11 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Region{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1921425395458244178L;
+
 	@Id
 	private String id;
 	
@@ -19,13 +15,13 @@ public class Region{
 	private String name;
 	
 	@NotNull(message = "error.coefficient.notnull")
-	private double coefficient;
+	private Double coefficient;
 	
 	public Region() {
 		super();
 	}
 	
-	public Region(String name, double coefficient) {
+	public Region(String name, Double coefficient) {
 		super();
 		this.name = name;
 		this.coefficient = coefficient;
@@ -47,11 +43,11 @@ public class Region{
 		this.name = name;
 	}
 
-	public double getCoefficient() {
+	public Double getCoefficient() {
 		return coefficient;
 	}
 
-	public void setCoefficient(double coefficient) {
+	public void setCoefficient(Double coefficient) {
 		this.coefficient = coefficient;
 	}
 

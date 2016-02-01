@@ -18,7 +18,7 @@ public class Travel implements Serializable {
 	private Integer less; // users younger than 18
 	private Integer between;// users between 18 and 65
 	private Integer over; // users older than 65
-	private boolean doesSport; // foreign key
+	private Boolean doesSport; // foreign key
 	private String sport;
 	@NotNull(message = "error.numOfPersons.notnull")
 	private Integer numOfPersons;// less + between + over
@@ -30,7 +30,7 @@ public class Travel implements Serializable {
 	}
 
 	public Travel(List<User> users, Integer duration, String region, Integer less, Integer between, Integer over,
-			boolean doesSport, String sport, Integer numOfPersons, Double insuredAmount) {
+			Boolean doesSport, String sport, Integer numOfPersons, Double insuredAmount) {
 		super();
 		this.users = users;
 		this.duration = duration;
@@ -76,11 +76,11 @@ public class Travel implements Serializable {
 		this.over = over;
 	}
 
-	public boolean isDoesSport() {
+	public Boolean isDoesSport() {
 		return doesSport;
 	}
 
-	public void setDoesSport(boolean doesSport) {
+	public void setDoesSport(Boolean doesSport) {
 		this.doesSport = doesSport;
 	}
 

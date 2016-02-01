@@ -6,9 +6,7 @@ import javax.validation.constraints.NotNull;
 
 public class Vehicle implements Serializable {
 
-	/**
-	* 
-	*/
+	
 	private static final long serialVersionUID = -1027548365143014756L;
 	@NotNull(message = "error.duration.notnull")
 	private Integer duration;

@@ -9,9 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class User implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -2312800478329505351L;
 	
 	@NotNull(message = "error.name.notnull")

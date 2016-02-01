@@ -15,13 +15,13 @@ public class Sport {
 	private String name;
 	
 	@NotNull(message = "error.coefficient.notnull")
-	private int coefficient;
+	private Double coefficient;
 
 	public Sport() {
 		super();
 	}
 
-	public Sport(String name, int coefficient) {
+	public Sport(String name, Double coefficient) {
 		super();
 		this.name = name;
 		this.coefficient = coefficient;
@@ -43,11 +43,11 @@ public class Sport {
 		this.name = name;
 	}
 
-	public int getCoefficient() {
+	public Double getCoefficient() {
 		return coefficient;
 	}
 
-	public void setCoefficient(int coefficient) {
+	public void setCoefficient(Double coefficient) {
 		this.coefficient = coefficient;
 	}
 

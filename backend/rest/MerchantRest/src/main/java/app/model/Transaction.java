@@ -11,7 +11,7 @@ public class Transaction {
 	@Id
 	private String id;
 	private String insuranceId;
-	private int paymentID;
+	private Integer paymentID;
 	private MerchantInfo merchantInfo;
 	private AcquirerInfo acquirerInfo;
 	private TransactionStatus transactionStatus;
@@ -21,7 +21,7 @@ public class Transaction {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transaction(String id, String insuranceId, int paymentID, MerchantInfo merchantInfo,
+	public Transaction(String id, String insuranceId, Integer paymentID, MerchantInfo merchantInfo,
 			AcquirerInfo acquirerInfo, TransactionStatus transactionStatus) {
 		super();
 		this.id = id;
@@ -48,11 +48,11 @@ public class Transaction {
 		this.insuranceId = insuranceId;
 	}
 
-	public int getPaymentID() {
+	public Integer getPaymentID() {
 		return paymentID;
 	}
 
-	public void setPaymentID(int paymentID) {
+	public void setPaymentID(Integer paymentID) {
 		this.paymentID = paymentID;
 	}
 

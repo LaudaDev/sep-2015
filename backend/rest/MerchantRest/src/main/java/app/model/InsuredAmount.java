@@ -1,5 +1,7 @@
 package app.model;
 
+import java.math.BigDecimal;
+
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
@@ -10,10 +12,10 @@ public class InsuredAmount {
 	private String id;
 	
 	@NotNull(message = "error.amount.notnull")
-	private double amount;
+	private BigDecimal amount;
 	
 	@NotNull(message = "error.coefficient.notnull")
-	private double coefficient;
+	private Double coefficient;
 	
 	
 	public InsuredAmount() {
@@ -22,7 +24,7 @@ public class InsuredAmount {
 	}
 	
 	
-	public InsuredAmount(String id, double amount, double coefficient) {
+	public InsuredAmount(String id, BigDecimal amount, Double coefficient) {
 		super();
 		this.id = id;
 		this.amount = amount;
@@ -36,16 +38,16 @@ public class InsuredAmount {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public double getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
-	public double getCoefficient() {
+	public Double getCoefficient() {
 		return coefficient;
 	}
-	public void setCoefficient(double coefficient) {
+	public void setCoefficient(Double coefficient) {
 		this.coefficient = coefficient;
 	}
 	@Override

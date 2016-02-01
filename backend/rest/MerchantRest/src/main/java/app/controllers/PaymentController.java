@@ -28,7 +28,6 @@ public class PaymentController {
 	public PaymentInstructionsAcquirerResponse buyInsurance(@Validated @RequestBody Insurance insurance)
 	{	
 		PaymentInstructionsAcquirerResponse instructions = paymentService.buyInsurance(insurance);
-
 		return instructions;
 
 	

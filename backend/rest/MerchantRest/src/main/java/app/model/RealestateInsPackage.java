@@ -22,13 +22,13 @@ public class RealestateInsPackage implements Serializable{
 	private String name;
 	
 	@NotNull(message = "error.coefficient.notnull")
-	private int coefficient;
+	private Double coefficient;
 	
 	public RealestateInsPackage() {
 		super();
 	}
 	
-	public RealestateInsPackage(String name, int coefficient) {
+	public RealestateInsPackage(String name, Double coefficient) {
 		super();
 		this.name = name;
 		this.coefficient = coefficient;
@@ -36,11 +36,11 @@ public class RealestateInsPackage implements Serializable{
 
 	
 	
-	public int getCoefficient() {
+	public Double getCoefficient() {
 		return coefficient;
 	}
 
-	public void setCoefficient(int coefficient) {
+	public void setCoefficient(Double coefficient) {
 		this.coefficient = coefficient;
 	}
 

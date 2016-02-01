@@ -2,7 +2,7 @@ package app.model.transferData;
 
 public class JmbgResponse {
 
-	private boolean result;
+	private Boolean result;
 
 	public JmbgResponse() {
 		super();
@@ -14,11 +14,11 @@ public class JmbgResponse {
 		this.result = result;
 	}
 
-	public boolean isResult() {
+	public Boolean isResult() {
 		return result;
 	}
 
-	public void setResult(boolean result) {
+	public void setResult(Boolean result) {
 		this.result = result;
 	}
 	
