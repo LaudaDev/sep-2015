@@ -18,7 +18,6 @@ import app.services.InsuredAmountService;
 
 @RestController
 @RequestMapping("/insuredAmount")
-@CrossOrigin(origins = "http://localhost:8081")
 public class InsuredAmountController {
 
 	@Autowired
@@ -31,6 +30,7 @@ public class InsuredAmountController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
+	@CrossOrigin
 	public List<InsuredAmount> getInsuredAmounts() {
 		return insuredAmountService.findAll();
 	}

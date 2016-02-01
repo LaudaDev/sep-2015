@@ -18,7 +18,6 @@ import app.services.RegionService;
 
 @RestController
 @RequestMapping("/region")
-@CrossOrigin(origins = "http://localhost:8081")
 public class RegionController {
 	
 	@Autowired
@@ -31,6 +30,7 @@ public class RegionController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
+	@CrossOrigin
 	public List<Region> getRegions() {
 		return (List<Region>) regionService.findAll();
 	}

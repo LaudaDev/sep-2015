@@ -19,7 +19,6 @@ import app.services.SportService;
 
 @RestController
 @RequestMapping("/sport")
-@CrossOrigin(origins = "http://localhost:8081")
 public class SportController {
 
 	@Autowired
@@ -32,6 +31,7 @@ public class SportController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
+	@CrossOrigin
 	public List<Sport> getSports() {
 		return sportService.findAll();
 	}
