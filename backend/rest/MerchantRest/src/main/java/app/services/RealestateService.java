@@ -43,6 +43,7 @@ public class RealestateService {
 			throw new BadRequestException("packageId is null");
 		}
 		RealestateInsPackage rPackage = realestateRepository.findOne(packageId);
+		
 		if (rPackage == null) {
 			throw new NotFoundException("Realestate package with id " + packageId + " doesn't exist.");
 		}

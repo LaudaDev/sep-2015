@@ -16,6 +16,9 @@ import app.services.PaymentService;
 
 @RestController
 @RequestMapping("/payment")
+
+//@CrossOrigin(origins = "http://localhost:8081") 
+
 public class PaymentController {
 
 	@Autowired

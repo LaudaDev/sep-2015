@@ -12,7 +12,7 @@ public class UrlRegister {
 	static {
         URL errorURL;
         try {
-            errorURL = new URL("http://nekiURL.com");
+            errorURL = new URL("https://errorURL.com");
         } catch (java.net.MalformedURLException e) {
             errorURL = null;
         }

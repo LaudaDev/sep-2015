@@ -67,56 +67,79 @@ public class PaymentService {
 
 		URL resultURL = null;
 		String userMessage = "";
+		boolean isStatusNull = false;
+		boolean isTransactionNull = false;
+		boolean isStatusServerError = false;
+		Transaction transaction = null;
 
+		logger.info("transaction results " + transactionResults.toString());
+		TransactionStatus status = transactionResults.getTransactionStatus();
 		if (bindingResult.hasErrors()) {
+			if (status == null)
+				isStatusNull = true;
 
-			resultURL = UrlRegister.ERROR_URL;
-
-		} else {
-			
-			TransactionStatus status = transactionResults.getTransactionStatus();
-			
-			if (status.getCode().equals(TransactionStatusCodes.SUCCESS.getValue())) {
-
-				resultURL = UrlRegister.SUCCESS_URL;
-				userMessage = Messages.SUCCESS_MESSAGE;
-
-			} else if (status.getCode().equals(TransactionStatusCodes.SERVER_ERROR.getValue())) {
-
-				resultURL = UrlRegister.ERROR_URL;
-				userMessage = Messages.SERVER_PROBLEM_MESSAGE;
-
-			} else {
-
-				resultURL = UrlRegister.FAILED_URL;
-				userMessage = Messages.CARD_PROBLEM_MESSAGE;
-
-			}
-
-			Transaction transaction = transactionService.findByMerchantOrderAndPaymentId(
-					transactionResults.getMerchantOrderId(), transactionResults.getPaymentId());
-
-			transaction.setAcquirerInfo(transactionResults.getAcquirerInfo());
-			transaction.setTransactionStatus(transactionResults.getTransactionStatus());
-		
-			transactionService.update(transaction);
-
-			if (transaction.getInsuranceId() != null) {
-				Map<String, String> carrierMailInfo = insuranceService
-						.getCarrierEmailInfo(transaction.getInsuranceId());
-				String carrierEmail = carrierMailInfo.get("email");
-				String carrierNameAndSurname = carrierMailInfo.get("name") + " " + carrierMailInfo.get("surname");
-				if (carrierEmail != null) {
-
-					mailService.send(userMessage, carrierEmail, carrierNameAndSurname);
-				} else {
-					logger.info("Carrier mail is null.");
-				}
-			} else {
-				logger.error("Insurance id is null,  transaction with id " + transaction.getId());
-			}
 		}
 
+		if (transactionResults.getMerchantOrderId() != null && transactionResults.getPaymentId() != null) {
+			transaction = transactionService.findByMerchantOrderAndPaymentId(transactionResults.getMerchantOrderId(),
+					transactionResults.getPaymentId());
+		}
+
+		if (transaction == null)
+			isTransactionNull = true;
+
+		if (!isStatusNull) {
+			if (status.getCode() == null) {
+				resultURL = UrlRegister.ERROR_URL;
+				isStatusServerError = true;
+			} else {
+
+				if (status.getCode().equals(TransactionStatusCodes.SUCCESS.getValue())) {
+
+					resultURL = UrlRegister.SUCCESS_URL;
+					userMessage = Messages.SUCCESS_MESSAGE;
+
+				} else if (status.getCode().equals(TransactionStatusCodes.SERVER_ERROR.getValue())) {
+
+					resultURL = UrlRegister.ERROR_URL;
+					isStatusServerError = true;
+					// userMessage = Messages.SERVER_PROBLEM_MESSAGE;
+
+				} else {
+
+					resultURL = UrlRegister.FAILED_URL;
+					userMessage = Messages.CARD_PROBLEM_MESSAGE;
+
+				}
+			}
+		} else {
+			resultURL = UrlRegister.ERROR_URL;
+		}
+
+		if (!isTransactionNull) {
+			transaction.setAcquirerInfo(transactionResults.getAcquirerInfo());
+			transaction.setTransactionStatus(transactionResults.getTransactionStatus());
+
+			transactionService.update(transaction);
+
+			if (!isStatusServerError) {
+				if (transaction.getInsuranceId() != null) {
+					Map<String, String> carrierMailInfo = insuranceService
+							.getCarrierEmailInfo(transaction.getInsuranceId());
+					String carrierEmail = carrierMailInfo.get("email");
+					String carrierNameAndSurname = carrierMailInfo.get("name") + " " + carrierMailInfo.get("surname");
+					if (carrierEmail != null) {
+
+						mailService.send(userMessage, carrierEmail, carrierNameAndSurname);
+					} else {
+						logger.info("Carrier mail is null.");
+					}
+				} else {
+					logger.error("Insurance id is null,  transaction with id " + transaction.getId());
+				}
+			}
+
+		}
 		HttpHeaders headers = new HttpHeaders();
 		try {
 
@@ -137,10 +160,12 @@ public class PaymentService {
 			instructions = restTemplate.postForObject(UrlRegister.ACQUIRER_URL.toString(), request,
 					PaymentInstructionsAcquirerResponse.class);
 		} catch (RestClientException e) {
-			logger.error(e.getStackTrace().toString());
-			throw e;
-		}
 
+
+			logger.info("rest exception");
+			e.printStackTrace();
+
+		}
 		return instructions;
 	}
 
