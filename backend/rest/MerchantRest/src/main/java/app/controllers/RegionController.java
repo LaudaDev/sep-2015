@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +29,6 @@ public class RegionController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
-	@CrossOrigin
 	public List<Region> getRegions() {
 		return (List<Region>) regionService.findAll();
 	}
