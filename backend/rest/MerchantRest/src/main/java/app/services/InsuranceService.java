@@ -265,7 +265,7 @@ public class InsuranceService {
 			amountToPay += iAmount.getCoefficient();
 		}
 
-		if (insurance.getTravel().getLess() != 0) {
+		if (insurance.getTravel().getLess() != null) {
 
 			amountToPay += insurance.getTravel().getLess() * 4;// 4 je
 																// koeficijent
@@ -277,18 +277,23 @@ public class InsuranceService {
 																// samo za to, a
 																// mrzi me
 
-		} else if (insurance.getTravel().getBetween() != 0) {
+		} 
+		if (insurance.getTravel().getBetween() != null) {
 
 			amountToPay += insurance.getTravel().getBetween() * 3;
 
-		} else if (insurance.getTravel().getOver() != 0) {
+		}
+		if (insurance.getTravel().getOver() != null) {
 
 			amountToPay += insurance.getTravel().getOver() * 2;
 		}
 
-		if (insurance.getTravel().isDoesSport() == true && sport != null) {
+		if (insurance.getTravel().isDoesSport() != null) {
 
-			amountToPay += sport.getCoefficient();
+			if (insurance.getTravel().isDoesSport() == true && sport != null) {
+
+				amountToPay += sport.getCoefficient();
+			}
 		}
 
 		if (insurance.getRealEstate() != null) { // ako je uzeo i realEstate
@@ -345,7 +350,9 @@ public class InsuranceService {
 
 				} else {
 
-					vehicleInsurPrice = Consts.ALT_PACKAGE_INDEX; // ako uzme alternativni paket
+					vehicleInsurPrice = Consts.ALT_PACKAGE_INDEX; // ako uzme
+																	// alternativni
+																	// paket
 				}
 			}
 

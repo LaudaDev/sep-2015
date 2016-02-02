@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,8 @@ public class InsuranceController {
 	private InsuranceService insuranceService;
 
 	@RequestMapping(method = RequestMethod.POST)
+	@CrossOrigin
+
 	public Map<String, Object> createInsurance(@Validated @RequestBody Insurance insurance) {	
 		return insuranceService.create(insurance);
 	}

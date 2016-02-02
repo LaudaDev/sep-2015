@@ -8,7 +8,7 @@
 	realEstatePackageService.$inject = ['$resource'];
 
 	function realEstatePackageService($resource) {
-		var url = "http://localhost:8080/api/merchant/realestate";
+		var url = "https://localhost:8080/api/merchant/realestate";
 		return $resource(url, {});
 	}
 })();
