@@ -138,6 +138,7 @@ public class PaymentService {
 					PaymentInstructionsAcquirerResponse.class);
 		} catch (RestClientException e) {
 			logger.error(e.getStackTrace().toString());
+			throw e;
 		}
 
 		return instructions;
