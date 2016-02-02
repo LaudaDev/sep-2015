@@ -92,5 +92,4 @@ https://localhost:8080/api/merchant/payment
 
 - in case of Error: Could not find or load main class app.Application error, go to project -> clean and run again
 
-Run project with InsuranceApp and Acquirer backend and frontend apps (https://github.com/LaudaDev/sep-acquirer-web-app.git)
-to test all avaliable methods.
+Run project with InsuranceApp and Acquirer backend and frontend apps (https://github.com/LaudaDev/sep-acquirer-web-app.git) to test all avaliable methods.
