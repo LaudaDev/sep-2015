@@ -4,8 +4,15 @@ REST service for InsuranceApp
 
 Spring Boot & MongoDB
 
-Important methods:
+##Requirements
 
+   *JDK 8
+   *Apache Maven
+   
+   
+##Important methods:
+
+*buyInsurance
 https://localhost:8080/api/merchant/payment
 
 	{
@@ -74,8 +81,22 @@ https://localhost:8080/api/merchant/payment
 	    }
 	}
 	
-
-#How to start project
+*receiveTransactionResults
+	 {
+	 	 "merchantOrderId": 1,
+	 	 "paymentId": 1,
+	          "acquirerInfo": {
+	              "orderId": 1,
+	              "timestamp": "25.01.2016 17:36:33"
+	          },
+	       
+	          "transactionStatus": {
+	              "code": "00",
+	              "message": "TRANSACTION_COMPLETED"
+	          }
+	  }  
+	  
+##How to start project
 
 - clone development branch from github
 	git clone -b development https://github.com/LaudaDev/sep-merchant-web-app.git
