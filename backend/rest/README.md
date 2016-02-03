@@ -83,6 +83,7 @@ Spring Boot & MongoDB
 		}
 		
 * receiveTransactionResults
+
 	https://localhost:8080/api/merchant/payment/transactionResults
 
 		 {
