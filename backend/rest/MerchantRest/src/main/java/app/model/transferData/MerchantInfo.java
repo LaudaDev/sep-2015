@@ -6,12 +6,17 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class MerchantInfo {
 
 	@NotNull(message = "error.merchantOrderId.notnull")
 	private Integer merchantOrderId;
 
-	@DateTimeFormat(pattern = "dd.MM.yyyy HH:mm:ss")
+	@JsonFormat(
+			shape = JsonFormat.Shape.STRING, 
+			pattern = "dd.MM.yyyy HH:mm:ss", 
+			timezone = "CET")
 	@NotNull(message = "error.merchantTimestamp.notnull")
 	private Date merchantTimestamp;
 

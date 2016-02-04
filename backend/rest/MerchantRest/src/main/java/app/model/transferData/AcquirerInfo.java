@@ -6,12 +6,17 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class AcquirerInfo {
 
 	@NotNull(message = "error.acquirerOrderId.notnull")
 	private Integer orderId;
 
-	@DateTimeFormat(pattern = "dd.MM.yyyy HH:mm:ss")
+	@JsonFormat(
+			shape = JsonFormat.Shape.STRING, 
+			pattern = "dd.MM.yyyy HH:mm:ss", 
+			timezone = "CET")
 	@NotNull(message = "error.acquirerTimestamp.notnull")
 	private Date timestamp;
 
