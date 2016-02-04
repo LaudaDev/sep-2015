@@ -2,5 +2,5 @@
 	"use strict";
 
 	angular
-		.module('insurance-app.shared', ['insurance-app.i18n','ngResource']);
+		.module('insurance-app.shared', ['insurance-app.i18n','ngResource','ui.router']);
 })();

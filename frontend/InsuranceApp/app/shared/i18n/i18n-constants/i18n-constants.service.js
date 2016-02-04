@@ -22,7 +22,10 @@
         "CARRIER" : "Insurance carrier",
         "CARRIER_TOOLTIP" : "Choose insurance carrier",
         "ADD_CARRIER" : "Add carrier",
-        "CARRIER_EMAIL": "Carrier's email"
+        "CARRIER_EMAIL": "Carrier's email",
+        "ERROR" : "Ooops! There has been some errore and transaction process stopped!You have to return to home page.",
+        "SUCCESS" : "Your transaction was succesfull,and you purchuse our insurance.",
+        "FAILED" : "Your transaction failed. Reason is probably card insufficient funds or bad authentication."
       },
       "MESSAGES": {
         "MIN_LENGTH": "This field is too short",
@@ -179,7 +182,10 @@
         "CARRIER" : "Nosilac osiguranja",
         "CARRIER_TOOLTIP" : "Izaberite nosioca osiguranja",
         "ADD_CARRIER" : "Dodaj nosioca",
-        "CARRIER_EMAIL": "Email nosioca"
+        "CARRIER_EMAIL": "Email nosioca",
+        "ERROR" : "Uuups! Došlo je do greške i transakcija je zaustavljena! Molimo vas da odete na naslovnu.",
+        "SUCCESS" : "Vaša transakcija je bila uspešna. Hvala Vam što ste kupili naše osiguranje.",
+        "FAILED" : "Vaša transakcija je neuspešna! Razlog je najverovatnije manjak novca na računu ili loša autentifikacija."
       },
       "MESSAGES": {
         "MIN_LENGTH": "Ovo polje je prekratko",
