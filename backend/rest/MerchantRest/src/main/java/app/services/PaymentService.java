@@ -3,6 +3,8 @@ package app.services;
 import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -48,18 +50,21 @@ public class PaymentService {
 
 		MerchantPaymentRequest paymentRequest = createPaymentRequest(newInsurance.getAmountToPay());
 
+		logger.info("Payment request for acquirer " + paymentRequest);
 		PaymentInstructionsAcquirerResponse instructions = getPaymentInstructions(paymentRequest);
 		if (instructions == null) {
 			throw new CustomRestClientException(
 					"There was an error communicating with the paying app server.  Instructions for payment have not been received.");
 		}
 
-		logger.info("PaymentInstructions received");
+		logger.info("PaymentInstructions received " + instructions.toString());
+		if (!instructions.getPaymentURL().equals(paymentRequest.getErrorUrl())) {
 
-		Transaction transaction = createTransaction(paymentRequest.getMerchantInfo(), newInsurance.getId(),
-				instructions.getPaymentID());
+			Transaction transaction = createTransaction(paymentRequest.getMerchantInfo(), newInsurance.getId(),
+					instructions.getPaymentID());
 
-		transactionService.save(transaction);
+			transactionService.save(transaction);
+		}
 		return instructions;
 	}
 
@@ -160,9 +165,8 @@ public class PaymentService {
 			instructions = restTemplate.postForObject(UrlRegister.ACQUIRER_URL.toString(), request,
 					PaymentInstructionsAcquirerResponse.class);
 		} catch (RestClientException e) {
-
-
-			logger.info("rest exception");
+			logger.error("There was an error communicating with the acquirer.Response is null.");
+			
 			e.printStackTrace();
 
 		}
@@ -172,9 +176,17 @@ public class PaymentService {
 	public MerchantPaymentRequest createPaymentRequest(BigDecimal amount) {
 
 		int transactionId = CustomIdGenerator.getTransactionId();
-		Date timestamp = new Date();
+		Date acquirerTimestamp=null;
+		SimpleDateFormat format = new SimpleDateFormat(Consts.datePattern);
+		Date unparsedDate = new Date();
+		try {
+			acquirerTimestamp = format.parse(format.format(unparsedDate));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		MerchantPaymentRequest newPaymentRequest = new MerchantPaymentRequest(Consts.MERCHANT_ID,
-				Consts.MERCHANT_PASSWORD, amount, new MerchantInfo(transactionId, timestamp), UrlRegister.ERROR_URL);
+				Consts.MERCHANT_PASSWORD, amount, new MerchantInfo(transactionId, acquirerTimestamp), UrlRegister.ERROR_URL);
 		logger.info("Payment request successfully created");
 		logger.info(newPaymentRequest.toString());
 		return newPaymentRequest;
