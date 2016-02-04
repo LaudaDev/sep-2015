@@ -17,12 +17,12 @@
               <li ><a href='#'>{{'NAVBAR.HOME'|translate}}</a></li>
               <li ><a ui-sref='main.about'>{{'NAVBAR.ABOUT_US'|translate}}</a></li>
               <li ><a ui-sref='main.insuranceBasic'>{{'NAVBAR.BUY'|translate}}</a></li>
-              <li class='dropdown'>
+              <li class='dropdown' id="langDropDown">
                 <a  class='dropdown-toggle ' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'>{{'NAVBAR.LANGUAGE'|translate}} <span class='caret'></span></a>
                 <ul class='dropdown-menu'>
                   <li><a ng-href ng-click="hc.changeLocale('en')"><img src='assets/images/gb.png' /> {{'NAVBAR.ENGLISH'|translate}} </a></li>
                   <li role='separator' class='divider'></li>
-                  <li><a ng-href ng-click="hc.changeLocale('sr-latn')"><img src='assets/images/rs.png' /> {{'NAVBAR.SERBIAN'|translate}} </a></li>
+                  <li><a id="serbianLanguage" ng-href ng-click="hc.changeLocale('sr-latn')"><img src='assets/images/rs.png' /> {{'NAVBAR.SERBIAN'|translate}} </a></li>
 
                 </ul>
               </li>
