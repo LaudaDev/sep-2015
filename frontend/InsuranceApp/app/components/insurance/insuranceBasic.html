@@ -59,7 +59,11 @@
               {{'PURCHASE.TRAVELING_REGION'|translate}}*
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="inputTravelRegion" id="selContinent" ng-model="ic.insurance.travel.region" ng-options=" region.name as region.name for region in ic.regions "required>
+              <select class="form-control" name="inputTravelRegion" id="selContinent" ng-model="ic.insurance.travel.region" required>
+                <option ng-repeat="region in ic.regions" value="{{region.name}}">
+                  {{ 'CONTINENTS.' + region.name | translate}}
+                </option>
+
               </select>
               <div ng-messages="ic.stateForm.inputTravelRegion.$error" ng-show="ic.stateForm.inputTravelRegion.$touched">
                 <div ng-messages-include="./app/shared/messages.html"></div>
@@ -121,7 +125,10 @@
               {{'PURCHASE.WHICH_SPORT'|translate}}
             </label>
             <div class="col-sm-10">
-              <select class="form-control" name="inputSport" ng-model="ic.insurance.travel.sport" ng-options=" sport.name as sport.name for sport in ic.sports " ng-required="ic.insurance.travel.doesSport">
+              <select class="form-control" name="inputSport" ng-model="ic.insurance.travel.sport" ng-required="ic.insurance.travel.doesSport">
+                <option ng-repeat="sport in ic.sports" value="{{sport.name}}">
+                  {{ 'SPORT.' + sport.name | translate}}
+                </option>
               </select>
               <div ng-messages="ic.stateForm.inputSport.$error" ng-show="ic.stateForm.inputSport.$touched">
                 <div ng-messages-include="./app/shared/messages.html"></div>
@@ -146,34 +153,34 @@
           <div class="form-group">
 
             <div class="col-md-3 col-md-offset-8">
-                <button type="submit" ng-click="ic.validateInsurance('preview')" class="btn btn-info btn-large pull-left" popover-trigger="mouseenter" uib-popover="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
-                  {{'COMMON.PREVIEW'|translate}}
-                  <span class="glyphicon glyphicon-zoom-in"></span>
-                </button>
-                <button type="submit" ng-click="ic.validateInsurance('next')" class="btn btn-success btn-large pull-right" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
-                  {{'COMMON.NEXT'|translate}}
-                  <span class="glyphicon glyphicon-arrow-right"></span>
-                </button>
-
-              </div>
+              <button type="submit" ng-click="ic.validateInsurance('preview')" class="btn btn-info btn-large pull-left" popover-trigger="mouseenter" uib-popover="{{'COMMON.PREVIEW_TOOLTIP'|translate}}">
+                {{'COMMON.PREVIEW'|translate}}
+                <span class="glyphicon glyphicon-zoom-in"></span>
+              </button>
+              <button type="submit" ng-click="ic.validateInsurance('next')" class="btn btn-success btn-large pull-right" popover-trigger="mouseenter" uib-popover="{{'MODAL.TOOLTIP'|translate}}">
+                {{'COMMON.NEXT'|translate}}
+                <span class="glyphicon glyphicon-arrow-right"></span>
+              </button>
 
             </div>
 
           </div>
 
-          <div class="col-md-1">
-            <br>
-          </div>
-
-
       </div>
 
-      </form>
-    </div>
-  </div>
+      <div class="col-md-1">
+        <br>
+      </div>
 
-  <div class="col-md-12">
-    <br>
-    <br>
-    <br>
+
+    </div>
+
+    </form>
   </div>
+</div>
+
+<div class="col-md-12">
+  <br>
+  <br>
+  <br>
+</div>

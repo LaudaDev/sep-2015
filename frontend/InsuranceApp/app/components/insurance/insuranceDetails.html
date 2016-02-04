@@ -335,7 +335,10 @@
                 {{'PURCHASE.RE_PACKAGE.MAIN'|translate}}
               </label>
               <div class="col-sm-10">
-                <select class="form-control" id="selContinent" name="inputPackage" ng-options=" packageRE.name as packageRE.name for packageRE in idc.realEstatePackage" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" ng-model="idc.insurance.realEstate.packageRE" ng-required="idc.areOtherFieldsRequired('realEstate')">
+                <select class="form-control" id="selContinent" name="inputPackage" ng-model-options="{ updateOn: 'default blur', debounce: {'default':1000, 'blur':0 } }" ng-change="idc.calculate()" ng-model="idc.insurance.realEstate.packageRE" ng-required="idc.areOtherFieldsRequired('realEstate')">
+                  <option ng-repeat="package in idc.realEstatePackage" value="{{package.name}}">
+                    {{ 'PURCHASE.RE_PACKAGE.' + package.name | translate}}
+                  </option>
                 </select>
                 <div ng-messages="idc.stateForm2.inputPackage.$error" ng-show="idc.stateForm2.inputPackage.$touched">
                   <div ng-messages-include="./app/shared/messages.html"></div>

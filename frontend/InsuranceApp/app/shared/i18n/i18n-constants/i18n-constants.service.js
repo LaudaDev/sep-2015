@@ -27,6 +27,14 @@
         "SUCCESS" : "Your transaction was succesfull,and you purchuse our insurance.",
         "FAILED" : "Your transaction failed. Reason is probably card insufficient funds or bad authentication."
       },
+      "SPORT" : {
+        "football" : "Soccer",
+        "basketball" : "Basketball",
+        "skiing" : "Skiing",
+        "boxing" : "Boxing",
+        "swimming" : "Swimming",
+        "tennis" : "Tennis"
+      },
       "MESSAGES": {
         "MIN_LENGTH": "This field is too short",
         "MAX_LENGTH": "This field is too long",
@@ -98,10 +106,10 @@
         "RE_ESTIMATE_VALUE": "Real Estate estimated value",
         "RE_PACKAGE": {
           "MAIN": "Insurance from",
-          "FLOOD": "Flood",
-          "FIRE": "Fire",
-          "BURGLARY": "Burglary",
-          "EARTHQUAKE": "Earthquake"
+          "Flood": "Flood",
+          "Fire": "Fire",
+          "Burglary": "Burglary",
+          "Earthquake": "Earthquake"
         },
         "VEHICLE_PACKAGE": {
           "MAIN": "Package you would like to purchase",
@@ -124,13 +132,13 @@
         }
       },
       "CONTINENTS": {
-        "EUROPE": "Europe",
-        "ASIA": "Asia",
-        "SOUTH_AMERICA": "South America",
-        "NORTH_AMERICA": "North America",
-        "AUSTALIA": "Austalia",
-        "AFRICA": "Africa",
-        "ANTARCTIC": "Antarctic"
+        "Europe": "Europe",
+        "Asia": "Asia",
+        "South America": "South America",
+        "North America": "North America",
+        "Australia": "Australia",
+        "Africa": "Africa",
+        "Antarctic": "Antarctic"
       },
       "YEARS": {
         "YEARS": " years",
@@ -186,6 +194,14 @@
         "ERROR" : "Uuups! Došlo je do greške i transakcija je zaustavljena! Molimo vas da odete na naslovnu.",
         "SUCCESS" : "Vaša transakcija je bila uspešna. Hvala Vam što ste kupili naše osiguranje.",
         "FAILED" : "Vaša transakcija je neuspešna! Razlog je najverovatnije manjak novca na računu ili loša autentifikacija."
+      },
+      "SPORT" : {
+        "football" : "Fudbal",
+        "basketball" : "Kosarka",
+        "skiing" : "Skijanje",
+        "boxing" : "Boks",
+        "swimming" : "Plivanje",
+        "tennis" : "Tenis"
       },
       "MESSAGES": {
         "MIN_LENGTH": "Ovo polje je prekratko",
@@ -258,10 +274,10 @@
         "RE_ESTIMATE_VALUE": "Procenjena vrednost nekretnine",
         "RE_PACKAGE": {
           "MAIN": "Osiguranje od",
-          "FLOOD": "Poplave",
-          "FIRE": "Požara",
-          "BURGLARY": "Krađe",
-          "EARTHQUAKE": "Zemljotresa"
+          "Flood": "Poplave",
+          "Fire": "Požara",
+          "Burglary": "Krađe",
+          "Earthquake": "Zemljotresa"
         },
         "VEHICLE_PACKAGE": {
           "MAIN": "Paket koji želite uzeti",
@@ -285,13 +301,13 @@
 
       },
       "CONTINENTS": {
-        "EUROPE": "Evropa",
-        "ASIA": "Azija",
-        "SOUTH_AMERICA": "Južna Amerika",
-        "NORTH_AMERICA": "Severna Amerika",
-        "AUSTALIA": "Austalija",
-        "AFRICA": "Afrika",
-        "ANTARCTIC": "Antarktik"
+        "Europe": "Evropa",
+        "Asia": "Azija",
+        "South America": "Južna Amerika",
+        "North America": "Severna Amerika",
+        "Australia": "Austalija",
+        "Africa": "Afrika",
+        "Antarctic": "Antarktik"
       },
       "YEARS": {
         "YEARS": "godina",
