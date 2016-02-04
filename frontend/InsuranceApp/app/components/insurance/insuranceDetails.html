@@ -95,7 +95,7 @@
     </div>
 
     <div class="col-md-3 col-md-offset-1">
-      <button type="button" ng-click="idc.addUser();idc.openModal()" class="btn btn-info btn-large pull-left" ng-disabled="idc.numToInsert == 0" popover-trigger="mouseenter" uib-popover="{{'DETAILS_PAGE.ADD_TOOLTIP'|translate}}">
+      <button id="addInsured" type="button" ng-click="idc.addUser();idc.openModal()" class="btn btn-info btn-large pull-left" ng-disabled="idc.numToInsert == 0" popover-trigger="mouseenter" uib-popover="{{'DETAILS_PAGE.ADD_TOOLTIP'|translate}}">
         {{'DETAILS_PAGE.ADD_USER'|translate}}&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="glyphicon glyphicon-plus"></span>
         <span class="glyphicon glyphicon-user"></span>
@@ -109,7 +109,7 @@
         <span class="glyphicon glyphicon-zoom-in"></span>
       </button>
 
-      <button type="submit" ng-click="idc.openCarrierModal()" class="btn btn-info btn-large" popover-trigger="mouseenter" ng-disabled="idc.numToInsert > 0" uib-popover="{{'COMMON.CARRIER_TOOLTIP'|translate}}">
+      <button id="addCarrier" type="submit" ng-click="idc.openCarrierModal()" class="btn btn-info btn-large" popover-trigger="mouseenter" ng-disabled="idc.numToInsert > 0" uib-popover="{{'COMMON.CARRIER_TOOLTIP'|translate}}">
         {{'COMMON.ADD_CARRIER'|translate}}
         <span class="glyphicon glyphicon-plus"></span>
         <span class="glyphicon glyphicon-user"></span>
