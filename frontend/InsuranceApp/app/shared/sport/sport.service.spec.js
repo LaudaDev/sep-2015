@@ -1,18 +1,18 @@
 ddescribe("regionService", function() {
-	var regionService, $httpBackend;
-	var appUrl = "https://localhost:8080/api/merchant/region";
+	var sportService, $httpBackend;
+	var appUrl = "https://localhost:8080/api/merchant/sport";
 
-	beforeEach(module("region"));
+	beforeEach(module("sport"));
 
-	beforeEach(inject(function(_regionService_, _$httpBackend_){
-		regionService = _regionService_;
+	beforeEach(inject(function(_sportService_, _$httpBackend_){
+		sportService = _sportService_;
 		$httpBackend = _$httpBackend_;
 	}));
 
 	it("should request all employees endpoints", function() {
 		//očekujemo da će se izvršiti 1 HTTP GET zahtev na dati URL
 		$httpBackend.expectGET(appUrl).respond([]);
-		regionService.query();
+		sportService.query();
 		$httpBackend.flush();
 	});
 

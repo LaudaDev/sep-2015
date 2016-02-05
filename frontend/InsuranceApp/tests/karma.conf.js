@@ -23,6 +23,8 @@ module.exports = function(config) {
         'app/shared/shared.module.js',
         'app/shared/i18n/i18n.module.js',
         'app/shared/region/region.module.js',
+        'app/shared/sport/sport.module.js',
+        'app/shared/sport/sport.service.js',
         'app/shared/region/region.service.js',
         'app/**/*.js',
 		    '**/*.html'

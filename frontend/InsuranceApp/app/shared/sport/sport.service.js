@@ -2,7 +2,7 @@
 	"use strict";
 
 	angular
-		.module('insurance-app.shared')
+		.module('sport')
 		.factory('sportService', sportService);
 
 	sportService.$inject = ['$resource'];
