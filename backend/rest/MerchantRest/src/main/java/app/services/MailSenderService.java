@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +18,7 @@ public class MailSenderService {
 	private JavaMailSender javaMailSender;
 	private static final Logger logger = Logger.getLogger(MailSenderService.class);
 
+	@Async
 	public void send(String message, String recipient, String customerName) {
 		// Prepare the evaluation context
 

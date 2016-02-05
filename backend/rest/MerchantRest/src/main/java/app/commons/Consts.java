@@ -9,6 +9,8 @@ public final class Consts {
 	public static final int JMBG_INVALID = 1;
 	public static final int JMBG_WARNING = 2;
 	public static final int ALT_PACKAGE_INDEX = 4;
+	public static final String datePattern = "dd.MM.yyyy HH:mm:ss";
+
 		
 	
 	
