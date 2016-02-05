@@ -38,8 +38,7 @@ public class MailSenderService {
 			logger.error("Messaging exception");
 			e.printStackTrace();
 		}
-		{
-		}
+		
 		javaMailSender.send(mail);
 		logger.info("e-mail has been successfully sent");
 
