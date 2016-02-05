@@ -33,7 +33,7 @@ public class UrlRegister {
 	static {
         URL successURL;
         try {
-        	successURL = new URL("http://localhost:8081/#/succes");
+        	successURL = new URL("http://localhost:8081/#/success");
         } catch (java.net.MalformedURLException e) {
         	successURL = null;
         }

@@ -110,13 +110,18 @@
     function onSuccesSave(response) {
       idc.indicatorBusy = false;
       console.log(response);
-      console.log("url izgleda ovako");
-      var redirectUrl = response.paymentURL + "/" + response.paymentID;
-      console.log(redirectUrl);
-      console.log("uspesno je sacuvano pogledaj mongo");
-      var emptyInsurance = {};
-      idc.insuranceService.setInsurance(emptyInsurance); // kad novi korisnik pokrene aplikaciju da polja budu prazna
-      $window.location.href = redirectUrl;
+      console.log(response.paymentID);
+      if ( response.paymentID == null){
+        console.log("null je parametar");
+        $window.location.href = response.paymentURL;
+      }else {
+        var redirectUrl = response.paymentURL + "/" + response.paymentID;
+        console.log("uspesno je sacuvano pogledaj mongo");
+        var emptyInsurance = {};
+        idc.insuranceService.setInsurance(emptyInsurance); // kad novi korisnik pokrene aplikaciju da polja budu prazna
+        $window.location.href = redirectUrl;
+      }
+
     }
 
     //modal za dodavanje korisnika
