@@ -32,7 +32,8 @@ public class MailSenderService {
 			helper.setText("Dear " +  customerName+ "," +
 					"\n\n\n"+message+"\n\n\nKind regards, \nInsurance App - Team 18");
 			
-			helper.addInline("myLogo", new ClassPathResource("images/businessCard.png"));
+			helper.addInline("myLogo", new ClassPathResource("/images/businessCard.png"));
+			
 
 		} catch (MessagingException e) {
 			logger.error("Messaging exception");
