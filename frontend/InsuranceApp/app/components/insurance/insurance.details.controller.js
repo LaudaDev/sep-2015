@@ -111,7 +111,7 @@
       idc.indicatorBusy = false;
       console.log(response);
       console.log(response.paymentID);
-      if ( response.paymentID == null){
+      if ( response.paymentID === null){
         console.log("null je parametar");
         $window.location.href = response.paymentURL;
       }else {

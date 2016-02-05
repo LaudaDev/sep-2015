@@ -12,7 +12,6 @@
 
     bmc.cancel = cancel;
     bmc.insurance = insurance;
-    console.log(bmc.insurance);
     bmc.finalPrice = bmc.insurance.amountToPay;
     bmc.currentLocale = currentLocale;
 
